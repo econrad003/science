@@ -2,6 +2,10 @@
 
 This is a small toolbox for solving (or at least demonstrating) toy problems in the sciences.  These probably will not be useful for serious research work, but they might be adequate for use in homework problems in some undergraduate courses.
 
+There isn't any particular rhyme or reason to what goes in this repository other than its a mix of topics that has caught my fancy.  As a result, there may be some duplication here and there.
+
+The programming here is mainly in Python.  But I reserve the right to program in any languages that I happen to see fit.
+
 # 1 Mathematics
 
 ## 1.1 Utilities
