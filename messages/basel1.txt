@@ -1,0 +1,217 @@
+Python 3.10.12 (main, Mar  3 2026, 11:56:32)
+Edited, with additional annotation.
+=========== RESTART: science/demos/basel1.py ===========
+Python's math.pi = 3.141592653589793
+
+Classical estimates
+22/7 = 3.142857142857143 	    error -0.0012644892673496777
+355/113 = 3.1415929203539825 	error -2.667641894049666e-07
+
+----- PART ONE - THE STUFF THAT DOESN'T REALLY WORK WELL
+
+Euler's Basel series
+1 + 1/4 + 1/9 + 1/16 + 1/25 + ... = π²/6 = 1.6449340668482264
+  after 1000 terms
+	S(1000) = 1.6439345666815615 	    error 0.0009995001666649461
+	pi(1000) = 3.1406380562059946 	    error 0.00095459738379855
+  after 1000 terms using Fraction
+	S(1000) = 1.6448340718480599 	    error 9.999500016655283e-05
+	pi(1000) = 3.1414971639472093 	    error 9.548964258376813e-05
+
+  after 10,000 terms
+	S(10,000) = 1.6448340718480652 	    error 9.999500016122376e-05
+	pi(10,000) = 3.1414971639472147 	error 9.548964257843906e-05
+  after 10,000 terms using Fraction
+	S(10,000) = 1.64393456668156 	    error 0.0009995001666665004
+	pi(10,000) = 3.1406380562059932 	error 0.0009545973837998822
+NOTE: 10,000 terms does not compete with 355/113
+
+First cut - alternating series
+1 - 1/4 + 1/9 - 1/16 + 1/25 - ... = π²/12 = 0.8224670334241132
+  after 1000 terms
+	S(1000) = 0.8224665339241114 	error 4.995000018048756e-07
+	pi(1000) = 3.141591699614916 	error 9.539748773157442e-07
+  after 1000 terms using Fraction
+	S(1000) = 0.8224670284246132 	error 4.9995000361846564e-09
+	pi(1000) = 3.1415926440414514 	error 9.548341672882543e-09
+
+NOTE 1: Our estimate is now better than 355/113...
+NOTE 2: Proof that it's better is Leibniz AST (alternating series test)
+NOTE 3: Sadly, still too much arithmetic
+
+second cut - pairing terms using alternating series above
+We can cut complexity in half by pairing terms
+NOTE: accuracy is essentially unchanged...
+NOTE: still too much arithmetic...
+    (a) consecutive pairs - 500 pairs, 1000 terms
+            3/4 + 7/144 + 11/900 + 15/3136 + 19/8100 + ... = π²/12
+	    S(1000) = 0.822466533924113 	error 4.995000002505634e-07
+	    pi(1000) = 3.141591699614919 	error 9.539748742071197e-07
+    (b) pairs from opposite ends - 500 pairs, 1000 terms
+            999999/1000000 + 995995/8964036 + 991991/24800400 + ... = π²/12
+            1.00000 + 0.11111 + 0.04000 + 0.02041 + 0.01234 + ...
+	    S(1000) = 0.8224665339241132 	error 4.995000000285188e-07
+	    pi(1000) = 3.1415916996149194 	error 9.539748737630305e-07
+
+third step - 250 quadruplets, 1000 terms
+
+         1     1     1     1     A + B     C + D
+        --- + --- + --- + --- = ------- + -------
+         A     B     C     D      AB        CD
+
+                                  (A+B)CD + (C+D)AB
+                              = --------------------
+                                        ABCD
+
+  four consecutively as a group
+	S(1000) = 0.8224665339241123 	error 4.995000009166972e-07
+	pi(1000) = 3.1415916996149176 	error 9.539748755393873e-07
+
+terms in blocks of three
+
+         1     1     1     A - B     1
+        --- - --- + --- = ------- + ---
+         A     B     C      AB       C
+
+                                 (B-A)C + AB
+                              = --------------
+                                     ABC
+
+                                 BC - AC + AB
+                              = -------------- > 0
+                                     ABC
+
+TERMS: The resulting series is alternating!
+       (A, B, and C change sign in each consecutive group)
+
+	GOAL: known error less than {goal=}, to beat 355/113
+	n=1 term=0.86111 partial sum=0.86111
+	n=2 term=-0.05028 partial sum=0.81083
+	n=3 term=0.01713 partial sum=0.82796
+	n=4 term=-0.00868 partial sum=0.81928
+	halt after n=746 terms:
+		sum=0.8224669336413009 error=-1.998336185290051e-07
+	S(746) = 0.8224669336413009 	error 9.978281234612751e-08
+	pi(746) = 3.141592463018654 	error 1.9057113931353342e-07
+
+----- PART TWO: REDUCING THE TIME COMPLEXITY
+Goals:
+    (1) reduce the number of arithmetic operations
+    (2) analytically quantify the error (*)
+
+(*) We want to have a reasonable way of assessing error without appealing
+    to an arbitrary reference value, in this case, Python's "math.pi" constant.
+    The easiest assessment involves the alternating series test, where the
+    error estimate can be taken either as the current term or the next term.
+
+### METHODOLOGY
+# 2A  We used
+   (1) Basel series (reciprocal squares)
+   (2) Leibniz series (reciprocals of difference of squares and 1)
+   (3) Comparison:
+       (a) Subtract Leibniz series termwise from Basel series
+       (b) Chop high order terms
+       (c) Add limit of Leibniz series
+
+speeding up convergence by comparing to a telescoping series
+	S(100) = 1.6449343952343978 	error -3.283861713665459e-07
+	pi(100) = 3.1415929671754723 	error -3.1358567920136693e-07
+NOTE: 100 terms gets us competitive with 355/113
+
+### METHODOLOGY
+# 2A  We used
+   (1) Alternating Basel series
+   (2) Alternating Leibniz series
+   (3) Comparison:
+       (a) Subtract Leibniz series termwise from Basel series
+       (b) Chop high order terms
+       (c) Add limit of alternating Leibniz series
+
+comparing to a telescoping alternating series
+	S(47) = 0.8224669352702695 	error 9.815384371947289e-08
+		AST error term = -1.8846190958652966e-07
+	pi(47) = 3.1415924661297545 	error 1.8746003860314886e-07
+NOTE: 47 terms gets us competitive with 355/113
+
+### DETAILS FROM MOST SUCCESSFUL METHOD
+
+               APPROXIMANTS OF π
+ k       S(k)        e(k)       pi(k)         err           π
+-- ---------- -----------  ---------- -----------  ----------
+ 2 0.83333333 +0.01388889  3.16227766 -0.02068501  3.14159265  √10
+ 3 0.81944444 -0.00416667  3.13581462 +0.00577803  3.14159265
+ 4 0.82361111 +0.00166667  3.14377692 -0.00218427  3.14159265
+ 5 0.82194444 -0.00079365  3.14059442 +0.00099823  3.14159265
+ 6 0.82273810 +0.00042517  3.14211030 -0.00051765  3.14159265
+ 7 0.82231293 -0.00024802  3.14129831 +0.00029434  3.14159265  cf. 22/7
+ 8 0.82256094 +0.00015432  3.14177200 -0.00017935  3.14159265
+ 9 0.82240662 -0.00010101  3.14147727 +0.00011538  3.14159265
+10 0.82250763 +0.00006887  3.14167019 -0.00007753  3.14159265
+11 0.82243876 -0.00004856  3.14153865 +0.00005400  3.14159265
+12 0.82248732 +0.00003522  3.14163140 -0.00003875  3.14159265
+13 0.82245210 -0.00002616  3.14156413 +0.00002852  3.14159265
+14 0.82247827 +0.00001984  3.14161410 -0.00002145  3.14159265
+15 0.82245842 -0.00001532  3.14157621 +0.00001644  3.14159265
+16 0.82247374 +0.00001201  3.14160547 -0.00001281  3.14159265
+17 0.82246173 -0.00000956  3.14158252 +0.00001013  3.14159265
+18 0.82247128 +0.00000769  3.14160077 -0.00000812  3.14159265
+19 0.82246359 -0.00000627  3.14158607 +0.00000658  3.14159265
+20 0.82246985 +0.00000515  3.14159804 -0.00000539  3.14159265
+21 0.82246470 -0.00000428  3.14158820 +0.00000445  3.14159265
+22 0.82246898 +0.00000358  3.14159637 -0.00000372  3.14159265
+23 0.82246540 -0.00000302  3.14158953 +0.00000312  3.14159265
+24 0.82246842 +0.00000256  3.14159530 -0.00000264  3.14159265
+25 0.82246585 -0.00000219  3.14159040 +0.00000225  3.14159265
+26 0.82246805 +0.00000188  3.14159459 -0.00000193  3.14159265
+27 0.82246616 -0.00000163  3.14159099 +0.00000167  3.14159265
+28 0.82246779 +0.00000142  3.14159410 -0.00000144  3.14159265
+29 0.82246637 -0.00000124  3.14159139 +0.00000126  3.14159265
+30 0.82246761 +0.00000108  3.14159376 -0.00000110  3.14159265
+31 0.82246653 -0.00000095  3.14159169 +0.00000097  3.14159265
+32 0.82246748 +0.00000084  3.14159351 -0.00000085  3.14159265
+33 0.82246664 -0.00000075  3.14159190 +0.00000076  3.14159265
+34 0.82246739 +0.00000067  3.14159333 -0.00000067  3.14159265
+35 0.82246672 -0.00000060  3.14159205 +0.00000060  3.14159265
+36 0.82246731 +0.00000053  3.14159319 -0.00000054  3.14159265
+37 0.82246678 -0.00000048  3.14159217 +0.00000048  3.14159265
+38 0.82246726 +0.00000043  3.14159309 -0.00000043  3.14159265
+39 0.82246683 -0.00000039  3.14159226 +0.00000039  3.14159265
+40 0.82246722 +0.00000035  3.14159301 -0.00000035  3.14159265
+41 0.82246687 -0.00000032  3.14159233 +0.00000032  3.14159265
+42 0.82246719 +0.00000029  3.14159295 -0.00000029  3.14159265
+43 0.82246689 -0.00000027  3.14159239 +0.00000027  3.14159265
+44 0.82246716 +0.00000024  3.14159290 -0.00000024  3.14159265
+45 0.82246692 -0.00000022  3.14159243 +0.00000022  3.14159265
+46 0.82246714 +0.00000021  3.14159286 -0.00000020  3.14159265
+47 0.82246694 -0.00000019  3.14159247 +0.00000019  3.14159265  cf. 355/113
+48 0.82246712 +0.00000017  3.14159283 -0.00000017  3.14159265
+49 0.82246695 -0.00000016  3.14159249 +0.00000016  3.14159265
+50 0.82246711 +0.00000015  3.14159280 -0.00000015  3.14159265
+
+Legend
+k - the index of the approximant
+S(k) - partial sum estimate - the alternating sum of reciprocal
+   squares after subtracting the Leibniz partial sum and adding
+   the limit of the Leibniz sum
+e(k) - the alternating sum error estimate - this is the analytical
+   assessment of error mentioned in the goals above.
+pi(k) - √(12 S(k)) - the corresponding estimate of π
+err - the difference between the reference value and the estimate
+π - the reference value (Python: math.pi)
+
+Notes:
+   [1] Values in the table are rounded to nearest 1/100,000,000.
+   [2] Note how the rate of convergence slows down as k increases.
+   [3] First partial sum (1 at k=1) is omitted.
+   [4] The second partial sum (k=2) yields the estimate √10
+
+EPILOGUE:
+    With the second partial sum (k=2) we have roughly a typical ancient
+Egyptian estimate (about 3.16) of π.  (This estimate is found in the Rhind
+papyrus which is dated to about 1550 BCE.)  This Egyptian estimate is close
+to the square root of 10, an approximation sometimes used in practical work
+by mathematicians in India, for example Brahmagupta (598-668 CE). (See note
+[4]: The k=2 estimate is exactly √10.) After k=7, we have improved upon the
+estimate of 22/7 by Archimdes (287-212 BCE) based on approximating a circle
+with a 96-gon.  At about k=47, we have a partial sum which improves upon the
+estimate of 355/113 known to Chinese mathematician Zu Chongzhi (429-500 CE).

@@ -1,0 +1,128 @@
+Python 3.10.12 (main, Mar  3 2026, 11:56:32)
+
+Notes:
+
+    If the eigenvalues are distinct and real, and unequal in absolute
+    value, then the ratio of consecutive terms of most of the sequences
+    will approximate the the eigenvalue which is larger in absolute value.
+    In some situations, we can pair the sequences, as we did for the
+    Fibonacci sequences and the root 2 sequences.
+
+    If the coefficients in the Binet formula are A and B corresponding to
+    eigenvalues a and b, then for all integers n:
+
+        s[n+2] = αs[n+1] + βs[n]            # shift equation
+        s[0] = s₀                           # initial condition
+        s[1] = s₁                           # initial condition
+        s[n] = Aaⁿ + Bbⁿ                    # Binet formula
+
+    In some cases, we obtain "best rational estimates", but this is not, in
+    general, true.  (The mixed estimates obtained for the golden ratio and
+    one plus the square root of two are best rational estimates -- they are
+    precisely the estimates obtained using the continued fraction algorithm.)
+
+======== RESTART: science/tests/test_linear2o.py =======
+Testing module sequences.linear2o
+
+	FIBONACCI SEQUENCES TEST
+characteristic equation: x² - x - 1 = 0
+            eigenvalues: (1+√5)/2, (1-√5)/2
+
+          Fibonacci(1): [1, 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+          coefficients: (5-√5)/10, (5+√5)/10
+         Binet at n=12: 89
+        Binet at n=-12: 233
+        Binet at n=-11: -144
+
+          Fibonacci(2): [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+          coefficients: √5/5, -√5/5
+         Binet at n=12: 144
+        Binet at n=-12: -144
+        Binet at n=-11: 89
+
+                 Lucas: [2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322]
+          coefficients: 1, 1
+         Binet at n=12: 322
+        Binet at n=-12: 322
+        Binet at n=-11: -199
+
+                 ratio: 89/55 = 1.6181818181818182
+                 ratio: 144/89 = 1.6179775280898876
+                 ratio: 322/199 = 1.6180904522613064
+                 ratio: 144/89 = 1.6179775280898876
+              (1+√5)/2: (1+√5)/2 = 1.618033988749895
+
+
+	DOUBLING SEQUENCES TEST
+characteristic equation: x² - 2 = 0
+            eigenvalues: √2, -√2
+
+           double(1,0): [1, 0, 2, 0, 4, 0, 8, 0, 16, 0, 32, 0, 64]
+          coefficients: 1/2, 1/2
+         Binet at n=12: 64
+        Binet at n=-12: 1/64
+        Binet at n=-11: 0
+
+           double(0,1): [0, 1, 0, 2, 0, 4, 0, 8, 0, 16, 0, 32, 0]
+          coefficients: √2/4, -√2/4
+         Binet at n=12: 0
+        Binet at n=-12: 0
+        Binet at n=-11: 1/64
+
+          double(2,1): [2, 1, 4, 2, 8, 4, 16, 8, 32, 16, 64, 32, 128]
+          coefficients: (4+√2)/4, (4-√2)/4
+         Binet at n=12: 128
+        Binet at n=-12: 1/32
+        Binet at n=-11: 1/64
+
+
+	SQRT(2) ESTIMATE SEQUENCES TEST
+characteristic equation: x² - 2x - 1 = 0
+            eigenvalues: 1+√2, 1-√2
+
+            root2(1,0): [1, 0, 1, 2, 5, 12, 29, 70, 169, 408, 985, 2378, 5741]
+          coefficients: (2-√2)/4, (2+√2)/4
+         Binet at n=12: 5741
+        Binet at n=-12: 33461
+        Binet at n=-11: -13860
+
+            root2(0,1): [0, 1, 2, 5, 12, 29, 70, 169, 408, 985, 2378, 5741, 13860]
+          coefficients: √2/4, -√2/4
+         Binet at n=12: 13860
+        Binet at n=-12: -13860
+        Binet at n=-11: 5741
+
+           root2(-1,1): [-1, 1, 1, 3, 7, 17, 41, 99, 239, 577, 1393, 3363, 8119]
+          coefficients: (4-√2)/4, (4+√2)/4
+         Binet at n=12: 25342
+        Binet at n=-12: 53062
+        Binet at n=-11: -21979
+
+                 ratio: 5741/2378 = 2.41421362489487
+                 ratio: 13860/5741 = 2.414213551646055
+                 ratio: 8119/3363 = 2.414213499851323
+                 ratio: 13860/5741 = 2.414213551646055
+                  1+√2: 1+√2 = 2.414213562373095
+
+
+	SQRT(3) ESTIMATE SEQUENCES TEST
+characteristic equation: x² - 2x - 2 = 0
+            eigenvalues: 1+√3, 1-√3
+
+            root3(1,0): [1, 0, 2, 4, 12, 32, 88, 240, 656, 1792, 4896]
+          coefficients: (3-√3)/6, (3+√3)/6
+         Binet at n=12: 36544
+        Binet at n=-12: 2131/64
+        Binet at n=-11: -195/8
+
+            root3(0,1): [0, 1, 2, 6, 16, 44, 120, 328, 896, 2448, 6688]
+          coefficients: √3/6, -√3/6
+         Binet at n=12: 49920
+        Binet at n=-12: -195/16
+        Binet at n=-11: 571/64
+
+                 ratio: 4896/1792 = 2.732142857142857
+                 ratio: 6688/2448 = 2.7320261437908497
+                  1+√3: 1+√3 = 2.732050807568877
+
+SUCCESS!

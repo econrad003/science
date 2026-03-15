@@ -1,0 +1,134 @@
+Python 3.10.12 (main, Jan 26 2026, 14:55:28)
+======== tests/test_gaussian.py =======
+
+TESTING GAUSSIAN RATIONALS ℚ(i) MODULE
+
+1 = 1
+i = i
+
+SECTION 1. ROUNDING
+
+Verify rounding:
+ 0  1 z=i/4 N(z)=1/16  ||z||=0 N(||z||)=0  Δ=1/16
+ 0  2 z=i/2 N(z)=1/4  ||z||=0 N(||z||)=0  Δ=1/4
+ 0  3 z=3i/4 N(z)=9/16  ||z||=i N(||z||)=1  Δ=1/16
+ 1  0 z=1/4 N(z)=1/16  ||z||=0 N(||z||)=0  Δ=1/16
+ 1  1 z=(1+i)/4 N(z)=1/8  ||z||=0 N(||z||)=0  Δ=1/8
+ 1  2 z=(1+2i)/4 N(z)=5/16  ||z||=0 N(||z||)=0  Δ=5/16
+ 1  3 z=(1+3i)/4 N(z)=5/8  ||z||=i N(||z||)=1  Δ=1/8
+ 1  4 z=(1+4i)/4 N(z)=17/16  ||z||=i N(||z||)=1  Δ=1/16
+ 2  0 z=1/2 N(z)=1/4  ||z||=0 N(||z||)=0  Δ=1/4
+ 2  1 z=(2+i)/4 N(z)=5/16  ||z||=0 N(||z||)=0  Δ=5/16
+ 2  2 z=(1+i)/2 N(z)=1/2  ||z||=0 N(||z||)=0  Δ=1/2
+ 2  3 z=(2+3i)/4 N(z)=13/16  ||z||=i N(||z||)=1  Δ=5/16
+ 2  4 z=(1+2i)/2 N(z)=5/4  ||z||=i N(||z||)=1  Δ=1/4
+ 3  0 z=3/4 N(z)=9/16  ||z||=1 N(||z||)=1  Δ=1/16
+ 3  1 z=(3+i)/4 N(z)=5/8  ||z||=1 N(||z||)=1  Δ=1/8
+ 3  2 z=(3+2i)/4 N(z)=13/16  ||z||=1 N(||z||)=1  Δ=5/16
+ 3  3 z=(3+3i)/4 N(z)=9/8  ||z||=1+i N(||z||)=2  Δ=1/8
+ 3  4 z=(3+4i)/4 N(z)=25/16  ||z||=1+i N(||z||)=2  Δ=1/16
+ 4  1 z=(4+i)/4 N(z)=17/16  ||z||=1 N(||z||)=1  Δ=1/16
+ 4  2 z=(2+i)/2 N(z)=5/4  ||z||=1 N(||z||)=1  Δ=1/4
+ 4  3 z=(4+3i)/4 N(z)=25/16  ||z||=1+i N(||z||)=2  Δ=1/16
+
+Here we verify that all points are within 1 of Gaussian integers...
+
+    A wider test.  This may take some time...
+	   trunc: z=(-22-22i)/23 nbr=0 Δ=968/529≥1
+	    ceil: z=(-22-22i)/23 nbr=0 Δ=968/529≥1
+	northeast: z=(-22-22i)/23 nbr=0 Δ=968/529≥1
+	southeast: z=(-22-16i)/23 nbr=-i Δ=533/529≥1
+	northwest: z=(-16-22i)/23 nbr=-1 Δ=533/529≥1
+	   floor: z=(-16-i)/23 nbr=-1-i Δ=533/529≥1
+	southwest: z=(-16-i)/23 nbr=-1-i Δ=533/529≥1
+    2209 values tested
+
+Square-norm error ranges:
+	   round: [0, 242/529]	[0.0000,0.4575]
+	   trunc: [0, 968/529]	[0.0000,1.8299]
+	   floor: [0, 968/529]	[0.0000,1.8299]
+	    ceil: [0, 968/529]	[0.0000,1.8299]
+	southwest: [0, 968/529]	[0.0000,1.8299]
+	southeast: [0, 968/529]	[0.0000,1.8299]
+	northeast: [0, 968/529]	[0.0000,1.8299]
+	northwest: [0, 968/529]	[0.0000,1.8299]
+
+   trunc: 376 warnings...
+    ceil: 376 warnings...
+northeast: 376 warnings...
+southeast: 376 warnings...
+northwest: 376 warnings...
+   floor: 376 warnings...
+southwest: 376 warnings...
+	Directed rounding should be used with caution.
+
+Notes:
+    (1) Rounding is safe.  The maximum distance to the nearest neighbor
+        is 1/√2 (or 0.7071067811865476) which is less than 1.
+    (2) Directed rounding is unsafe.  The distance to an opposite
+        corner is √2 (or 1.4142135623730951) which is larger than 1.
+
+SECTION 2. RATIONAL DIVISION
+
+1: ((50-39i)/20) / ((3+5i)/4) = (-45-367i)/170
+2: (-1+2i) / ((-5+10i)/3) = 3/5
+3: ((53+74i)/43) / ((-28+89i)/47) = (239794-319083i)/374315
+4: ((-17-9i)/25) / ((-9+11i)/11) = (297+1474i)/2525
+5: ((17-49i)/17) / ((95-32i)/47) = (149601-193217i)/170833
+100 divisions verified (5 displayed)
+
+SECTION 3. DIVISION ALGORITHM (INTEGRAL)
+
+500 integer divisions verified
+
+SECTION 4. EUCLIDEAN ALGORITHM
+
+dividend=2683923-1353107i, divisor=109716-119258i
+ 1: a=2683923-1353107i  b=109716-119258i  q=17+7i  r=-16055-93733i
+	N(r)=9043638314  N(b)=26260071220
+ 2: a=109716-119258i  b=-16055-93733i  q=1+i  r=32038-9470i
+	N(r)=1116114344  N(b)=9043638314
+ 3: a=-16055-93733i  b=32038-9470i  q=-3i  r=12355+2381i
+	N(r)=158315186  N(b)=1116114344
+ 4: a=32038-9470i  b=12355+2381i  q=2-i  r=4947-1877i
+	N(r)=27995938  N(b)=158315186
+ 5: a=12355+2381i  b=4947-1877i  q=2+i  r=584+1188i
+	N(r)=1752400  N(b)=27995938
+ 6: a=4947-1877i  b=584+1188i  q=-4i  r=195+459i
+	N(r)=248706  N(b)=1752400
+ 7: a=584+1188i  b=195+459i  q=3  r=-1-189i
+	N(r)=35722  N(b)=248706
+ 8: a=195+459i  b=-1-189i  q=-2+i  r=4+82i
+	N(r)=6740  N(b)=35722
+ 9: a=-1-189i  b=4+82i  q=-2  r=7-25i
+	N(r)=674  N(b)=6740
+10: a=4+82i  b=7-25i  q=-3+i  r=0
+	N(r)=0  N(b)=674
+		10 passes...
+--- GCD(2683923-1353107i,109716-119258i) = 7-25i
+......... common divisor? yes!
+
+SECTION 5. CONTINUED FRACTION
+
+We will recover the dividend and the divisor using the sequence
+of quotients.
+         q                    a                    b    error
+---------------------------------------------------------------------------
+                              0                    1
+                              1                    0
+     17+7i                17+7i                    1  0.586845316
+       1+i               11+24i                  1+i  0.145777802
+       -3i               89-26i                 4-3i  0.015528994
+       2-i             163-117i                 6-9i  0.003018607
+       2+i              532-97i               25-15i  0.000280194
+       -4i           -225-2245i             -54-109i  0.000025299
+         3           -143-6832i            -137-342i  0.000003166
+      -2+i          6893+11276i             562+438i  0.000000711
+        -2        -13929-29384i          -1261-1218i  0.000000091
+      -3+i         78064+85499i           5563+2831i  0
+
+......... recovered? yes!
+dividend: (78064+85499i) * (7-25i) = 2683923-1353107i
+ divisor: (5563+2831i) * (7-25i) = 109716-119258i
+
+SUCCESS!

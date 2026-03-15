@@ -1,0 +1,592 @@
+Python 3.10.12 (main, Jan 26 2026, 14:55:28)
+
+# CONTENTS
+
+1. Preliminaries
+2. The test results
+3. Some clues about the contents.
+
+# 1. PRELIMINARIES
+
+## HOW THESE TESTS WORK...
+
+There are some notes after this test session to provide some clues as to
+how these tests work.
+
+## WHY THEY WORK...
+
+Magic? Not really.  More like 3000 or 4000 years of people struggling
+to understand mathematics...
+
+For details on why the continued fractions work, find an elementary
+treatise on continued fractions.  Wikipedia and MathWorld would be good
+places to start.
+
+In addition, you should spend some time on the "division algorithm" and
+the "Euclidean GCD algorithm".
+
+    The division algorithm (or "division lemma") involves quotients and
+    remainders -- it is not the same as "long division".  It is usually
+    stated as a lemma -- the underlying algorithm involves repeated
+    subtraction and is implied in the proof.  A good source is Euclid's
+    Elements.
+
+    Long division is painful and totally pointless.  But there is an
+    alternative and no calculator is needed.  
+
+    If you want to do arithmetic by hand, consider Egyptian multiplication
+    and division (also known as Russian peasant multiplication and division).
+    The same algorithm is used for both operations -- the difference is in
+    how the associated tables are used.  The prerequisites are addition,
+    subtraction, doubling, and halving. (Doubling or multiplying by two is
+    known as duplication.  Halving or dividing by two is sometimes called
+    mediation.)
+
+    The Euclidean GCD algorithm uses the division algorithm repeatedly
+    in order to find a greatest common factor.  It does not involve
+    factoring.  (Factoring is a terrible way to find a GCD unless
+    you are restricted to very small numbers.)  The Euclidean GCD
+    algorithm (typically referred to as the Euclidean algorithm) is
+    also found, with proof, in Euclid's Elements.
+
+    If you can add and subtract, then using Egyptian division and
+    the Euclidean algorithm, you should have no trouble finding the
+    GCD of any pair of four or five digit numbers by hand.  (You might
+    need to learn how to divide by two, but that is not hard.) 
+
+## ELEMENTARY???  ARE YOU KIDDING ME?
+
+Elementary mathematics encompasses far more than elementary school mathematics.
+
+For understanding, set aside plenty of time for homework.  Mathematics is not
+a spectator sport.
+
+======== tests/inequalities.py ========
+['BrounckerFrac', 'ContinuedFraction', 'Decimal', 'Fraction', 'GoldenFrac', '_QFrac', '__annotations__', '__builtins__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'bounds', 'ceil', 'floor', 'iceil', 'ifloor', 'is_negative', 'is_positive', 'is_real', 'is_zero', 'pi', 'quadrant_I', 'quadrant_II', 'quadrant_III', 'quadrant_IV', 'randrange', 'sqrt']
+
+Task 1. Check the functions...
+integer input...
+ok!
+fraction input...
+
+Task 2. Find the continued fraction for an integer (trivial)...
+as an int:
+__trivial: z=4780
+[4780;]
+as a fraction with denominator 1:
+__trivial: z=4780
+[4780;]
+ok!
+
+Task 3. Find the continued fraction for a fraction...
+__rational: z=4040/2103
+__rational: z=4040/2103, q=1, r=1937/2103
+__rational: z=2103/1937, q=1, r=166/1937
+__rational: z=1937/166, q=11, r=111/166
+__rational: z=166/111, q=1, r=55/111
+__rational: z=111/55, q=2, r=1/55
+__rational: z=55, q=55, r=0
+[1; 1,11,1,2,55] <-- CFRAC
+1 q=1 a=1 b=1
+2 q=1 a=2 b=1
+3 q=11 a=23 b=12
+4 q=1 a=25 b=13
+5 q=2 a=73 b=38
+6 q=55 a=4040 b=2103
+ok!
+
+Task 4. Find the continued fraction for the square root of two...
+z=√2  bounds=(1, 2)  positive? True
+__irrational: z=√2  √2/1
+__irrational: z=√2, q=1, r=-1+√2
+__irrational: z=1+√2, q=2, r=-1+√2
+__irrational: z=1+√2, q=2, r=-1+√2
+	__irrational: result = [1; | 2]
+1 q=1 a=1 b=1  est=1.0
+2 q=2 a=3 b=2  est=1.5
+3 q=2 a=7 b=5  est=1.4
+4 q=2 a=17 b=12  est=1.4166666666666667
+5 q=2 a=41 b=29  est=1.4137931034482758
+6 q=2 a=99 b=70  est=1.4142857142857144
+7 q=2 a=239 b=169  est=1.4142011834319526
+8 q=2 a=577 b=408  est=1.4142156862745099
+9 q=2 a=1393 b=985  est=1.4142131979695431
+10 q=2 a=3363 b=2378  est=1.4142136248948696
+11 q=2 a=8119 b=5741  est=1.4142135516460548
+12 q=2 a=19601 b=13860  est=1.4142135642135643
+13 q=2 a=47321 b=33461  est=1.4142135620573204
+14 q=2 a=114243 b=80782  est=1.4142135624272734
+15 q=2 a=275807 b=195025  est=1.4142135623637995
+	√2: 1.4142135623730951
+	Error: 9.29567534058151e-12
+ok!
+
+Task 5. Find the continued fraction for the square root of three...
+z=√3  bounds=(1, 2)  positive? True
+__irrational: z=√3  √3/1
+__irrational: z=√3, q=1, r=-1+√3
+__irrational: z=(1+√3)/2, q=1, r=(-1+√3)/2
+__irrational: z=1+√3, q=2, r=-1+√3
+__irrational: z=(1+√3)/2, q=1, r=(-1+√3)/2
+	__irrational: result = [1; | 1,2]
+1 q=1 a=1 b=1  est=1.0
+2 q=1 a=2 b=1  est=2.0
+3 q=2 a=5 b=3  est=1.6666666666666667
+4 q=1 a=7 b=4  est=1.75
+5 q=2 a=19 b=11  est=1.7272727272727273
+6 q=1 a=26 b=15  est=1.7333333333333334
+7 q=2 a=71 b=41  est=1.7317073170731707
+8 q=1 a=97 b=56  est=1.7321428571428572
+9 q=2 a=265 b=153  est=1.7320261437908497
+10 q=1 a=362 b=209  est=1.7320574162679425
+11 q=2 a=989 b=571  est=1.7320490367775832
+12 q=1 a=1351 b=780  est=1.7320512820512821
+13 q=2 a=3691 b=2131  est=1.7320506804317222
+14 q=1 a=5042 b=2911  est=1.732050841635177
+15 q=2 a=13775 b=7953  est=1.73205079844084
+	√3: 1.7320508075688772
+	Error: 9.128037214978235e-09
+ok!
+
+Task 6. Find the continued fraction for the golden ratio...
+	NOTE: Convergence is as slow it gets!  (All those ones!)
+z=(1+√5)/2  bounds=(1, 2)  positive? True
+__irrational: z=(1+√5)/2  (1+√5)/2/1
+__irrational: z=(1+√5)/2, q=1, r=(-1+√5)/2
+__irrational: z=(1+√5)/2, q=1, r=(-1+√5)/2
+__irrational: z=(1+√5)/2, q=1, r=(-1+√5)/2
+	__irrational: result = [1; | 1]
+1 q=1 a=1 b=1  est=1.0
+2 q=1 a=2 b=1  est=2.0
+3 q=1 a=3 b=2  est=1.5
+4 q=1 a=5 b=3  est=1.6666666666666667
+5 q=1 a=8 b=5  est=1.6
+6 q=1 a=13 b=8  est=1.625
+7 q=1 a=21 b=13  est=1.6153846153846154
+8 q=1 a=34 b=21  est=1.619047619047619
+9 q=1 a=55 b=34  est=1.6176470588235294
+10 q=1 a=89 b=55  est=1.6181818181818182
+11 q=1 a=144 b=89  est=1.6179775280898876
+12 q=1 a=233 b=144  est=1.6180555555555556
+13 q=1 a=377 b=233  est=1.6180257510729614
+14 q=1 a=610 b=377  est=1.6180371352785146
+15 q=1 a=987 b=610  est=1.618032786885246
+	(1+√5)/2: 1.618033988749895
+	Error: 1.2018646489142526e-06
+ok!
+
+Task 7. Improve the estimate for the golden ratio...
+7a) find a continued fraction for √5
+z=√5  bounds=(2, 3)  positive? True
+__irrational: z=√5  √5/1
+__irrational: z=√5, q=2, r=-2+√5
+__irrational: z=2+√5, q=4, r=-2+√5
+__irrational: z=2+√5, q=4, r=-2+√5
+	__irrational: result = [2; | 4]
+1 q=2 a=2 b=1  est=2.0
+2 q=4 a=9 b=4  est=2.25
+3 q=4 a=38 b=17  est=2.235294117647059
+4 q=4 a=161 b=72  est=2.236111111111111
+5 q=4 a=682 b=305  est=2.236065573770492
+6 q=4 a=2889 b=1292  est=2.236068111455108
+7 q=4 a=12238 b=5473  est=2.236067970034716
+8 q=4 a=51841 b=23184  est=2.236067977915804
+9 q=4 a=219602 b=98209  est=2.236067977476606
+10 q=4 a=930249 b=416020  est=2.2360679775010817
+	√5: 2.23606797749979
+	Error: -1.2918555114538322e-12
+7b) Here is our new estimate of the golden ratio:
+	(1+√5)/2: 1.618033988749895
+	Error: -6.459277557269161e-13
+NOTE: 2/3 effort, improvement factor 1900000.0
+ok!
+
+Task 8. Bombelli's continued fraction for √13...
+	NOTE 1: Convergence is slow!  (All those ones!)
+	NOTE 2: Bombelli (1572) used a different representation.
+z=√13  bounds=(3, 4)  positive? True
+__irrational: z=√13  √13/1
+__irrational: z=√13, q=3, r=-3+√13
+__irrational: z=(3+√13)/4, q=1, r=(-1+√13)/4
+__irrational: z=(1+√13)/3, q=1, r=(-2+√13)/3
+__irrational: z=(2+√13)/3, q=1, r=(-1+√13)/3
+__irrational: z=(1+√13)/4, q=1, r=(-3+√13)/4
+__irrational: z=3+√13, q=6, r=-3+√13
+__irrational: z=(3+√13)/4, q=1, r=(-1+√13)/4
+	__irrational: result = [3; | 1,1,1,1,6]
+1 q=3 a=3 b=1  est=3.0
+2 q=1 a=4 b=1  est=4.0
+3 q=1 a=7 b=2  est=3.5
+4 q=1 a=11 b=3  est=3.6666666666666665
+5 q=1 a=18 b=5  est=3.6
+6 q=6 a=119 b=33  est=3.606060606060606
+7 q=1 a=137 b=38  est=3.6052631578947367
+8 q=1 a=256 b=71  est=3.6056338028169015
+9 q=1 a=393 b=109  est=3.6055045871559632
+10 q=1 a=649 b=180  est=3.6055555555555556
+11 q=6 a=4287 b=1189  est=3.605550883095038
+12 q=1 a=4936 b=1369  est=3.6055514974433893
+13 q=1 a=9223 b=2558  est=3.6055512118842845
+14 q=1 a=14159 b=3927  est=3.6055513114336644
+15 q=1 a=23382 b=6485  est=3.6055512721665384
+	√13: 3.605551275463989
+	Error: 3.297450756889475e-09
+ok!
+
+Task 9. Improve the rational estimate of sqrt(13)...
+	NOTE: Convergence is slow!  (All those ones!)
+z=(1+√13)/2  bounds=(2, 3)  positive? True
+__irrational: z=(1+√13)/2  (1+√13)/2/1
+__irrational: z=(1+√13)/2, q=2, r=(-3+√13)/2
+__irrational: z=(3+√13)/2, q=3, r=(-3+√13)/2
+__irrational: z=(3+√13)/2, q=3, r=(-3+√13)/2
+	__irrational: result = [2; | 3]
+1 q=2 a=2 b=1  est=2.0
+2 q=3 a=7 b=3  est=2.3333333333333335
+3 q=3 a=23 b=10  est=2.3
+4 q=3 a=76 b=33  est=2.303030303030303
+5 q=3 a=251 b=109  est=2.302752293577982
+6 q=3 a=829 b=360  est=2.3027777777777776
+7 q=3 a=2738 b=1189  est=2.302775441547519
+8 q=3 a=9043 b=3927  est=2.3027756557168324
+9 q=3 a=29867 b=12970  est=2.302775636083269
+10 q=3 a=98644 b=42837  est=2.3027756378831383
+11 q=3 a=325799 b=141481  est=2.3027756377181388
+12 q=3 a=1076041 b=467280  est=2.302775637733265
+13 q=3 a=3553922 b=1543321  est=2.302775637731878
+14 q=3 a=11737807 b=5097243  est=2.3027756377320054
+15 q=3 a=38767343 b=16835050  est=2.3027756377319935
+	(1+√13)/2: 2.302775637731995
+	Error: 1.3322676295501878e-15
+NOTE: Here is our new estimate of Bombelli's number:
+	√13: 3.605551275463989
+	Error: 2.220446049250313e-15
+NOTE: same effort, improvement factor 1490000.0
+ok!
+
+Task 10. A messy continued fraction...
+z=(103+√1297)/97  bounds=(1, 2)  positive? True
+__irrational: z=(103+√1297)/97  (103+√1297)/97/1
+__irrational: z=(103+√1297)/97, q=1, r=(6+√1297)/97
+__irrational: z=(-6+√1297)/13, q=2, r=(-32+√1297)/13
+__irrational: z=(32+√1297)/21, q=3, r=(-31+√1297)/21
+__irrational: z=(31+√1297)/16, q=4, r=(-33+√1297)/16
+__irrational: z=(33+√1297)/13, q=5, r=(-32+√1297)/13
+__irrational: z=(32+√1297)/21, q=3, r=(-31+√1297)/21
+	__irrational: result = [1; 2 | 3,4,5]
+1 q=1 a=1 b=1  est=1.0
+2 q=2 a=3 b=2  est=1.5
+3 q=3 a=10 b=7  est=1.4285714285714286
+4 q=4 a=43 b=30  est=1.4333333333333333
+5 q=5 a=225 b=157  est=1.4331210191082802
+6 q=3 a=718 b=501  est=1.43313373253493
+7 q=4 a=3097 b=2161  est=1.4331328088847757
+8 q=5 a=16203 b=11306  est=1.433132849814258
+9 q=3 a=51706 b=36079  est=1.4331328473627318
+10 q=4 a=223027 b=155622  est=1.433132847540836
+11 q=5 a=1166841 b=814189  est=1.433132847532944
+12 q=3 a=3723550 b=2598189  est=1.4331328475334166
+	(103+√1297)/97: 1.4331328475333835
+	Error: -3.3084646133829665e-14
+0 inf
+1 1
+2 3/2
+3 10/7
+4 43/30
+5 225/157
+6 718/501
+7 3097/2161
+8 16203/11306
+9 51706/36079
+ok!
+
+Task 11. Messing around with π...
+11a) Some standard estimates of π:
+==================== 3.14 ====================
+__rational: z=157/50
+__rational: z=157/50, q=3, r=7/50
+__rational: z=50/7, q=7, r=1/7
+__rational: z=7, q=7, r=0
+	3.14 = [3; 7,7]  err=0.0015927
+==================== 22/7 ====================
+__rational: z=22/7
+__rational: z=22/7, q=3, r=1/7
+__rational: z=7, q=7, r=0
+	22/7 = [3; 7]  err=-0.0012645
+=================== 355/113 ==================
+__rational: z=355/113
+__rational: z=355/113, q=3, r=16/113
+__rational: z=113/16, q=7, r=1/16
+__rational: z=16, q=16, r=0
+	355/113 = [3; 7,16]  err=-0.00000027
+11b) Pythonic estimate of π:
+__rational: z=884279719003555/281474976710656
+__rational: z=884279719003555/281474976710656, q=3, r=39854788871587/281474976710656
+__rational: z=281474976710656/39854788871587, q=7, r=2491454609547/39854788871587
+__rational: z=39854788871587/2491454609547, q=15, r=2482969728382/2491454609547
+__rational: z=2491454609547/2482969728382, q=1, r=8484881165/2482969728382
+__rational: z=2482969728382/8484881165, q=292, r=5384428202/8484881165
+__rational: z=8484881165/5384428202, q=1, r=3100452963/5384428202
+__rational: z=5384428202/3100452963, q=1, r=2283975239/3100452963
+__rational: z=3100452963/2283975239, q=1, r=816477724/2283975239
+__rational: z=2283975239/816477724, q=2, r=651019791/816477724
+__rational: z=816477724/651019791, q=1, r=165457933/651019791
+__rational: z=651019791/165457933, q=3, r=154645992/165457933
+__rational: z=165457933/154645992, q=1, r=10811941/154645992
+__rational: z=154645992/10811941, q=14, r=3278818/10811941
+__rational: z=10811941/3278818, q=3, r=975487/3278818
+__rational: z=3278818/975487, q=3, r=352357/975487
+__rational: z=975487/352357, q=2, r=270773/352357
+__rational: z=352357/270773, q=1, r=81584/270773
+__rational: z=270773/81584, q=3, r=26021/81584
+__rational: z=81584/26021, q=3, r=3521/26021
+__rational: z=26021/3521, q=7, r=1374/3521
+__rational: z=3521/1374, q=2, r=773/1374
+__rational: z=1374/773, q=1, r=601/773
+__rational: z=773/601, q=1, r=172/601
+__rational: z=601/172, q=3, r=85/172
+__rational: z=172/85, q=2, r=2/85
+__rational: z=85/2, q=42, r=1/2
+__rational: z=2, q=2, r=0
+	3.141592653589793 = 884279719003555/281474976710656 = [3; 7,15,1,292,1,1,1,2,1,3,1,14,3,3,2,1,3,3,7,2,1,1,3,2,42,2]  err=0.0
+convergents:
+ 1 3 err=0.14159265358979312
+ 2 22/7 err=-0.0012644892673496777
+ 3 333/106 err=8.32196275291075e-05
+ 4 355/113 err=-2.667641894049666e-07
+ 5 103993/33102 err=5.778906242426274e-10
+ 6 104348/33215 err=-3.3162805834763276e-10
+ 7 208341/66317 err=1.2235634727630895e-10
+ 8 312689/99532 err=-2.914335439641036e-11
+ 9 833719/265381 err=8.715250743307479e-12
+
+Task 12. Messing around with e...
+11a) Some standard estimates of e:
+__rational: z=27/10
+__rational: z=27/10, q=2, r=7/10
+__rational: z=10/7, q=1, r=3/7
+__rational: z=7/3, q=2, r=1/3
+__rational: z=3, q=3, r=0
+	2.7 = [2; 1,2,3]  err=0.018282
+__rational: z=679570457/250000000
+__rational: z=679570457/250000000, q=2, r=179570457/250000000
+__rational: z=250000000/179570457, q=1, r=70429543/179570457
+__rational: z=179570457/70429543, q=2, r=38711371/70429543
+__rational: z=70429543/38711371, q=1, r=31718172/38711371
+__rational: z=38711371/31718172, q=1, r=6993199/31718172
+__rational: z=31718172/6993199, q=4, r=3745376/6993199
+__rational: z=6993199/3745376, q=1, r=3247823/3745376
+__rational: z=3745376/3247823, q=1, r=497553/3247823
+__rational: z=3247823/497553, q=6, r=262505/497553
+__rational: z=497553/262505, q=1, r=235048/262505
+__rational: z=262505/235048, q=1, r=27457/235048
+__rational: z=235048/27457, q=8, r=15392/27457
+__rational: z=27457/15392, q=1, r=12065/15392
+__rational: z=15392/12065, q=1, r=3327/12065
+__rational: z=12065/3327, q=3, r=2084/3327
+__rational: z=3327/2084, q=1, r=1243/2084
+__rational: z=2084/1243, q=1, r=841/1243
+__rational: z=1243/841, q=1, r=402/841
+__rational: z=841/402, q=2, r=37/402
+__rational: z=402/37, q=10, r=32/37
+__rational: z=37/32, q=1, r=5/32
+__rational: z=32/5, q=6, r=2/5
+__rational: z=5/2, q=2, r=1/2
+__rational: z=2, q=2, r=0
+	2.718281828 = [2; 1,2,1,1,4,1,1,6,1,1,8,1,1,3,1,1,1,2,10,1,6,2,2]  err=4.59045246259393e-10  2.7 Andrew Jackson Andrew Jackson
+__rational: z=6121026514868073/2251799813685248
+__rational: z=6121026514868073/2251799813685248, q=2, r=1617426887497577/2251799813685248
+__rational: z=2251799813685248/1617426887497577, q=1, r=634372926187671/1617426887497577
+__rational: z=1617426887497577/634372926187671, q=2, r=348681035122235/634372926187671
+__rational: z=634372926187671/348681035122235, q=1, r=285691891065436/348681035122235
+__rational: z=348681035122235/285691891065436, q=1, r=62989144056799/285691891065436
+__rational: z=285691891065436/62989144056799, q=4, r=33735314838240/62989144056799
+__rational: z=62989144056799/33735314838240, q=1, r=29253829218559/33735314838240
+__rational: z=33735314838240/29253829218559, q=1, r=4481485619681/29253829218559
+__rational: z=29253829218559/4481485619681, q=6, r=2364915500473/4481485619681
+__rational: z=4481485619681/2364915500473, q=1, r=2116570119208/2364915500473
+__rational: z=2364915500473/2116570119208, q=1, r=248345381265/2116570119208
+__rational: z=2116570119208/248345381265, q=8, r=129807069088/248345381265
+__rational: z=248345381265/129807069088, q=1, r=118538312177/129807069088
+__rational: z=129807069088/118538312177, q=1, r=11268756911/118538312177
+__rational: z=118538312177/11268756911, q=10, r=5850743067/11268756911
+__rational: z=11268756911/5850743067, q=1, r=5418013844/5850743067
+__rational: z=5850743067/5418013844, q=1, r=432729223/5418013844
+__rational: z=5418013844/432729223, q=12, r=225263168/432729223
+__rational: z=432729223/225263168, q=1, r=207466055/225263168
+__rational: z=225263168/207466055, q=1, r=17797113/207466055
+__rational: z=207466055/17797113, q=11, r=11697812/17797113
+__rational: z=17797113/11697812, q=1, r=6099301/11697812
+__rational: z=11697812/6099301, q=1, r=5598511/6099301
+__rational: z=6099301/5598511, q=1, r=500790/5598511
+__rational: z=5598511/500790, q=11, r=89821/500790
+__rational: z=500790/89821, q=5, r=51685/89821
+__rational: z=89821/51685, q=1, r=38136/51685
+__rational: z=51685/38136, q=1, r=13549/38136
+__rational: z=38136/13549, q=2, r=11038/13549
+__rational: z=13549/11038, q=1, r=2511/11038
+__rational: z=11038/2511, q=4, r=994/2511
+__rational: z=2511/994, q=2, r=523/994
+__rational: z=994/523, q=1, r=471/523
+__rational: z=523/471, q=1, r=52/471
+__rational: z=471/52, q=9, r=3/52
+__rational: z=52/3, q=17, r=1/3
+__rational: z=3, q=3, r=0
+	2.718281828459045 = [2; 1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,1,12,1,1,11,1,1,1,11,5,1,1,2,1,4,2,1,1,9,17,3]  err=0.0
+
+sqrt(e):
+__rational: z=1856295125090727/1125899906842624
+__rational: z=1856295125090727/1125899906842624, q=1, r=730395218248103/1125899906842624
+__rational: z=1125899906842624/730395218248103, q=1, r=395504688594521/730395218248103
+__rational: z=730395218248103/395504688594521, q=1, r=334890529653582/395504688594521
+__rational: z=395504688594521/334890529653582, q=1, r=60614158940939/334890529653582
+__rational: z=334890529653582/60614158940939, q=5, r=31819734948887/60614158940939
+__rational: z=60614158940939/31819734948887, q=1, r=28794423992052/31819734948887
+__rational: z=31819734948887/28794423992052, q=1, r=3025310956835/28794423992052
+__rational: z=28794423992052/3025310956835, q=9, r=1566625380537/3025310956835
+__rational: z=3025310956835/1566625380537, q=1, r=1458685576298/1566625380537
+__rational: z=1566625380537/1458685576298, q=1, r=107939804239/1458685576298
+__rational: z=1458685576298/107939804239, q=13, r=55468121191/107939804239
+__rational: z=107939804239/55468121191, q=1, r=52471683048/55468121191
+__rational: z=55468121191/52471683048, q=1, r=2996438143/52471683048
+__rational: z=52471683048/2996438143, q=17, r=1532234617/2996438143
+__rational: z=2996438143/1532234617, q=1, r=1464203526/1532234617
+__rational: z=1532234617/1464203526, q=1, r=68031091/1464203526
+__rational: z=1464203526/68031091, q=21, r=35550615/68031091
+__rational: z=68031091/35550615, q=1, r=32480476/35550615
+__rational: z=35550615/32480476, q=1, r=3070139/32480476
+__rational: z=32480476/3070139, q=10, r=1779086/3070139
+__rational: z=3070139/1779086, q=1, r=1291053/1779086
+__rational: z=1779086/1291053, q=1, r=488033/1291053
+__rational: z=1291053/488033, q=2, r=314987/488033
+__rational: z=488033/314987, q=1, r=173046/314987
+__rational: z=314987/173046, q=1, r=141941/173046
+__rational: z=173046/141941, q=1, r=31105/141941
+__rational: z=141941/31105, q=4, r=17521/31105
+__rational: z=31105/17521, q=1, r=13584/17521
+__rational: z=17521/13584, q=1, r=3937/13584
+__rational: z=13584/3937, q=3, r=1773/3937
+__rational: z=3937/1773, q=2, r=391/1773
+__rational: z=1773/391, q=4, r=209/391
+__rational: z=391/209, q=1, r=182/209
+__rational: z=209/182, q=1, r=27/182
+__rational: z=182/27, q=6, r=20/27
+__rational: z=27/20, q=1, r=7/20
+__rational: z=20/7, q=2, r=6/7
+__rational: z=7/6, q=1, r=1/6
+__rational: z=6, q=6, r=0
+	1.6487212707001282 = [1; 1,1,1,5,1,1,9,1,1,13,1,1,17,1,1,21,1,1,10,1,1,2,1,1,1,4,1,1,3,2,4,1,1,6,1,2,1,6]  err=0.0
+SUCCESS!
+
+=========================================================================
+
+Notes on the last continued fraction...  If we cut it off after the fifth
+term, we have:
+    [3; 7,15,1,292]
+Notice the estimates that come up:
+    n       convergent                              error
+   ===     =====================================   ======================
+    1       [3;] = 3                                ~ 0.14
+    2       [3; 7] = 22/7                           ~ 0.001 3
+    3       [3; 7,15] = 333/106                     ~ 0.000 083
+    4       [3; 7,15,1] = 355/113                   ~ 0.000 000 27
+    5       [3; 7,15,1,292] = 103993/33102          ~ 0.000 000 000 58
+    6       [3; 7,15,1,292,1] = 104348/33215        ~ 0.000 000 000 33
+
+With the next few terms (ones), the magnitude of the error doesn't change
+dramatically.  Note also the number of positions in the denominator for
+each convergent:
+    n       convergent                              width (denominator)
+   ===     =====================================   ======================
+    1       [3;] = 3                                1
+    2       [3; 7] = 22/7                           1
+    3       [3; 7,15] = 333/106                     3
+    4       [3; 7,15,1] = 355/113                   3
+    5       [3; 7,15,1,292] = 103993/33102          5
+    6       [3; 7,15,1,292,1] = 104348/33215        5
+
+We can view the number of places in the denominator as a cost of using an
+estimate, the number of iterations (n) as a cost of finding the estimate,
+and the error, or more precisely its logarithm of its absolute value, as
+a measure of precision.  The logarithm of the absolute value can simply be
+replace by the exponent in scientific notation.
+
+        A              B             C          D        E
+    complexity    convergent     precision    width    digits
+   ============  ============== ===========  =======  =======
+        1         3                 -1          1        1
+        2         22/7              -3          1        3
+        3         333/106           -5          3        6
+        4         355/113           -7          3        6
+        5         103993/33102      -10         5       11
+        6         104348/33215      -10         5       11
+
+The fourth entry [3;7,15,1]=355/113 is the best we can do with a three-digit
+denominator -- it gives a precision of -7, i.e., an absolute of less than
+10⁻⁶.  We cannot do any better with a four-digit denominator!
+
+The first improvement after 355/113 comes with a five-digit denominator,
+namely [3;7,15,1,292]=103993/33102, which yields a precision of -10
+(absolute error less than 10⁻⁹) but, instead of remembering two
+three-digit numbers, we need to recall a six-digit number and a five
+digit number, for a total of eleven digits.
+
+The first column is the number of iterations need to turn the continued
+fraction into an ordinary fraction.  This is summarized in the following
+table:
+
+    n    q          A            B
+   === =====   ==========   ==========
+   -1                  0            1
+    0                  1            0           RECURRENCE RELATIONS
+    1    3             3            1      A[n] = q[n] A[n-1] + A[n-2]
+    2    7            22            7      B[n] = q[n] B[n-1] + B[n-2]
+    3   15           333          106
+    4    1           355          113
+    5  292       103,993       33,102
+    6    1       104,348       33,215
+
+In each row, the absolute error in the estimate A/B decreases; but the
+rate of decrease depends largely on the value of the quotient term q.
+Large values of q guarantee significant jumps in precision.
+
+Finally, let's write this continued fraction out in all its glory:
+
+                                         104,348
+   3 + ------------------------------ = ---------
+                1                         33,215
+        7 + ------------------------
+                     1
+             15 + -----------------
+                            1
+                   1 + -----------
+                               1
+                        292 + ---
+                               1
+
+We've omitted infinitely many terms.  Since pi is not the root of a
+quadratic equation, the pattern of denominators is not periodic.
+
+If we chop this to [3;7,15,1] = 355/113, we have:
+
+                                        355
+   3 + ---------------- = [3;7,15,1] = -----
+                1                       113
+        7 + ----------
+                   1
+             15 + ---
+                   1
+
+===========================================================================
+Some notes on e:
+
+The regular continued fraction for e has a simple pattern even though it is
+not periodic:
+
+    [2; 1,2, 1,1,4, 1,1,6, 1,1,8, 1,1,10, ...]
+
+Following two ones is the next consecutive even number.  The square root of
+e also has an interesting pattern:
+
+    [1; 1, 1,1,5, 1,1,9, 1,1,13, 1,1,17, 1,1,21, ...]
+
