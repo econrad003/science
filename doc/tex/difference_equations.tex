@@ -1,1 +1,164 @@
-# doc
+\documentclass[12pt,letterpaper]{report}
+\usepackage{bookman,eulervm}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+
+\numberwithin{equation}{chapter}
+
+\newcommand\chap[1]{%
+	\chapter*{#1}%
+	\addcontentsline{toc}{chapter}{#1}}
+
+\begin{document}
+\title{Ordinary Difference Equations}
+\author{Eric Conrad}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\chap{Introduction}
+
+An ordinary difference equation is a relation of the following form:
+\begin{align}
+	f(a_n, a_{n-1}, \dots, a_{n-k}) = 0 \text{.}	\tag{A}
+\end{align}
+The subscripts are known as indices and typically range over either the natural numbers
+or the integers.\footnote{Here we include zero as a natural number.}  If the indices
+in the relation are integers that range from $n-k$ through $n$, then the \emph{order}
+of the equation is $k$.
+
+The indices are often associated with time.  Hence, conditions on the function $a$ at specific
+index values are known as \emph{initial conditions}.
+
+\chapter{The Exponential difference equation}
+
+Recall the following ordinary differential equation from calculus:
+\begin{align}
+		\frac{dy}{dt} &= cy\text{.} \\
+\intertext{The general solution may be found in a number of ways, including separation of
+	variable and undetermined coefficients:}
+		y &= Ae^t\text{.} \\
+\intertext{If we know the value of the function at a given point, we can find a specific
+	solution.  For example, if $y(0)=5$, then:}
+		y &= 5e^t\text{,} \\
+\intertext{or if $y(1)=7$, then:}
+		y &= 7e^{t-1}\text{.}
+\end{align}
+
+The analogous difference equation is:
+\begin{align}
+		\frac{y(t+h)-y(t)}{h} &= cy(t)\text{.} \label{eqn:diffForm} \\
+\intertext{Normally we have $h=\Delta t=1$, so this reduces to:}
+		y(t+1)-y(t) &= cy(t)\text{.} \\
+\intertext{But we can combine the expression on the right with the $y(t)$ term on the left:}
+		y(t+1) &= (c+1)y(t) \text{.} \\
+\intertext{Assuming $c\neq -1$, iterating this expression (or using some other resonable method)
+	yields the following solution:}
+		y(t) = y(0) (c+1)^t\text{,}
+\end{align}
+{for all integers $t$.}	
+
+In particular, if $c=1$, we obtain $y=y(0) 2^t$ for integers $t$.  So the difference equation analogue
+of $e$ is the number 2.
+
+Equation \ref{eqn:diffForm} is expressed in difference form.  It is often more convenient to write
+an ordinary difference equation in shift form -- this is typically done when using index notation.
+In shift form, we would typically write:
+\begin{align}
+	a_t &= ca_{t-1}\text{.} \label{eqn:shiftForm} \\
+	\intertext{Assuming $c\neq -1$, iterating this expression yields the following solution:}
+	a(t) &= a_0 c^t\text{,}
+\end{align}
+{for all integers t.}	
+
+It is easy to see that Equations \ref{eqn:diffForm} and \ref{eqn:shiftForm} are closely related.  A solution
+to either one can easily be translated into a solution to the other.
+
+\section{Undetermined coefficients}
+
+Now let us solve Equation \ref{eqn:shiftForm} using the method of undetermined coefficients.  Here we need
+to know \emph{a priori} that the equation has a particular solution of the form $y=\lambda^n$.  Then:
+\begin{align}
+	\lambda^n &= c\lambda^{n-1}\text{.} \\
+	\intertext{Subtracting the right-hand side and factoring::}
+	\lambda^{n-1} (\lambda-c) &= 0\text{.} \\v
+	\intertext{To avoid trivialities, we look at $\lambda-c=0$.}
+	\lambda &= c\text{.} \\
+	\intertext{The difference equation is first order, homogeneous, and linear, so we have one term with
+		a coefficient:}
+	a_n &= kc^n\text{.} \\
+	\intertext{Setting $n=0$:}
+	a_0 &= kc^0 = k\text{, so} \\
+	a_n &= a_0c^n\text{.}
+\end{align}
+
+\chapter{The Fibonacci difference equation}
+
+In a somewhat contrived rabbit breeding example, Leonardo of Pisa (aka Fibonacci) looked at the following
+difference equation:
+\begin{align}
+	f_n &= f_{n-1} + f_{n-2}\text{, subject to} \\
+	f_0 &= 0\text{.}
+	f_1 &= 1\text{.}
+\end{align}
+
+This is a second order linear homogeneous difference equation.  We will use the method of undetermined
+coefficients by first finding two \emph{independent} particular solutions.  We try a solution of the
+form $y=\lambda^n$:
+\begin{align}
+	\lambda^n - \lambda^{n-1} - \lambda^{n-2} &= 0 \text{,} \\
+	\lambda^{n-2} (\lambda^2 - \lambda - 1) &= 0 \text{.} \\
+\intertext{The first factor is nonzero, so our characteristic polynomial is the expression in parentheses:}
+	\lambda^2 - \lambda - 1 &= 0 \\
+	\lambda &= \frac{1\pm\sqrt{5}}{2} \text{.}
+\end{align}
+
+The roots (or \emph{eigenvalues}) are $\phi:=(1+\sqrt{5})/2$ and $\bar{\phi}:=(1-\sqrt{5})/2$.  So the
+general solution is:
+\begin{align}
+	f_n &= A\phi^n + B\bar{\phi}^n\text{.}
+\end{align}
+
+Note that $\phi+\bar{\phi}=1$ and $\phi-\bar{\phi}=\sqrt{5}$.  Applying the initial conditions, we know
+that:
+\begin{align}
+	0 = f_0 &= A + B\text{, and} \\
+	1 = f_1 &= A\phi + B\bar{\phi}\text{.} \\
+	\intertext{From the first equation: $B=-A$.  Substituting into the second:}
+	1 &= A\phi - A\bar{\phi} = A\sqrt{5}\text{.} \\
+\intertext{Then $A = 1/\sqrt{5}$ and:}
+	a_n &= \frac{1}{\sqrt{5}}(\phi^n - \bar{\phi}^n)\text{.}
+\end{align}
+
+Some small values are given in Table \ref{tbl:fib}:
+\begin{table}[ht]
+	\begin{center}
+	\begin{tabular}{r|rrrrrrrrrrrrr}
+	$n$      & $0$ & $1$ &  $2$ & $3$ & $4$  & $5$ &  $6$ &  $7$ &   $8$ &  $9$ &  $10$
+			 & $11$ &  $12$ \\
+	\hline
+	$f_n$    & $0$ & $1$ &  $1$ & $2$ & $3$  & $5$ &  $8$ & $13$ &  $21$ & $34$ &  $55$
+			 & $89$ &  $144$ \\ 
+	$f_{-n}$ & $0$ & $1$ & $-1$ & $2$ & $-3$ & $5$ & $-8$ & $13$ & $-21$ & $34$ & $-55$
+			 & $89$ & $-144$ \\ 
+	\end{tabular}
+	\end{center}
+	\caption{Fibonacci numbers for small indices}
+	\label{tbl:fib}
+\end{table}
+
+As we see in the table, the sequence is bilateral.  From $f_{-(n+2)}+f_{-(n+1)}=f_{-n}$, it follows that:
+\[
+	f_{-(n+2)} = f_{-n} - f_{-(n+1)}\text{.}
+\]
+Using mathematical induction, it isn't difficult to prove that:
+\begin{align}
+	f_{-n} = (-1)^{n+1} f_n \text{.}
+\end{align}
+
+
+\end{document}
+

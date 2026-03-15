@@ -1,0 +1,401 @@
+\documentclass[12pt,letterpaper,reqno]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bookman,eulervm}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+
+\title{Homogeneous Linear Difference Equations}
+\author{Eric Conrad}
+\date{\today}
+
+\newtheorem{theorem}{Theorem}
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+\numberwithin{table}{section}
+
+\makeatletter
+\def\@dottedtocline#1#2#3#4#5{\@tocline{#1}{0pt}{#2}{#3}{}{#4}{#5}}
+\renewcommand*\l@figure{\@dottedtocline{1}{1em}{2.3em}}
+\let\l@table=\l@figure
+\makeatother 
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+
+\section{Background}
+
+In this monograph, we look at finding explicit solutions to homogeneous linear difference equations in a single independent variable.  Note that in many cases, no explicit solution is known, and, even at best, in this short space, we can only touch briefly on what is known.  In this introduction, we will focus on the basics.
+
+\subsection{The difference operator}
+
+In our discussion, we will generally assume that the we are talking about a function (or \emph{sequence}) mapping the natural numbers to the complex numbers:
+\begin{align}
+	a = {a_n = a(n) : \mathbb{N} \rightarrow \mathbb{C}}\text{.}
+\end{align}
+
+We think of the independent variable $n$ as marking fixed discrete time intervals and the dependent variable as a spatial coordinate.  Accordingly, we describe constraints on the values of $a$ that depend only on $n$ as \emph{initial conditions} and other constraints as \emph{boundary conditions}.  In some cases, we allow ``time'' to run backward, in which case our domain becomes the integers $\mathbb{Z}$ -- sequences that run in two directions are known as \emph{bilateral sequences}.
+
+The \emph{forward difference operator}, denoted $\Delta$, is an operator on a function which maps the function to a difference:
+\begin{align}
+	(\Delta f)(n) := f(n+1) - f(n)\text{.}
+\end{align}
+
+Let $\iota$ denote the bilateral identity sequence, \emph{i.e.}:
+\[
+	\iota(n) = n\text{, for all $n\in\mathbb{Z}$.}
+\]
+Then:
+\begin{align}
+	\Delta n &:= (\Delta \iota)(n) \\
+			\notag
+			& = \iota(n+1) - \iota(n) = (n+1) - n \\
+			& = 1 \text{, for all $n\in\mathbb{Z}$.}
+\end{align}
+
+Recall the definition of the continuous derivative:
+\begin{align*}
+	f'(t) = \left.\frac{df}{dt}\right|_x = \lim_{h\rightarrow 0}\frac{f(t+h) - f(t)}{h}
+	\text{.}
+\end{align*}
+
+Consider the expression that is bound by the limit operator as a function of $t$ and $h$ and set $t=n$ and $h=1$:
+\begin{align*}
+	\frac{f(n+1)-f(n)}{1} = \frac{(\Delta f)(n)}{\Delta n} = (\Delta f)(n)
+\end{align*}
+
+The $\Delta$ operator is a discrete analogue of the continuous derivative operator.
+
+A $k^{\text{th}}$-order difference equation is a relation of the form:
+\begin{align}
+	f(a, \Delta a, \Delta^2 a, \dots, \Delta^k a, n)(n) = 0
+	\text{, for all domain values $n$.}
+\end{align}
+
+For example, ``$(\Delta a-a)(n)=0$ for all $n\in\mathbb{Z}$ is a first order difference equation.  We would typically write this relation more compactly as $\Delta a=a$, suppressing the function evaluation and moving some of the subtracted terms to the right hand side.
+
+\subsection{The shift operator}
+
+We can often write difference equations more compactly using the shift operator:
+\begin{align}
+	(Ea)(n) := a(n+1)
+	\text{.}
+\end{align}
+Note that $En:=(E\iota)(n)=n+1$.
+
+From the definitions of $E$ and $\Delta$, we find that expressions that can be written in difference form can usually be written in shift form:
+\begin{align}
+		\notag
+	\Delta a &= Ea - a = (E-1)a
+	&\text{, and } \\
+		\notag
+	Ea &= \Delta a + a = (\Delta+1)a
+	\text{.} \\
+\intertext{Thus:}
+	E &= \Delta - 1 \text{ and } \Delta = E + 1 \text{.}
+\end{align}
+
+For the equation $\Delta a=a$:
+\begin{align*}
+	Ea-a &= (E-1)a = \Delta a = a
+	\text{. Thus:} \\
+	Ea &= 2a
+	\text{.}
+\end{align*}
+
+\subsection{Linearity}
+
+To be linear, a solution to a difference equation must satisfy two conditions:
+\begin{enumerate}
+	\item A sum of two solutions must also be a solution; and
+	\item Multiplying a solution by a scalar always yields a solution.
+\end{enumerate}
+
+For example, consider the shift equation $E^2=E+1$.  Suppose $a$ and $b$ are solutions. Then for all integers $n$:
+\[
+	a_{n+2} = a_{n+1} + a_n
+	\text{ and }
+	b_{n+2} = b_{n+1} + b_n
+	\text{.}
+\]
+Then:
+\begin{align*}
+	(a+b)_{n+2} &= a_{n+2} + b_{n+2} \\
+				&= (a_{n+1} + a_n) + (b_{n+1} + b_n) \\
+				&= (a_{n+1} + b_{n+1}) + (a_n + b_n) \\
+				&= (a+b)_{n+1} + (a+b)_n
+				\text{.}
+\end{align*}
+So $a+b$ is also a solution.
+
+Now let $\kappa\in\mathbb{C}$, so that $\kappa$ is a scalar.  Then:
+\begin{align*}
+	(\kappa a)_{n+2} &= \kappa a_{n+2} \\
+	&= \kappa(a_{n+1} + a_n) \\
+	&= \kappa a_{n+1} \kappa a_n) \\
+	&= (\kappa a)_{n+1} + (\kappa a)_n
+	\text{.}
+\end{align*}
+Then $\kappa a$ is also a solution.
+
+\subsection{Homogeneity}
+
+A multivariable function f is homogeneous in degree $n$ in its variables if:
+\[
+	f(zt_1, zt_2, \dots, zt_k) = z^nf(t_1, t_2, \dots, t_k)
+	\text{.}
+\]
+If it is homogeneous and linear, then it is homogeneous of degree 1.
+
+We can write an order k homogeneous linear difference equation in the following form:
+\[
+	((f_0(n) \Delta^k + f_1(n) \Delta^{k-1} + \dots + f_{k-1}(n)\Delta + f_k(n))a)(n) = 0
+\]
+or equivalently as:
+\[
+	((g_0(n) E^k + g_1(n) E^{k-1} + \dots + g_{k-1}(n)E + f_k(n))a)(n) = 0
+\]
+
+The difference equation $\Delta=1$ (or $\Delta a=a$) and the shift equations $E=2$ (or $a_{n+1}=2a_n$) and $E^2=E+1$ are examples of first and second order linear homogeneous difference equations.
+
+\section{The shift equation $E=k$}
+
+We will first consider the special case $E=2$, which is equivalent to $\Delta=1$.  This difference equation is the discrete analogue of the differential equation:
+\[
+	\frac{dy}{dt} = y \text{,}
+\]
+whose general solution is:
+\[
+	y = Ce^t \text{,}
+\]
+where $C$ is a multiplicative constant of integration.
+
+The discrete form $\Delta=1$, when written out fully using $f$ as a function of $t$ is:
+\[
+	\frac{\Delta f(t)}{\Delta t} = \frac{f(t+\Delta t) - f(t)}{\Delta t} := f(t)\text{.}
+\]
+For the discrete case we set $\Delta t=1$ while in the continuous case, we consider a limit as
+$\Delta t$ approaches 0. 
+
+We will solve this in several ways.
+ 
+ \subsection{Solution of $E=2$ by iteration}
+ 
+ To solve a difference equation by iteration, we basically look for a pattern.  We can then verify the pattern using mathematical induction.  The equation $E=2$ is just shorthand for:
+ \begin{align}
+ 	a_{n+1} = 2a_n
+ 	\text{.}
+ \end{align}
+
+Now consider some arbitrary positive integer $N$.
+\[
+	a_N = 2a_{N-1} = 2^2 a_{n-2} = 2^3 a_{N-3} = \dots = 2^N a_{N-N}
+	\text{.} 
+\]
+The pattern suggests that we have:
+\begin{align}
+	a_n = 2^n a_0
+	\text{ for all $n\in\mathbb{Z}$.}
+\end{align}
+
+Let's verify this using mathematical induction.  Note that our iteration didn't include negative values of $n$.
+\begin{proof}
+	\ \\[-1em]
+	\begin{description}
+		\item[\it Basis] $a_0 = 1 a_0 = 2^0 a_0$.
+		\item[\it Induction] Assume $n\geq 0$ and $a_n=2^n a_0$.
+			Then:
+			\[ a_{n+1} = 2a_n = 2*2^na_0 = 2^{n+1} a_0 \text{.} \]
+		\item[\it Induction]  Assume $n\leq 0$ and $a_n=2^n a_0$.
+			Note that $a_{n-1} = a_n/2$.
+			Then:
+			\[ a_{n-1} = \frac{a_n}{2} = \frac{2^n a_0}{2} = 2^{n-1} a_0 \text{.} \]
+	\end{description}
+\end{proof}
+
+The iteration would normally be considered as sufficient to cover the induction when $n\geq 0$.
+
+\subsection{Solving $E=2$ using undetermined coefficients}
+
+When the coefficients of the terms are independent of $n$, we often use the method of undetermined coefficients.  Since this is a first order linear shift equation, we only need to find one non-zero solution.  All solutions are multiples of that solution.
+
+The trial solution has the following form:
+\begin{align}
+	a_n = \lambda^n
+	\text{.}
+\end{align}
+
+The unique value of $\lambda$ which works is the unique \emph{eigenvalue} or \emph{characteristic value}.  Associated with the solutions is a polynomial (the \emph{characteristic polynomial}) and a polynomial equation (called the \emph{characteristic equation}).  The procedure is to substitute the trial solution into the equation and solve the resulting equation.
+
+Putting the trial solution into the equation $a_n+1=2a_n$, we have:
+\begin{align}
+	\lambda^{n+1} &= 2\lambda^n \text{.} \\
+\intertext{We write this canonically and then factor the result:}
+	\lambda^{n+1} - 2\lambda^n &= 0 \text{.} \\
+	\lambda^n (\lambda - 2) &= 0 \text{.} \\
+\intertext{We want nonzero solutions:}
+	\lambda - 2 &= 0 \text{,} \\
+	\lambda &= 2.
+\end{align}
+
+Our characteristic equation is $\lambda-2=0$, our characteristic polynomial: $\lambda-2$, and our eigenvalue: $\lambda_1=2$.
+
+Our characteristic function is $a_n=2^n$, so our general solution is $a_n=2^nC$ where $C$ is an arbitrary multiplicative constant.  Using the value at $n=0$, we see that:
+\[
+	C = 2^0 C = a_0
+	\text{.}
+\]
+
+\subsection{The shift equation $E=k$}
+
+We can generalize the previous section to values on the right other than 2.  First, if $k\neq 0$, iteration yields the solution $a_n=k^na_0$.  This can be verified by induction and it can be obtained using undetermined coefficients with the trial solution $\lambda^k$.
+
+When $k=1$, the solution becomes constant.  So $E=1$ (or $\Delta=0$) is analogous to the differential equation:
+\[
+	\frac{dy}{dt} = 0
+	\text{.}
+\]
+
+The only problem is when $k=0$.  In this case, the shift equation reduces to $a_{n+1}=0$.  If this is valid for all $n$, for example $n=m-1$, a change of index yields:
+\[
+	a_m = 0
+	\text{ for all $m$.}
+\]
+We will treat this as a singularity.
+
+\begin{theorem}[The exponential difference equation]
+	Let $k$ be a \underline{nonzero} complex number.  Suppose that $a_n$ is a bilateral sequence of complex numbers such that:
+	\[
+		a_{a+1} = ka_n\text{, for all $n\in\mathbb{Z}$.} 
+	\]
+	Then:
+	\begin{itemize}
+		\item if $k\neq1$, then $a_n=a_0 k^n$ for all $n\in\mathbb{Z}$; and
+		\item if $k=1$, then $a_n=a_0$ for all $n\in\mathbb{Z}$.
+	\end{itemize}
+\end{theorem}
+
+\section{The Fibonacci sequence}
+
+In the book \emph{Liber Abaci}, published in 1202, Leonardo of Pisa (\emph{aka} Fibonacci) posed a very artificial problem involved in breeding rabbits.  (One of the simplifying assumptions is that rabbits don't die.)  The problem involved a sequence now known as the Fibonacci sequence which, although it doesn't really have much to do with rabbit populations, it does actually have something to do with the physics of plant growth.\footnote{\emph{cf.} Chapter 3 in: Ian Stewart. \emph{The Mathematics of Life}. Basic Books(NY, 2011).}  (I won't go into the botanical details here.)
+
+The sequence is defined by the following second order finite difference equation:
+\begin{align}
+	f_{n+2} &:= f_{n+1} + f_n
+	\text{ for all $n\in\mathbb{Z}$,} \\
+\intertext{subject to the following initial conditions:}
+	f_0 &:= 0 \text{, and} \\
+	f_1 &:= 1 \text{.}
+\end{align}
+
+Note that we can run easily run the sequence in reverse by solving for $f_n$:
+\[
+	f_n = f_{n+2} - f_{n+1}
+	\text{.}
+\]
+We can write this is shift operator form as $E^2-E-1=0$.
+
+Some entries for small values of $n$ are tabulated in Table \ref{tbl:Fibo}.
+
+\begin{table}[ht]
+	\begin{center}
+	\begin{tabular}{r|rrrrrrrrrrrrr}
+		$n$ 		& $0$ 	& $1$ 	& $2$ 	& $3$ 	& $4$ 	& $5$ 	& $6$
+					& $7$ 	& $8$ 	& $9$ 	& $10$ 	& $11$ 	& $12$ \\
+		\hline
+		$f_n$ 		& $0$ 	& $1$ 	& $1$ 	& $2$ 	& $3$ 	& $5$ 	& $8$
+					& $13$ 	& $21$	& $34$	& $55$	& $89$	& $144$ \\
+		$f_{-n}$ 	& $0$ 	& $1$ 	& $-1$ 	& $2$ 	& $3-$ 	& $5$ 	& $-8$
+					& $13$ 	& $-21$	& $34$	& $-55$	& $89$	& $-144$ \\
+	\end{tabular} \\
+	Fibonacci numbers with index $n$ such that $|n| \leq 12$. 
+	\end{center}
+	\caption{Small Fibonacci numbers} \label{tbl:Fibo}
+\end{table}
+
+We will use the method of undetermined coefficients to solve this difference equation.  The first step is
+to substitute the trial function:
+\[
+	a_n = \lambda^n
+	\text{.}
+\]
+Then $\lambda^{n+2} - \lambda^{n+1} - \lambda^n = 0$.  But we aren't interested in solutions where $\lambda=0$.  So we can divde by the common factor $\lambda^n$ to obtain the characteristic equation, the eigenvalues, and the eigenfunctions:
+\begin{align*}
+	\lambda^2 - \lambda - 1 &= 0 \text{,} \\
+		\lambda = \frac{1\pm\sqrt{5}}{2} \text{.}
+\end{align*}
+
+The eigenvalues are known as the golden ratio (or the mean-extreme ratio, denoted $\phi$) and its conjugate (denoted $\bar{\phi}$).  We have:
+\[
+	\phi = \frac{1+\sqrt{5}}{2}
+	\text{ and }
+	\bar{\phi} = \frac{1-\sqrt{5}}{2}
+	\text{.}
+\]
+
+In what follows, note that:
+\begin{align*}
+	\phi + \bar{\phi} &= 1 \text{,} \\
+	\phi - \bar{\phi} &= \sqrt{5} \text{,} \\
+	\phi \bar{\phi} &= \frac{(1+\sqrt{5})(1-\sqrt{5})}{4} = -1 \text{,} \\
+	\phi^{-1} &= \frac{2(1-\sqrt{5})}{1-5} = -\bar{\phi} \text{,} \\
+	\phi^2 &= \phi + 1 \text{,} \\
+	\phi^3 &= \phi(\phi + 1) = 2\phi + 1 \text{,} \\
+	\phi^4 &= \phi(2\phi + 1) = 3\phi + 2 \text{, and} \\
+	\phi^5 &= \phi(3\phi + 2) = 5\phi + 3 \text{.}
+\end{align*}
+
+(Take a look at the table of small Fibonacci numbers.  You should see a pattern in the coefficients for the powers of $\phi$.  Of course you should try to use the quadratic equation and mathematical induction to prove the pattern before looking at the spoiler that follows.)
+
+\begin{center}
+	\textbf{*** SPOILER ***}
+\end{center}
+
+The following theorem gives a relation between integer powers of $\phi$ and the Fibonacci sequence:
+
+\begin{theorem}
+	For all integers $n$:
+	\begin{align}
+		\phi^{n} = f_{n} \phi + f_{n-1} \text{.}
+	\end{align}
+\end{theorem}
+
+\begin{proof}
+	(Proof by induction.)
+	
+	Since $\phi$ is a root of the quadratic equation $\lambda^2=\lambda+1$, it follows immediately
+	that:
+		\[ \phi^2 = \phi + 1 \text{.}\]
+	\begin{description}
+		\item[\it Basis] $\phi^0 = 1 = 0\phi + 1 = f_0\phi + f_{-1}$.
+		\item[\it Induction] Let $n\geq 0$ and suppose that:
+			\[ \phi^{n} = f_{n} \phi + f_{n-1} \text{.} \]
+			Then:
+			\begin{align}
+				 \phi^{n+1} &= \phi \cdot \phi^{n} \\
+				 	&= \phi (f_{n} \phi + f_{n-1}) \\
+				 	&= f_{n} \phi^2 + f_{n-1}\phi \\
+				 	&= f_{n} (\phi + 1) + f_{n-1}\phi \\
+				 	&= (f_n + f_{n-1})\phi + f_n \\
+				 	&= f_{n+1}\phi + f_n \text{.}
+			\end{align}
+		\item[\it Induction] Let $n\leq 0$ and suppose that:
+			\[ \phi^{n} = f_{n} \phi + f_{n-1} \text{.} \]
+			Then:
+			\begin{align}
+				\phi^{n-1} &= \phi \cdot \phi^{n} \\
+				&= \phi (f_{n} \phi + f_{n-1}) \\
+				&= f_{n} \phi^2 + f_{n-1}\phi \\
+				&= f_{n} (\phi + 1) + f_{n-1}\phi \\
+				&= (f_n + f_{n-1})\phi + f_n \\
+				&= f_{n+1}\phi + f_n \text{.}
+			\end{align}
+	\end{description}
+\end{proof}
+
+\end{document}
