@@ -158,6 +158,13 @@ REFERENCES
         URL: https://math.stackexchange.com/questions/ -
                 2332172/speeding-up-the-convergence-of-zeta2
 
+        The trick described in this reference is not new.  I came up with
+        the same idea when I was faced with this exact problem in a question
+        on a general exam in graduate school circa 2000.   (The choice
+        of series here is the same as the one I used then.)  I am quite
+        sure that many others have arrived at essentially the same approach
+        long before I did.
+
 LICENSE
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
