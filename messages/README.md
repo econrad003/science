@@ -29,6 +29,8 @@ To run the file in IDLE, bring up an IDLE interface using the command "idle".  T
 
 *basel1.txt* - IDLE session (edited) - some exercises with the Basel Problem solved by Leonhard Euler in 1735.
 
+*basel2.txt* - IDLE session (minimally edited) - more exercises with the Basel Problem solved by Leonhard Euler in 1735.
+
 *gaussian_rationals.md* - background information about Gaussian rationals
 
 *tables_cfrac.txt* - IDLE session - continued fraction tables; a description of the contents and some suggestions for use are included in the preamble.  The remainder of the document has not been edited.

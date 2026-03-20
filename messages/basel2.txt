@@ -1,0 +1,246 @@
+Python 3.10.12 (main, Mar  3 2026, 11:56:32)
+=========== RESTART: science/demos/basel2.py ===========
+                   CONTENTS
+
+1. The Basel and the alternating Basel series
+2. Reference values using Python math.pi
+3. Estimates by summing the series
+4. Estimates using the speedup
+5. Convergents of the reference values
+
+Epilogue
+
+SECTION 1: The Basel and the alternating Basel series
+
+
+Basel series (B):
+             1     1      1      1           π²
+        1 + --- + --- + ---- + ---- + ... = ----
+             4     9     16     25           6
+
+alternating Basel series (A):
+             1     1      1      1           π²
+        1 - --- + --- - ---- + ---- - ... = ----.
+             4     9     16     25           12
+
+
+SECTION 2: Reference values using Python math.pi
+
+Reference values (Python):
+	π²/6 = 1.6449340668482264
+		continued fraction:
+		  [1, 1, 1, 1, 4, 2, 4, 7, 1, 4, 2, 3, 4]
+		estimate = 1.6449340668454373   err < 1e-10
+	π²/12 = 0.8224670334241132
+		continued fraction:
+		  [0, 1, 4, 1, 1, 1, 2, 1, 1, 1, 1, 3, 2, 2, 4, 1, 1, 1, 1]
+		estimate = 0.8224670334027873   err < 1e-10
+
+SECTION 3: Estimates by summing the series
+
+        In this section, we simply sum the first 100 terms of     each
+series.  The series converge slowly.  100 terms of     the Basel series gives
+us only three significant digits     of precision.  Note that the rate of
+convergence is     actually decreasing (i.e.  convergence decelerates).  As
+we     attempt to get six, nine, twelve significant digits, we will     need
+increasing numbers of additional terms.
+
+Estimate of π²/6 using 100 terms:
+	B(100) = 1589508694133037873112297928517553859702383498543709859889432834803818131090369901/972186144434381030589657976672623144161975583995746241782720354705517986165248000
+		digits in numerator: 82
+		digits in denominator: 81
+		reference value: 1.6449340668482264, sum: 1.634983900184893
+		error: 0.00995
+	With 100 terms, we get about 3 significant digits.
+	Continued fraction: [1, 1, 1, 1, 2, 1]
+	estimate = 18/11 (1.6363636363636365)
+
+Estimate of π²/12 using 100 terms:
+	A(100) = 1121378584693166324424473405144346805753380529557162018851440969485750658014331/1363514929080478303772311327731589262499264493682673550887405827076462813696000
+		digits in numerator: 79
+		digits in denominator: 79
+		reference value: 0.8224670334241132, sum: 0.8224175333741283
+		error: 0.0000495
+		alternating series error:  -0.0000980
+	With 100 terms, we get about 5 significant digits.
+	Continued fraction: [0, 1, 4, 1, 1, 1, 2, 2]
+	estimate = 88/107 (0.822429906542056)
+
+SECTION 4: Estimates using the speedup
+
+        In this section, we get a speedup of convergence by comparing     the
+two series to two related telescoping series.  The benefit     is that we get
+a substantial boost in the rate of convergence.     But, as with the basic
+series, the rate of convergence     is still decreasing, so we still need a
+lot of terms for marginal     increases in the numbers of significant digits.
+
+Estimate of π²/6 using 20 terms of speedup:
+	B'(20) = 17828996544791569/10838475198270720
+		digits in numerator: 17
+		digits in denominator: 17
+		reference value: 1.6449340668482264, sum: 1.6449727677225472
+		error: -0.00003870
+	With 20 terms, we get about 5 significant digits.
+	Continued fraction: [1, 1, 1, 1, 4, 2, 5]
+	estimate = 278/169 (1.6449704142011834)
+
+Estimate of π²/12 using 20 terms of speedup:
+	A'(20) = 2971439706514277/3612825066090240
+		digits in numerator: 16
+		digits in denominator: 16
+		reference value: 0.8224670334241132, sum: 0.8224698545202291
+		error: -0.000002821
+	With 20 terms, we get about 6 significant digits.
+	Continued fraction: [0, 1, 4, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1]
+	estimate = 593/721 (0.8224687933425797)
+
+Estimate of π²/6 using 40 terms of speedup:
+	B'(40) = 1925275490642301364035007689206669/1170423578749895064791920563840000
+		digits in numerator: 34
+		digits in denominator: 34
+		reference value: 1.6449340668482264, sum: 1.6449390849581549
+		error: -0.000005018
+	With 40 terms, we get about 6 significant digits.
+	Continued fraction: [1, 1, 1, 1, 4, 2, 4, 4]
+	estimate = 959/583 (1.6449399656946826)
+
+Estimate of π²/12 using 40 terms of speedup:
+	A'(40) = 962635025982564669513397336434419/1170423578749895064791920563840000
+		digits in numerator: 33
+		digits in denominator: 34
+		reference value: 0.8224670334241132, sum: 0.8224672190992043
+		error: -0.000000186
+	With 40 terms, we get about 7 significant digits.
+	Continued fraction: [0, 1, 4, 1, 1, 1, 2, 1, 1, 1, 1, 3, 5]
+	estimate = 4327/5261 (0.8224672115567383)
+
+SECTION 5: Convergents of the reference values
+
+        Python floating point can only represent rational numbers --
+irrational algebraic and transcendental numbers can only be     estimated
+with about fifteen to sixteen decimal digits of     precision.  (The actual
+representation is binary.)  Python     does provide us with a way to get the
+actual rational number     represented by a float as a ratio of two integers.
+And rational     numbers have terminating continued fractions...
+
+        In this section, we expand Python's rational estimates into
+continued factions and display the quotients and convergents.     The
+continued fractions for the underlying transcendental numbers     that will
+probably differ in the last few quotients.
+
+    π²/6: 1.6449340668482264
+	  1 1 1
+	  2 1 2
+	  3 1 3/2
+	  4 1 5/3
+	  5 4 23/14
+	  6 2 51/31
+	  7 4 227/138
+	  8 7 1640/997
+	  9 1 1867/1135
+	 10 4 9108/5537
+	 11 2 20083/12209
+	 12 3 69357/42164
+	 13 4 297511/180865
+	 14 10 3044467/1850814
+	 15 1 3341978/2031679
+	 16 2 9728423/5914172
+	 17 1 13070401/7945851
+	 18 1 22798824/13860023
+	 19 1 35869225/21805874
+	 20 20 740183324/449977503
+	 21 1 776052549/471783377
+	 22 5 4620446069/2808894388
+	 23 1 5396498618/3280677765
+	 24 3 20809941923/12650927683
+	 25 1 26206440541/15931605448
+	 26 3 99429263546/60445744027
+	 27 1 125635704087/76377349475
+	 28 4 601972079894/365955141927
+	 29 3 1931551943769/1174242775256
+	 30 1 2533524023663/1540197917183
+	 31 5 14599172062084/8875232361171
+	 32 2 31731868147831/19290662639525
+	 33 233 7408124450506707/4503599627370496
+    π²/12: 0.8224670334241132
+	  1 0 0
+	  2 1 1
+	  3 4 4/5
+	  4 1 5/6
+	  5 1 9/11
+	  6 1 14/17
+	  7 2 37/45
+	  8 1 51/62
+	  9 1 88/107
+	 10 1 139/169
+	 11 1 227/276
+	 12 3 820/997
+	 13 2 1867/2270
+	 14 2 4554/5537
+	 15 4 20083/24418
+	 16 1 24637/29955
+	 17 1 44720/54373
+	 18 1 69357/84328
+	 19 1 114077/138701
+	 20 1 183434/223029
+	 21 1 297511/361730
+	 22 4 1373478/1669949
+	 23 1 1670989/2031679
+	 24 6 11399412/13860023
+	 25 3 35869225/43611748
+	 26 10 370091662/449977503
+	 27 2 776052549/943566754
+	 28 2 1922196760/2337111011
+	 29 1 2698249309/3280677765
+	 30 8 23508191232/28582533131
+	 31 1 26206440541/31863210896
+	 32 1 49714631773/60445744027
+	 33 2 125635704087/152754698950
+	 34 2 300986039947/365955141927
+	 35 7 2232537983716/2714440692439
+	 36 1 2533524023663/3080395834366
+	 37 2 7299586031042/8875232361171
+	 38 4 31731868147831/38581325279050
+	 39 116 3688196291179438/4484308964730971
+	 40 2 7408124450506707/9007199254740992
+    π²: 3.141592653589793
+	  1 3 3
+	  2 7 22/7
+	  3 15 333/106
+	  4 1 355/113
+	  5 292 103993/33102
+	  6 1 104348/33215
+	  7 1 208341/66317
+	  8 1 312689/99532
+	  9 2 833719/265381
+	 10 1 1146408/364913
+	 11 3 4272943/1360120
+	 12 1 5419351/1725033
+	 13 14 80143857/25510582
+	 14 3 245850922/78256779
+	 15 3 817696623/260280919
+	 16 2 1881244168/598818617
+	 17 1 2698940791/859099536
+	 18 3 9978066541/3176117225
+	 19 3 32633140414/10387451211
+	 20 7 238410049439/75888275702
+	 21 2 509453239292/162164002615
+	 22 1 747863288731/238052278317
+	 23 1 1257316528023/400216280932
+	 24 3 4519812872800/1438701121113
+	 25 2 10296942273623/3277618523158
+	 26 42 436991388364966/139098679093749
+	 27 2 884279719003555/281474976710656
+
+EPILOGUE:
+
+        Euler's solution of the Basel problem in 1734, though incomplete, was
+a major advance that cemented his reputation.  The problem, first posed by
+Pietro Mengoli, was to find a closed form expression for the sum of the
+reciprocal square series.  Euler's predecessors, including Leibniz and the
+Bernoulli brothers had been stumped.  But Euler's result, a derivation, was
+actually more general in that he showed how the solution led to a closed form
+expression for the sum of each series of any given reciprocal even power.
+The gap in his derivation was that it was based an an unproven product
+expansion of the sine function.
+
