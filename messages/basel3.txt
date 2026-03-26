@@ -1,5 +1,5 @@
 Python 3.10.12 (main, Mar  3 2026, 11:56:32)
-=========== RESTART: science/demos/basel3.py ===========
+=========== RESTART: /home/eric/repositories/science/demos/basel3.py ===========
 Self-test... ok!
 ------------------------------------------------------------------------
 SECTION 1. Introducing the series
@@ -333,51 +333,51 @@ general term and estimate the error using the integral test.
 
 1 / (k (k² - k)): 3 terms
 terms: 1.0, -0.25, -0.05555555555555555, ...
-            sum = 0.6944444444444444, estimated error: -0.1111111111
+            sum = 0.6944444444444444, estimated error: -0.0555555556
 reference value = 0.6449340668482264,    actual error: -0.0495103776
-     error ratio: actual/guess = 0.44559
+     error ratio: actual/guess = 0.89119
 	π²/6: 1.6944444444, actual 1.6449340668, diff=-0.0495103776
 	   π: 3.1885210783, actual 3.1415926536, diff=-0.0469284247
 
 1 / (k (k² - k)): 5 terms
-            sum = 0.663611111111111, estimated error: -0.0666666667
+            sum = 0.663611111111111, estimated error: -0.0200000000
 reference value = 0.6449340668482264,    actual error: -0.0186770443
-     error ratio: actual/guess = 0.28016
+     error ratio: actual/guess = 0.93385
 	π²/6: 1.6636111111, actual 1.6449340668, diff=-0.0186770443
 	   π: 3.1593775758, actual 3.1415926536, diff=-0.0177849222
 
 1 / (k (k² - k)): 10 terms
-            sum = 0.6497677311665406, estimated error: -0.0333333333
+            sum = 0.6497677311665406, estimated error: -0.0050000000
 reference value = 0.6449340668482264,    actual error: -0.0048336643
-     error ratio: actual/guess = 0.14501
+     error ratio: actual/guess = 0.96673
 	π²/6: 1.6497677312, actual 1.6449340668, diff=-0.0048336643
 	   π: 3.1462050771, actual 3.1415926536, diff=-0.0046124235
 
 1 / (k (k² - k)): 20 terms
-            sum = 0.6461632439130234, estimated error: -0.0166666667
+            sum = 0.6461632439130234, estimated error: -0.0012500000
 reference value = 0.6449340668482264,    actual error: -0.0012291771
-     error ratio: actual/guess = 0.07375
+     error ratio: actual/guess = 0.98334
 	π²/6: 1.6461632439, actual 1.6449340668, diff=-0.0012291771
 	   π: 3.1427662120, actual 3.1415926536, diff=-0.0011735584
 
 1 / (k (k² - k)): 50 terms
-            sum = 0.6451327336215293, estimated error: -0.0066666667
+            sum = 0.6451327336215293, estimated error: -0.0002000000
 reference value = 0.6449340668482264,    actual error: -0.0001986668
-     error ratio: actual/guess = 0.02980
+     error ratio: actual/guess = 0.99333
 	π²/6: 1.6451327336, actual 1.6449340668, diff=-0.0001986668
 	   π: 3.1417823607, actual 3.1415926536, diff=-0.0001897071
 
 1 / (k (k² - k)): 100 terms
-            sum = 0.6449839001848928, estimated error: -0.0033333333
+            sum = 0.6449839001848928, estimated error: -0.0000500000
 reference value = 0.6449340668482264,    actual error: -0.0000498333
-     error ratio: actual/guess = 0.01495
+     error ratio: actual/guess = 0.99667
 	π²/6: 1.6449839002, actual 1.6449340668, diff=-0.0000498333
 	   π: 3.1416402406, actual 3.1415926536, diff=-0.0000475870
 
 1 / (k (k² - k)): 200 terms
-            sum = 0.6449465460149976, estimated error: -0.0016666667
+            sum = 0.6449465460149976, estimated error: -0.0000125000
 reference value = 0.6449340668482264,    actual error: -0.0000124792
-     error ratio: actual/guess = 0.00749
+     error ratio: actual/guess = 0.99833
 	π²/6: 1.6449465460, actual 1.6449340668, diff=-0.0000124792
 	   π: 3.1416045703, actual 3.1415926536, diff=-0.0000119167
 ------------------------------------------------------------------------
