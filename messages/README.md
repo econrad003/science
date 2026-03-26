@@ -29,7 +29,7 @@ To run the file in IDLE, bring up an IDLE interface using the command "idle".  T
 
 *basel1.txt* - IDLE session (edited) - some exercises with the Basel Problem solved by Leonhard Euler in 1735.
 
-*basel2.txt* - IDLE session (minimally edited) - more exercises with the Basel Problem solved by Leonhard Euler in 1735.
+*basel2.txt*, *basel3.txt* - IDLE sessions (minimally edited) - more exercises with the Basel Problem solved by Leonhard Euler in 1735.
 
 *gaussian_rationals.md* - background information about Gaussian rationals
 

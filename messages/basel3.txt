@@ -1,0 +1,563 @@
+Python 3.10.12 (main, Mar  3 2026, 11:56:32)
+=========== RESTART: science/demos/basel3.py ===========
+Self-test... ok!
+------------------------------------------------------------------------
+SECTION 1. Introducing the series
+
+        Here we briefly introduce each of the series and show partial sums
+for five, ten and twenty terms.  Since we represent the terms as rational
+fractions, the sums are exact.
+
+        The ratio of the actual error to the error guesstimate should
+normally be positive and less than or equal to one.  A positive ratio
+indicates that the error estimate actually points in the direction of the
+limiting value.  A ratio larger than one in absolute value indicates that the
+we have underestimated the error.  Ideally we would like the ratio to be
+equal or close to 1, but that usually isn't practical.
+
+5 terms...
+
+        The limit of Basel series and its alternating counterpart are the
+series we want to estimate using partial sums.  The six remaining series (in
+three pairs: a bounded monotone increasing series and its alternating
+counterpart) are the series we will use for comparison.
+
+The Basel series: 5 terms
+terms: 1, 1/4, 1/9, 1/16, 1/25, ...
+            sum = 5269/3600, estimated error: 1/5
+reference value = 1.6449340668482264,    actual error: 0.1813229557
+     error ratio: actual/guess = 0.90661
+	(5269/3600 = 1.4636111111111112, 1/5=0.2)
+	Limit: π² / 6
+	This is the Basel series whose limit was first found by Euler
+
+The alternating Basel series: 5 terms
+terms: 1, -1/4, 1/9, -1/16, 1/25, ...
+            sum = 3019/3600, estimated error: -1/36
+reference value = 0.8224670334241132,    actual error: -0.0161440777
+     error ratio: actual/guess = 0.58119
+	(3019/3600 = 0.8386111111111111, -1/36=-0.0277777778)
+	Limit: π² / 12
+	This alternating series is closely related to the Basel series
+
+1/(k²-1) series: 5 terms
+terms: 0, 1/3, 1/8, 1/15, 1/24, ...
+            sum = 17/30, estimated error: 1/5
+reference value = 0.75,    actual error: 0.1833333333
+     error ratio: actual/guess = 0.91667
+	(17/30 = 0.5666666666666667, 1/5=0.2)
+	Limit: 3/4
+
+Alternating 1/(k²-1) series: 5 terms
+terms: 0, -1/3, 1/8, -1/15, 1/24, ...
+            sum = -7/30, estimated error: -1/35
+reference value = -0.25,    actual error: -0.0166666667
+     error ratio: actual/guess = 0.58333
+	(-7/30 = -0.23333333333333334, -1/35=-0.0285714286)
+	Limit: -1/4
+
+1/(k²-k) series: 5 terms
+terms: 0, 1/2, 1/6, 1/12, 1/20, ...
+            sum = 4/5, estimated error: 1/5
+reference value = 1,    actual error: 0.2000000000
+     error ratio: actual/guess = 1.00000
+	(4/5 = 0.8, 1/5=0.2)
+	Limit: 1
+
+Alternating 1/(k²-k) series: 5 terms
+terms: 0, -1/2, 1/6, -1/12, 1/20, ...
+            sum = -11/30, estimated error: -1/30
+reference value = -0.3862943611198906,    actual error: -0.0196276945
+     error ratio: actual/guess = 0.58883
+	(-11/30 = -0.36666666666666664, -1/30=-0.0333333333)
+	Limit: 1-2 log 2
+	This series is closely related to the alternating harmonic series
+
+1/(k²-1/4) series: 5 terms
+terms: 4/3, 4/15, 4/35, 4/63, 4/99, ...
+            sum = 20/11, estimated error: 1/5
+reference value = 2,    actual error: 0.1818181818
+     error ratio: actual/guess = 0.90909
+	(20/11 = 1.8181818181818181, 1/5=0.2)
+	Limit: 2
+
+Alternating 1/(k²-1/4) series: 5 terms
+terms: 4/3, -4/15, 4/35, -4/63, 4/99, ...
+            sum = 4012/3465, estimated error: -4/143
+reference value = 1.1415926535897931,    actual error: -0.0162717043
+     error ratio: actual/guess = 0.58171
+	(4012/3465 = 1.157864357864358, -4/143=-0.0279720280)
+	Limit: π - 2
+	This series is closely related to the inverse tangent (arctan) series
+
+10 terms...
+
+The Basel series: 10 terms
+            sum = 1968329/1270080, estimated error: 0.1000000000
+reference value = 1.6449340668482264,    actual error: 0.0951663357
+     error ratio: actual/guess = 0.95166
+
+The alternating Basel series: 10 terms
+            sum = 5194387/6350400, estimated error: 0.0082644628
+reference value = 0.8224670334241132,    actual error: 0.0045048578
+     error ratio: actual/guess = 0.54509
+
+1/(k²-1) series: 10 terms
+            sum = 36/55, estimated error: 0.1000000000
+reference value = 0.75,    actual error: 0.0954545455
+     error ratio: actual/guess = 0.95455
+
+Alternating 1/(k²-1) series: 10 terms
+            sum = -14/55, estimated error: 0.0083333333
+reference value = -0.25,    actual error: 0.0045454545
+     error ratio: actual/guess = 0.54545
+
+1/(k²-k) series: 10 terms
+            sum = 9/10, estimated error: 0.1000000000
+reference value = 1,    actual error: 0.1000000000
+     error ratio: actual/guess = 1.00000
+
+Alternating 1/(k²-k) series: 10 terms
+            sum = -493/1260, estimated error: 0.0090909091
+reference value = -0.3862943611198906,    actual error: 0.0049754801
+     error ratio: actual/guess = 0.54730
+
+1/(k²-1/4) series: 10 terms
+            sum = 40/21, estimated error: 0.1000000000
+reference value = 2,    actual error: 0.0952380952
+     error ratio: actual/guess = 0.95238
+
+Alternating 1/(k²-1/4) series: 10 terms
+            sum = 16543952/14549535, estimated error: 4/483
+reference value = 1.1415926535897931,    actual error: 0.0045149394
+     error ratio: actual/guess = 0.54518
+
+20 terms...
+
+The Basel series: 20 terms
+            sum = 17299975731542641/10838475198270720, estimated error: 0.0500000000
+reference value = 1.6449340668482264,    actual error: 0.0487708229
+     error ratio: actual/guess = 0.97542
+
+The alternating Basel series: 20 terms
+            sum = 2967138724292741/3612825066090240, estimated error: 0.0022675737
+reference value = 0.8224670334241132,    actual error: 0.0011876551
+     error ratio: actual/guess = 0.52376
+
+1/(k²-1) series: 20 terms
+            sum = 589/840, estimated error: 0.0500000000
+reference value = 0.75,    actual error: 0.0488095238
+     error ratio: actual/guess = 0.97619
+
+Alternating 1/(k²-1) series: 20 terms
+            sum = -211/840, estimated error: 0.0022727273
+reference value = -0.25,    actual error: 0.0011904762
+     error ratio: actual/guess = 0.52381
+
+1/(k²-k) series: 20 terms
+            sum = 19/20, estimated error: 0.0500000000
+reference value = 1,    actual error: 0.0500000000
+     error ratio: actual/guess = 1.00000
+
+Alternating 1/(k²-k) series: 20 terms
+            sum = -45108541/116396280, estimated error: 0.0023809524
+reference value = -0.3862943611198906,    actual error: 0.0012484452
+     error ratio: actual/guess = 0.52435
+
+1/(k²-1/4) series: 20 terms
+            sum = 80/41, estimated error: 0.0500000000
+reference value = 2,    actual error: 0.0487804878
+     error ratio: actual/guess = 0.97561
+
+Alternating 1/(k²-1/4) series: 20 terms
+            sum = 7806786910219936/6845630929362225, estimated error: 4/1763
+reference value = 1.1415926535897931,    actual error: 0.0011883591
+     error ratio: actual/guess = 0.52377
+
+Setting up the series in float mode... complete!
+------------------------------------------------------------------------
+SECTION 2. First Leibniz series comparisons)
+
+    The first set of comparisons involves the following setup:
+
+   1         1             1
+  ---- - -------- = - -------------   whenever k > 1
+   k²     k² - 1       k² (k² - 1)
+------------------------------------------------------------------------
+SECTION 2.1. Basel series (first comparison)
+
+    We first run several comparisons of the Basel series with the first of
+the six series.  We just subtract corresponding terms.  We will tests.
+
+        The terms are increasing montonically to zero.  The First term of the
+combined series is 1 since the Leibniz series starts with k=2. So the partial
+sums decrease monotonically from 1 to the limit of the combined series.
+
+	Limit of series = π²/6 - 3/4
+
+        For the error estimate, we ignore low order terms in the denominator
+of the general term and estimate the error using the integral test.
+
+	Estimated error: E(N) = - 1 / (3N³)
+
+3, 5, 10, 20, 50, 100 and 200 terms...
+
+1 / (k² (k² - 1)): 3 terms
+terms: 1.0, -0.08333333333333331, -0.013888888888888895, ...
+            sum = 0.9027777777777779, estimated error: -0.0123456790
+reference value = 0.8949340668482264,    actual error: -0.0078437109
+     error ratio: actual/guess = 0.63534
+	π²/6: 1.6527777778, actual 1.6449340668, diff=-0.0078437109
+	   π: 3.1490739379, actual 3.1415926536, diff=-0.0074812844
+
+1 / (k² (k² - 1)): 5 terms
+            sum = 0.8969444444444445, estimated error: -0.0026666667
+reference value = 0.8949340668482264,    actual error: -0.0020103776
+     error ratio: actual/guess = 0.75389
+	π²/6: 1.6469444444, actual 1.6449340668, diff=-0.0020103776
+	   π: 3.1435118366, actual 3.1415926536, diff=-0.0019191830
+
+1 / (k² (k² - 1)): 10 terms
+            sum = 0.8952222766210862, estimated error: -0.0003333333
+reference value = 0.8949340668482264,    actual error: -0.0002882098
+     error ratio: actual/guess = 0.86463
+	π²/6: 1.6452222766, actual 1.6449340668, diff=-0.0002882098
+	   π: 3.1418678616, actual 3.1415926536, diff=-0.0002752080
+
+1 / (k² (k² - 1)): 20 terms
+            sum = 0.8949727677225472, estimated error: -0.0000416667
+reference value = 0.8949340668482264,    actual error: -0.0000387009
+     error ratio: actual/guess = 0.92882
+	π²/6: 1.6449727677, actual 1.6449340668, diff=-0.0000387009
+	   π: 3.1416296100, actual 3.1415926536, diff=-0.0000369564
+
+1 / (k² (k² - 1)): 50 terms
+            sum = 0.8949366551901567, estimated error: -0.0000026667
+reference value = 0.8949340668482264,    actual error: -0.0000025883
+     error ratio: actual/guess = 0.97063
+	π²/6: 1.6449366552, actual 1.6449340668, diff=-0.0000025883
+	   π: 3.1415951253, actual 3.1415926536, diff=-0.0000024717
+
+1 / (k² (k² - 1)): 100 terms
+            sum = 0.8949343952343976, estimated error: -0.0000003333
+reference value = 0.8949340668482264,    actual error: -0.0000003284
+     error ratio: actual/guess = 0.98516
+	π²/6: 1.6449343952, actual 1.6449340668, diff=-0.0000003284
+	   π: 3.1415929672, actual 3.1415926536, diff=-0.0000003136
+
+1 / (k² (k² - 1)): 200 terms
+            sum = 0.8949341082040518, estimated error: -0.0000000417
+reference value = 0.8949340668482264,    actual error: -0.0000000414
+     error ratio: actual/guess = 0.99254
+	π²/6: 1.6449341082, actual 1.6449340668, diff=-0.0000000414
+	   π: 3.1415926931, actual 3.1415926536, diff=-0.0000000395
+------------------------------------------------------------------------
+SECTION 2.2. Alternating Basel series (first comparison)
+
+    Now we run several comparisons of the alternating Basel series with the
+alternating form of the first pair.  Again we just subtract corresponding
+terms.  We will tests.
+
+3, 5, 10, 20, 50, 100 and 200 terms...
+
+Alternating 1 / (k² (k² - 1)): 3 terms
+terms: 1.0, 0.08333333333333331, -0.013888888888888895, ...
+            sum = 1.0694444444444444, estimated error: 0.0138888889
+reference value = 1.0724670334241133,    actual error: 0.0030225890
+     error ratio: actual/guess = 0.21763
+	π²/12: 0.8194444444, actual 0.8224670334, diff=0.0030225890
+	   π: 3.1358146204, actual 3.1415926536, diff=0.0057780332
+
+Alternating 1 / (k² (k² - 1)): 5 terms
+            sum = 1.0719444444444444, estimated error: 0.0016666667
+reference value = 1.0724670334241133,    actual error: 0.0005225890
+     error ratio: actual/guess = 0.31355
+	π²/12: 0.8219444444, actual 0.8224670334, diff=0.0005225890
+	   π: 3.1405944236, actual 3.1415926536, diff=0.0009982300
+
+Alternating 1 / (k² (k² - 1)): 10 terms
+            sum = 1.0725076301564398, estimated error: -0.0001010101
+reference value = 1.0724670334241133,    actual error: -0.0000405967
+     error ratio: actual/guess = 0.40191
+	π²/12: 0.8225076302, actual 0.8224670334, diff=-0.0000405967
+	   π: 3.1416701867, actual 3.1415926536, diff=-0.0000775331
+
+Alternating 1 / (k² (k² - 1)): 20 terms
+            sum = 1.0724698545202291, estimated error: -0.0000062657
+reference value = 1.0724670334241133,    actual error: -0.0000028211
+     error ratio: actual/guess = 0.45025
+	π²/12: 0.8224698545, actual 0.8224670334, diff=-0.0000028211
+	   π: 3.1415980415, actual 3.1415926536, diff=-0.0000053879
+
+Alternating 1 / (k² (k² - 1)): 50 terms
+            sum = 1.0724671102574015, estimated error: -0.0000001601
+reference value = 1.0724670334241133,    actual error: -0.0000000768
+     error ratio: actual/guess = 0.48002
+	π²/12: 0.8224671103, actual 0.8224670334, diff=-0.0000000768
+	   π: 3.1415928003, actual 3.1415926536, diff=-0.0000001467
+
+Alternating 1 / (k² (k² - 1)): 100 terms
+            sum = 1.0724670383246229, estimated error: -0.0000000100
+reference value = 1.0724670334241133,    actual error: -0.0000000049
+     error ratio: actual/guess = 0.49000
+	π²/12: 0.8224670383, actual 0.8224670334, diff=-0.0000000049
+	   π: 3.1415926629, actual 3.1415926536, diff=-0.0000000094
+
+Alternating 1 / (k² (k² - 1)): 200 terms
+            sum = 1.0724670337334956, estimated error: -0.0000000006
+reference value = 1.0724670334241133,    actual error: -0.0000000003
+     error ratio: actual/guess = 0.49500
+	π²/12: 0.8224670337, actual 0.8224670334, diff=-0.0000000003
+	   π: 3.1415926542, actual 3.1415926536, diff=-0.0000000006
+------------------------------------------------------------------------
+SECTION 3. Second Leibniz series comparisons)
+
+    The second set of comparisons involves the following setup:
+
+   1         1              1
+  ---- - -------- = - -------------   whenever k > 1
+   k²     k² - k       k (k² - k)
+------------------------------------------------------------------------
+SECTION 3.1. Basel series (second comparison)
+
+        We again take the difference term by term.
+
+	Limit of series = π²/6 - 1
+
+        As before, we ignore low order terms in the denominator of the
+general term and estimate the error using the integral test.
+
+	Estimated error: E(N) = - 1 / (2N²)
+
+3, 5, 10, 20, 50, 100 and 200 terms...
+
+1 / (k (k² - k)): 3 terms
+terms: 1.0, -0.25, -0.05555555555555555, ...
+            sum = 0.6944444444444444, estimated error: -0.1111111111
+reference value = 0.6449340668482264,    actual error: -0.0495103776
+     error ratio: actual/guess = 0.44559
+	π²/6: 1.6944444444, actual 1.6449340668, diff=-0.0495103776
+	   π: 3.1885210783, actual 3.1415926536, diff=-0.0469284247
+
+1 / (k (k² - k)): 5 terms
+            sum = 0.663611111111111, estimated error: -0.0666666667
+reference value = 0.6449340668482264,    actual error: -0.0186770443
+     error ratio: actual/guess = 0.28016
+	π²/6: 1.6636111111, actual 1.6449340668, diff=-0.0186770443
+	   π: 3.1593775758, actual 3.1415926536, diff=-0.0177849222
+
+1 / (k (k² - k)): 10 terms
+            sum = 0.6497677311665406, estimated error: -0.0333333333
+reference value = 0.6449340668482264,    actual error: -0.0048336643
+     error ratio: actual/guess = 0.14501
+	π²/6: 1.6497677312, actual 1.6449340668, diff=-0.0048336643
+	   π: 3.1462050771, actual 3.1415926536, diff=-0.0046124235
+
+1 / (k (k² - k)): 20 terms
+            sum = 0.6461632439130234, estimated error: -0.0166666667
+reference value = 0.6449340668482264,    actual error: -0.0012291771
+     error ratio: actual/guess = 0.07375
+	π²/6: 1.6461632439, actual 1.6449340668, diff=-0.0012291771
+	   π: 3.1427662120, actual 3.1415926536, diff=-0.0011735584
+
+1 / (k (k² - k)): 50 terms
+            sum = 0.6451327336215293, estimated error: -0.0066666667
+reference value = 0.6449340668482264,    actual error: -0.0001986668
+     error ratio: actual/guess = 0.02980
+	π²/6: 1.6451327336, actual 1.6449340668, diff=-0.0001986668
+	   π: 3.1417823607, actual 3.1415926536, diff=-0.0001897071
+
+1 / (k (k² - k)): 100 terms
+            sum = 0.6449839001848928, estimated error: -0.0033333333
+reference value = 0.6449340668482264,    actual error: -0.0000498333
+     error ratio: actual/guess = 0.01495
+	π²/6: 1.6449839002, actual 1.6449340668, diff=-0.0000498333
+	   π: 3.1416402406, actual 3.1415926536, diff=-0.0000475870
+
+1 / (k (k² - k)): 200 terms
+            sum = 0.6449465460149976, estimated error: -0.0016666667
+reference value = 0.6449340668482264,    actual error: -0.0000124792
+     error ratio: actual/guess = 0.00749
+	π²/6: 1.6449465460, actual 1.6449340668, diff=-0.0000124792
+	   π: 3.1416045703, actual 3.1415926536, diff=-0.0000119167
+------------------------------------------------------------------------
+SECTION 3.1. Basel series (second comparison)
+
+        And now the alternating comparison.
+
+Alternating 1 / (k (k² - k)): 3 terms
+terms: 1.0, 0.25, -0.05555555555555555, ...
+            sum = 1.1944444444444444, estimated error: 0.0555555556
+reference value = 1.2087613945440037,    actual error: 0.0143169501
+     error ratio: actual/guess = 0.25771
+	π²/12: 0.8081500833, actual 0.8224670334, diff=0.0143169501
+	   π: 3.1141292523, actual 3.1415926536, diff=0.0274634013
+
+Alternating 1 / (k (k² - k)): 5 terms
+            sum = 1.2052777777777777, estimated error: 0.0100000000
+reference value = 1.2087613945440037,    actual error: 0.0034836168
+     error ratio: actual/guess = 0.34836
+	π²/12: 0.8189834167, actual 0.8224670334, diff=0.0034836168
+	   π: 3.1349323756, actual 3.1415926536, diff=0.0066602779
+
+Alternating 1 / (k (k² - k)): 10 terms
+            sum = 1.2092320168808264, estimated error: -0.0011111111
+reference value = 1.2087613945440037,    actual error: -0.0004706223
+     error ratio: actual/guess = 0.42356
+	π²/12: 0.8229376558, actual 0.8224670334, diff=-0.0004706223
+	   π: 3.1424913475, actual 3.1415926536, diff=-0.0008986939
+
+Alternating 1 / (k (k² - k)): 20 terms
+            sum = 1.2088221846806089, estimated error: -0.0001315789
+reference value = 1.2087613945440037,    actual error: -0.0000607901
+     error ratio: actual/guess = 0.46201
+	π²/12: 0.8225278236, actual 0.8224670334, diff=-0.0000607901
+	   π: 3.1417087521, actual 3.1415926536, diff=-0.0001160985
+
+Alternating 1 / (k (k² - k)): 50 terms
+            sum = 1.2087653529778655, estimated error: -0.0000081633
+reference value = 1.2087613945440037,    actual error: -0.0000039584
+     error ratio: actual/guess = 0.48491
+	π²/12: 0.8224709919, actual 0.8224670334, diff=-0.0000039584
+	   π: 3.1416002136, actual 3.1415926536, diff=-0.0000075600
+
+Alternating 1 / (k (k² - k)): 100 terms
+            sum = 1.2087618919945184, estimated error: -0.0000010101
+reference value = 1.2087613945440037,    actual error: -0.0000004975
+     error ratio: actual/guess = 0.49248
+	π²/12: 0.8224675309, actual 0.8224670334, diff=-0.0000004975
+	   π: 3.1415936037, actual 3.1415926536, diff=-0.0000009501
+
+Alternating 1 / (k (k² - k)): 200 terms
+            sum = 1.208761456886198, estimated error: -0.0000001256
+reference value = 1.2087613945440037,    actual error: -0.0000000623
+     error ratio: actual/guess = 0.49624
+	π²/12: 0.8224670958, actual 0.8224670334, diff=-0.0000000623
+	   π: 3.1415927727, actual 3.1415926536, diff=-0.0000001191
+------------------------------------------------------------------------
+SECTION 4. Second Leibniz series comparisons)
+
+    The final set of comparisons involves the following setup:
+
+   1         1               1/4
+  ---- - ---------- = - -------------   for all k
+   k²     k² - 1/4       k (k² - k)
+------------------------------------------------------------------------
+SECTION 4.1. Basel series (third comparison)
+
+        We again take the difference.
+
+	Limit of series = π²/6 - 2   (This value is negative!)
+
+        As before, we ignore low order terms in the denominator of the
+general term and estimate the error using the integral test.
+
+	Estimated error: E(N) = - 1 / (3N³)
+
+3, 5, 10, 20, 50, 100 and 200 terms...
+
+1 / (k (k² - 1/4)): 3 terms
+terms: -0.33333333333333326, -0.016666666666666663, -0.003174603174603177, ...
+            sum = -0.3531746031746031, estimated error: -0.0123456790
+reference value = -0.3550659331517736,    actual error: -0.0018913300
+     error ratio: actual/guess = 0.15320
+	π²/6: 1.6468253968, actual 1.6449340668, diff=-0.0018913300
+	   π: 3.1433982218, actual 3.1415926536, diff=-0.0018055682
+
+1 / (k (k² - 1/4)): 5 terms
+            sum = -0.354570707070707, estimated error: -0.0026666667
+reference value = -0.3550659331517736,    actual error: -0.0004952261
+     error ratio: actual/guess = 0.18571
+	π²/6: 1.6454292929, actual 1.6449340668, diff=-0.0004952261
+	   π: 3.1420655241, actual 3.1415926536, diff=-0.0004728705
+
+1 / (k (k² - 1/4)): 10 terms
+            sum = -0.35499417359536395, estimated error: -0.0003333333
+reference value = -0.3550659331517736,    actual error: -0.0000717596
+     error ratio: actual/guess = 0.21528
+	π²/6: 1.6450058264, actual 1.6449340668, diff=-0.0000717596
+	   π: 3.1416611782, actual 3.1415926536, diff=-0.0000685246
+
+1 / (k (k² - 1/4)): 20 terms
+            sum = -0.3550562682820985, estimated error: -0.0000416667
+reference value = -0.3550659331517736,    actual error: -0.0000096649
+     error ratio: actual/guess = 0.23196
+	π²/6: 1.6449437317, actual 1.6449340668, diff=-0.0000096649
+	   π: 3.1416018828, actual 3.1415926536, diff=-0.0000092293
+
+1 / (k (k² - 1/4)): 50 terms
+            sum = -0.3550652861804508, estimated error: -0.0000026667
+reference value = -0.3550659331517736,    actual error: -0.0000006470
+     error ratio: actual/guess = 0.24261
+	π²/6: 1.6449347138, actual 1.6449340668, diff=-0.0000006470
+	   π: 3.1415932714, actual 3.1415926536, diff=-0.0000006178
+
+1 / (k (k² - 1/4)): 100 terms
+            sum = -0.35506585105888816, estimated error: -0.0000003333
+reference value = -0.3550659331517736,    actual error: -0.0000000821
+     error ratio: actual/guess = 0.24628
+	π²/6: 1.6449341489, actual 1.6449340668, diff=-0.0000000821
+	   π: 3.1415927320, actual 3.1415926536, diff=-0.0000000784
+
+1 / (k (k² - 1/4)): 200 terms
+            sum = -0.35506592281293287, estimated error: -0.0000000417
+reference value = -0.3550659331517736,    actual error: -0.0000000103
+     error ratio: actual/guess = 0.24813
+	π²/6: 1.6449340772, actual 1.6449340668, diff=-0.0000000103
+	   π: 3.1415926635, actual 3.1415926536, diff=-0.0000000099
+------------------------------------------------------------------------
+SECTION 4.1. Basel series (third comparison)
+
+        And now the alternating comparison.
+
+Alternating 1 / (k (k² - 1/4)): 3 terms
+terms: -0.33333333333333326, 0.016666666666666663, -0.003174603174603177, ...
+            sum = -0.31984126984126976, estimated error: 0.0031746032
+reference value = -0.3191256201656799,    actual error: 0.0007156497
+     error ratio: actual/guess = 0.22543
+	π²/12: 0.8217513837, actual 0.8224670334, diff=0.0007156497
+	   π: 3.1402255659, actual 3.1415926536, diff=0.0013670876
+
+Alternating 1 / (k (k² - 1/4)): 5 terms
+            sum = -0.3192532467532467, estimated error: 0.0004040404
+reference value = -0.3191256201656799,    actual error: 0.0001276266
+     error ratio: actual/guess = 0.31588
+	π²/12: 0.8223394068, actual 0.8224670334, diff=0.0001276266
+	   π: 3.1413488953, actual 3.1415926536, diff=0.0002437583
+
+Alternating 1 / (k (k² - 1/4)): 10 terms
+            sum = -0.31911553855651226, estimated error: -0.0000250627
+reference value = -0.3191256201656799,    actual error: -0.0000100816
+     error ratio: actual/guess = 0.40226
+	π²/12: 0.8224771150, actual 0.8224670334, diff=-0.0000100816
+	   π: 3.1416119080, actual 3.1415926536, diff=-0.0000192544
+
+Alternating 1 / (k (k² - 1/4)): 20 terms
+            sum = -0.3191249161429636, estimated error: -0.0000015635
+reference value = -0.3191256201656799,    actual error: -0.0000007040
+     error ratio: actual/guess = 0.45029
+	π²/12: 0.8224677374, actual 0.8224670334, diff=-0.0000007040
+	   π: 3.1415939982, actual 3.1415926536, diff=-0.0000013446
+
+Alternating 1 / (k (k² - 1/4)): 50 terms
+            sum = -0.3191256009630013, estimated error: -0.0000000400
+reference value = -0.3191256201656799,    actual error: -0.0000000192
+     error ratio: actual/guess = 0.48002
+	π²/12: 0.8224670526, actual 0.8224670334, diff=-0.0000000192
+	   π: 3.1415926903, actual 3.1415926536, diff=-0.0000000367
+
+Alternating 1 / (k (k² - 1/4)): 100 terms
+            sum = -0.31912561894064345, estimated error: -0.0000000025
+reference value = -0.3191256201656799,    actual error: -0.0000000012
+     error ratio: actual/guess = 0.49000
+	π²/12: 0.8224670346, actual 0.8224670334, diff=-0.0000000012
+	   π: 3.1415926559, actual 3.1415926536, diff=-0.0000000023
+
+Alternating 1 / (k (k² - 1/4)): 200 terms
+            sum = -0.31912562008833617, estimated error: -0.0000000002
+reference value = -0.3191256201656799,    actual error: -0.0000000001
+     error ratio: actual/guess = 0.49500
+	π²/12: 0.8224670335, actual 0.8224670334, diff=-0.0000000001
+	   π: 3.1415926537, actual 3.1415926536, diff=-0.0000000001
+------------------------------------------------------------------------
+SUCCESS!
