@@ -422,7 +422,7 @@ paragraph(msg)
 
 print()
 print("\tEstimated error: E(N) = - 1 / (2N²)")
-G = lambda N: - 1 / (2*N+N)
+G = lambda N: - 1 / (2*N*N)
 
 compare = basel - leibniz2
 compare.rename("1 / (k (k² - k))", "Alternating 1 / (k (k² - k))")
