@@ -10,6 +10,7 @@ Is mathematics discovered or is it invented?
 **2. Primality**  
 **3. Quadratic rational fields**  
 **4. Inequalities and continued fractions**  
+**5. The cyclic rings ℤₙ**  
 
 
 ## 1. Primes
@@ -67,3 +68,13 @@ The integral domain ℤ\[(1+√5)/2\] is referred to as the set of golden intege
 The *inequalities* module is intended for working with *real* quadratic rational numbers, *i.e.* any number which can be found as the root of some quadratic equation with integer coefficients.  This includes integers like 0, 1 or -1728, rational fractions such as 1/2, -42/5 or 355/113, and quadratic surds such as √2, (1+√5)/2 (traditionally known the mean-extreme ratio, now commonly known as the golden ratio) or its complement (1-√5)/2.  It culminates in a class *ContinuedFraction* which expresses real quadratic surds as continued fractions and finds best rational estimates.
 
 See the test module *tests.inequalities* for some applications.  The messages folder contains a test run (*test_inequalities.txt*) with some explanation and some clues for finding help or background material.
+
+# 5. The cyclic rings ℤₙ
+
+The module *utilities.modn* provides basic tools for playing with finite cyclic groups and rings.  The companion module *utilities.modlog* defines discrete logarithms on the groups of units on these rings.
+
+The test file *tests.test1_modn* was used to help verify that the implementation is sound.  It can also serve as a programming guide or *how-to*.
+
+A demonstration module *demos.modn_addition* produces operation tables.  Several demonstrations are included in the documentation file *doc/cyclic_rings.md*.
+
+
