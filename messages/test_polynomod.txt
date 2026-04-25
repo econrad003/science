@@ -1,0 +1,331 @@
+Python 3.10.12 (IDLE session)
+incuding:
+    help for class polynomials.polymod.make_poly(11)
+    9 tests
+======== RESTART: science/tests/test_polymod.py ========
+Help on class ℤ/11[x] in module polynomials.polymod:
+
+class ℤ/11[x](builtins.object)
+ |  ℤ/11[x](*coeffs)
+ |  
+ |  polynomials over the ring ℤ/11
+ |  
+ |  Methods defined here:
+ |  
+ |  __abs__(self)
+ |      for a polynomial, we use the degree
+ |  
+ |  __add__(self, other)
+ |      returns the sum
+ |      
+ |      We use the fact that addition in R is commutative.
+ |  
+ |  __divmod__(self, other)
+ |      division with remainder (division algorithm)
+ |  
+ |  __eq__(self, other)
+ |      equality
+ |  
+ |  __floordiv__(self, other)
+ |      floor division
+ |  
+ |  __getitem__(self, index: int)
+ |      access the coefficients from low to high
+ |      
+ |      If the index is for a coefficient of too high degree, the
+ |      return value is 0.
+ |      
+ |      If the index is negative:
+ |          Returns a[n-index] where n is the number of terms;
+ |          IndexError is raised when n-index is less than zero.
+ |      
+ |      Usage Examples (assuming coefficient ring modulus > 5):
+ |          f = Polynomial(1, 2, 3, 4, 5)   <- constructor
+ |          f(x)=5x⁴+4x³+3x²+2x+1           <- string
+ |          f.coeffs = [1, 2, 3, 4, 5]      <- coefficients
+ |      
+ |              non-negative indexing
+ |          f[0] = 1        constant term
+ |          f[1] = 2        linear coefficient
+ |          f[4] = 5        lead coefficient
+ |          f[5] = 0        index > deg(f)
+ |      
+ |              negative indexing
+ |          f[-1] = 5       lead coefficient
+ |          f[-4] = 2       linear coefficient
+ |          f[-5] = 1       constant term
+ |          f[-6]           raises IndexError
+ |  
+ |  __hash__(self)
+ |      the hash value
+ |  
+ |  __init__(self, *coeffs)
+ |      constructor
+ |  
+ |  __iter__(self)
+ |      the coeffecients from low order to high order, as an iterable
+ |  
+ |  __len__(self)
+ |      return the number of terms, including terms with coefficient zero
+ |  
+ |  __lshift__(self, n: int)
+ |      left shift (e.g. divide by x^n and discard remainder)
+ |  
+ |  __mod__(self, other)
+ |      remainder after division
+ |  
+ |  __mul__(self, other)
+ |      multiplication of polynomials
+ |  
+ |  __neg__(self)
+ |      returns the arithmetic negation
+ |  
+ |  __pos__(self)
+ |      returns the polynomial (no change)
+ |  
+ |  __pow__(self, other: int)
+ |      compute integer powers
+ |  
+ |  __radd__(self, other)
+ |      reversed addition
+ |  
+ |  __rdivmod__(self, other)
+ |      floor division
+ |  
+ |  __rfloordiv__(self, other)
+ |      reversed floor division
+ |  
+ |  __rmod__(self, other)
+ |      remainder after reversed division
+ |  
+ |  __rmul__(self, other)
+ |      reversed multiplication (using commutativity)
+ |  
+ |  __rshift__(self, n: int)
+ |      right shift (e.g. multiply by x^n)
+ |  
+ |  __rsub__(self, other)
+ |      reversed subtraction
+ |  
+ |  __rtruediv__(self, other)
+ |      reversed true division
+ |  
+ |  __str__(self)
+ |      string representation
+ |  
+ |  __sub__(self, other)
+ |      subtraction
+ |  
+ |  __truediv__(self, other)
+ |      true division
+ |  
+ |  apply(self, x: 'R')
+ |      evaluate the polynomial at x
+ |  
+ |  repr(self)
+ |      representation of the instance
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods defined here:
+ |  
+ |  coefficient_ring() from builtins.type
+ |      the class of coefficients
+ |  
+ |  ----------------------------------------------------------------------
+ |  Readonly properties defined here:
+ |  
+ |  D
+ |      formal derivative modulo n
+ |      
+ |      CAVEAT EMPTOR
+ |      
+ |          Although derivatives modulo n are calculated in
+ |          the same way as real derivatives of polynomials,
+ |          the behavior does differ.  There are three situations
+ |          that come up for a given term:
+ |      
+ |              1. If the exponent is a multiple of n, the
+ |                 derivative of the term is zero;
+ |      
+ |              2. If the exponent is a divisor of zero, then
+ |                 the derivative of the term might be zero
+ |                 (depending on the coefficient); and
+ |      
+ |              3. If the coefficient of the term is a divisor
+ |                 of zero, then the derivative of the term
+ |                 might be zero (depending on the exponent).
+ |      
+ |          This implies that an integrable polynomial has
+ |          antiderivatives that don't differ by a constant.
+ |      
+ |          Not all polynomials are integrable.  In particular,
+ |          a polylnomial with a term which is one less than
+ |          a multiple of n won't be integrable.
+ |  
+ |  coeffs
+ |      all the coefficients as a list
+ |  
+ |  deg
+ |      return the degree
+ |      
+ |      deg(0) is defined here as -1.
+ |  
+ |  deriv
+ |      alias for derivative method D
+ |  
+ |  int
+ |      returns a formal antiderivative
+ |      
+ |          The constant term is set to zero.  There are no terms
+ |          whose exponent is a multiple of the modulus or (for
+ |          composite moduli) a multiple of a divisor of zero.)
+ |      
+ |      EXCEPTIONS
+ |      
+ |          If the exponent of the term is one less than a
+ |          divisor of zero, a ZeroDivisionError exception is
+ |          raised.
+ |  
+ |  inverse
+ |      multiplicative inverse
+ |      
+ |      Only when the polynomial has degree 0 and the constant is
+ |      a unit.
+ |  
+ |  reciprocal
+ |      multiplicative inverse (same as self.inverse)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+TEST1: 10 1 2 3 4 5
+  PolyMod.__name__= ℤ/10[x]
+  f(x)=5x⁴+4x³+3x²+2x+1
+  ok!
+TEST2: f(y)=y³+2y²+3y+4
+  ok!
+TEST3: coefficients in f(x)=5x⁴+4x³+3x²+2x+1
+    coefficient list... ok!
+    iter... ok!
+    [n] when n >= 0... ok!
+    [n] when n < 0... ok!
+    right shift... ok!
+    left shift... ok!
+  ok!
+TEST4: multiplication with f(x)=5x⁴+4x³+3x²+2x+1
+    scalar multiplication... ok!
+    monomial multiplication... ok!
+      Example 1:
+           10x⁵+8x⁴+6x³+4x²+2x       -- f(x) times 2x
+          +     5x⁴+4x³+3x²+2x+1     -- f(x) times 1
+          + ----------------------
+           10x⁵+2x⁴+10x³+7x²+4x+1    -- sum (modulo 11)
+      ---
+      (2x+1)(5x⁴+4x³+3x²+2x+1)=10x⁵+2x⁴+10x³+7x²+4x+1
+      (3x²+2x+1)(5x⁴+4x³+3x²+2x+1)=4x⁶+5x³+10x²+4x+1
+    multinomial multiplication (mod 11)... ok!
+      *** If a lead coefficient is a zero divisor,
+          the degree of the product may be less than
+          the sum of the degrees ***
+      modulus = 10  (Ring ℤ/10)
+        g(x) = 5x⁴+4x³+3x²+2x+1
+        h(x) = 4x³+3x²+2x+1
+        Product (g*h)(x):
+             1 g(x) =         5x⁴+4x³+3x²+2x+1
+            2x g(x) =         8x⁴+6x³+4x²+2x    <-- note degree
+           3x² g(x) = 5x⁶+2x⁵+9x⁴+6x³+3x²
+           4x³ g(x) = 6x⁶+2x⁵+8x⁴+4x³           <-- note degree
+           ------------------------------------
+           (g*h)(x) = x⁶+4x⁵+4x+1
+         Many terms drop out...
+               x⁷: 4*5 = 20           <- multiple of 10
+               x⁴: 5+8+9+8 = 30       <- multiple of 10
+               x³: 4+6+6+4 = 20       <- multiple of 10
+               x²: 3+4+3=10           <- multiple of 10
+         Also note lead term of 2x g(x)...
+      (5x⁴+4x³+3x²+2x+1)(4x³+3x²+2x+1)=x⁶+4x⁵+4x+1
+    multinomial multiplication (mod 10)... ok!
+  ok!
+TEST5: dividend f(x)=5x⁴+4x³+3x²+2x+1 over ℤ/11
+    division by zero? need exception...
+        ZeroDivisionError successfully raised
+    division by zero? ok!
+    (1)(5x⁴+4x³+3x²+2x+1)+(0)=5x⁴+4x³+3x²+2x+1...ok!
+    (5x³+4x²+3x+2)(x)+(1)=5x⁴+4x³+3x²+2x+1...ok!
+    (5x²+4x+3)(x²)+(2x+1)=5x⁴+4x³+3x²+2x+1...ok!
+    (6x⁵+5x⁴+4x³+3x²+2x+1)(0)+(5x⁴+4x³+3x²+2x+1)=5x⁴+4x³+3x²+2x+1...ok!
+    all 110 linear divisors checked... ok!
+    40 random quadratic divisors checked... ok!
+    20 random cubic divisors checked... ok!
+  ok!
+TEST6: GCD(9x⁵+2x⁴+10x³+6x²+8, 8x⁵+5x⁴+2x³+x²+5x+4)
+    GCD = x³+7x+4  -- expected x³+7x+4
+  ok!
+TEST7: (x+1)^11 == x¹¹+11x¹⁰+3x⁹+9x⁸+5x⁷+7x⁶+7x⁵+5x⁴+9x³+3x²+11x+1
+    expected: x¹¹+11x¹⁰+3x⁹+9x⁸+5x⁷+7x⁶+7x⁵+5x⁴+9x³+3x²+11x+1
+  ok!
+TEST8: continued fractions f(x)/g(x)
+  >>> The continued fraction gives meaning to the quotient.
+  >>> EXAMPLE 1: f(x)=x¹¹+1; g(x)=2x+1
+    terms: 2
+    result = (6x¹⁰+8x⁹+7x⁸+2x⁷+10x⁶+6x⁵+8x⁴+7x³+2x²+10x+6) + 1/(4x+2)
+      n=0  a(x)=6x¹⁰+8x⁹+7x⁸+2x⁷+10x⁶+6x⁵+8x⁴+7x³+2x²+10x+6; b(x)=1
+      n=1  a(x)=2x¹¹+2; b(x)=4x+2
+  >>> EXAMPLE 2: f(x)=x¹¹+1; g(x)=6x²+5x+1
+    terms: 3
+    result = (2x⁹+2x⁸+9x⁷+5x⁶+9x⁵+10x⁴+3x³+5x²+10x) + 1/(6x+10 + 1/(6x+6))
+      n=0  a(x)=2x⁹+2x⁸+9x⁷+5x⁶+9x⁵+10x⁴+3x³+5x²+10x; b(x)=1
+      n=1  a(x)=x¹⁰+10x⁹+8x⁸+10x⁷+5x⁶+7x⁵+8x⁴+5x³+x+1; b(x)=6x+10
+      n=2  a(x)=6x¹¹+6; b(x)=3x²+8x+6
+  >>> The numerator and denominator are recovered up to a scalar
+      multiple of the GCD.
+  ok!
+TEST9: (formal) derivatives and integrals
+     -- FUN FACTS:
+     --              prime modulus
+     --   In (ℤ/3ℤ)[x], the third derivative is always zero!
+     --   In (ℤ/pℤ)[x], the pth derivative is always zero!
+     --   Some polynomials don't have antiderivatives!
+     --
+         f(x) = x⁶+x⁵+x⁴+x³+x²+x+1            modulo 3
+        f'(x) = 2x⁴+x³+2x+1
+       f''(x) = 2x³+2
+      f'''(x) = 0
+  Some antiderivatives modulo 3
+        g(x) = x⁴+x³+x+1
+     (Ig)(x) = 2x⁵+x⁴+2x²+x
+           Ig doesn't have an antiderivative...
+   ZeroDivisionError: order_of: 0 is a zero divisor <----- OK!
+   2x⁵+x⁴+2x²+x does not have an antiderivative!
+     -- FUN FACTS:
+     --              composite modulus
+     --   Numbers which are not relatively prime to the modulus
+     --      are divisors of zero.  If both the exponent of a
+     --      term and the coefficient of the term are divisors
+     --      of zero, then the derivative of the term might be
+     --      zero.  Or it might not.  It will whenever the
+     --      product of the exponent and the coefficient is
+     --      zero.
+     --   For example, in (ℤ/10ℤ)[x]:
+     --      (a) the derivative of 2x^2 is 4x (not zero);
+     --      (b) the derivative of 5x^2 is zero.
+     --   In (ℤ/nℤ)[x], the nth derivative is always zero!
+     --
+    f(x)=2x¹⁴+x¹³+x¹²+2x¹¹+x¹⁰+x⁹+2x⁸+x⁷+x⁶+2x⁵+x⁴+x³+2x²+x+1    modulus=10
+        f^(1)(x)(x)=8x¹³+3x¹²+2x¹¹+2x¹⁰+9x⁸+6x⁷+7x⁶+6x⁵+4x³+3x²+4x+1
+        f^(2)(x)(x)=4x¹²+6x¹¹+2x¹⁰+2x⁷+2x⁶+2x⁵+2x²+6x+4
+        f^(3)(x)(x)=8x¹¹+6x¹⁰+4x⁶+2x⁵+4x+6
+        f^(4)(x)(x)=8x¹⁰+4x⁵+4
+        f^(5)(x)(x)=0
+  ok!
+       g(x)=x¹²+x¹⁰+x⁸+x⁶+x²+1    modulus=10
+    (Ig)(x)=7x¹³+x¹¹+9x⁹+3x⁷+7x³+x
+   ZeroDivisionError: order_of: 2 is a zero divisor <----- OK!
+   7x¹³+x¹¹+9x⁹+3x⁷+7x³+x does not have an antiderivative!
+SUCCESS!
