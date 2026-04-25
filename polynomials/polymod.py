@@ -388,6 +388,66 @@ def _make_poly(R:"Ring", indeterminate:str="x") -> "Class:R[x]":
                 power *= x
             return total
 
+        @property
+        def D(self):
+            """formal derivative modulo n
+
+            CAVEAT EMPTOR
+
+                Although derivatives modulo n are calculated in
+                the same way as real derivatives of polynomials,
+                the behavior does differ.  There are three situations
+                that come up for a given term:
+
+                    1. If the exponent is a multiple of n, the
+                       derivative of the term is zero;
+
+                    2. If the exponent is a divisor of zero, then
+                       the derivative of the term might be zero
+                       (depending on the coefficient); and
+
+                    3. If the coefficient of the term is a divisor
+                       of zero, then the derivative of the term
+                       might be zero (depending on the exponent).
+
+                This implies that an integrable polynomial has
+                antiderivatives that don't differ by a constant.
+
+                Not all polynomials are integrable.  In particular,
+                a polylnomial with a term which is one less than
+                a multiple of n won't be integrable.
+            """
+            a = list()
+            for i in range(1, len(self)):
+                a.append(i * self[i])
+            return Polynomial(a)
+
+        @property
+        def deriv(self):
+            """alias for derivative method D"""
+            return self.D
+
+        @property
+        def int(self):
+            """returns a formal antiderivative
+
+                The constant term is set to zero.  There are no terms
+                whose exponent is a multiple of the modulus or (for
+                composite moduli) a multiple of a divisor of zero.)
+
+            EXCEPTIONS
+
+                If the exponent of the term is one less than a
+                divisor of zero, a ZeroDivisionError exception is
+                raised.
+            """
+            a = [0] + self.coeffs
+            for i in range(len(a)):
+                if a[i] == 0:
+                    continue
+                a[i] /= i           # ZeroDivisionError?
+            return Polynomial(a)
+
     Polynomial.__name__ = f"{R.__name__}[{indeterminate}]"
     Polynomial.__doc__ = f"polynomials over the ring {R.__name__}"
     return Polynomial
