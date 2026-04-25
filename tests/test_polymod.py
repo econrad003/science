@@ -20,6 +20,11 @@ LICENSE
 from random import randrange
 from polynomials.polymod import make_poly
 
+def print_doc():
+    """display the help"""
+    PolyMod = make_poly(11)
+    help(PolyMod)
+
 def test1(n, *coeffs):
     """a simple test
 
@@ -351,7 +356,78 @@ def test8():
     print("      multiple of the GCD.")
     print("  ok!")
 
+def test9():
+    """(formal) derivatives and integrals"""
+    print("TEST9:", test9.__doc__)
+    PolyMod = make_poly(3)      # small prime modulus
+    print("     -- FUN FACTS:")
+    print("     --              prime modulus")
+    print("     --   In (ℤ/3ℤ)[x], the third derivative is always zero!")
+    print("     --   In (ℤ/pℤ)[x], the pth derivative is always zero!")
+    print("     --   Some polynomials don't have antiderivatives!")
+    print("     --")
+    f = PolyMod(1,1,1,1,1,1,1)
+    print(f"         f(x) = {f}            modulo 3")
+    print(f"        f'(x) = {f.D}")
+    assert f.D == PolyMod(1, 2, 0, 1, 2)
+    print(f"       f''(x) = {f.D.D}")
+    assert f.D.D == PolyMod(2, 0, 0, 2)
+    print(f"      f'''(x) = {f.D.D.D}")
+    assert f.D.D.D == 0
+    g = PolyMod(1,1,0,1,1)
+    print("  Some antiderivatives modulo 3")
+    print(f"        g(x) = {g}")
+    print(f"     (Ig)(x) = {g.int}")
+    assert g.int == PolyMod(0,1,2,0,1,2)
+    print(f"           Ig doesn't have an antiderivative...")
+    try:
+        g.int.int
+        assert False, f"(IIg)(x) = {str(g.int.int)}"
+    except ZeroDivisionError as msg:
+        print("   ZeroDivisionError:", msg, "<----- OK!")
+        print(f"   {g.int} does not have an antiderivative!")
+    
+    PolyMod = make_poly(10)      # composite modulus
+    R = PolyMod.coefficient_ring()
+    print("     -- FUN FACTS:")
+    print("     --              composite modulus")
+    print("     --   Numbers which are not relatively prime to the modulus")
+    print("     --      are divisors of zero.  If both the exponent of a")
+    print("     --      term and the coefficient of the term are divisors")
+    print("     --      of zero, then the derivative of the term might be")
+    print("     --      zero.  Or it might not.  It will whenever the")
+    print("     --      product of the exponent and the coefficient is")
+    print("     --      zero.")
+    print("     --   For example, in (ℤ/10ℤ)[x]:")
+    print("     --      (a) the derivative of 2x^2 is 4x (not zero);")
+    print("     --      (b) the derivative of 5x^2 is zero.")
+    print("     --   In (ℤ/nℤ)[x], the nth derivative is always zero!")
+    print("     --")
+    f = PolyMod(1,1,2,1,1,2,1,1,2,1,1,2,1,1,2)
+    print(f"    f(x)={f}    modulus=10")
+    i = 0
+    while f != 0:
+        i += 1
+        name = f"f^({i})(x)"
+        f = f.D
+        print(f"        {name}(x)={f}")
+    assert i == 5
+    print("  ok!")
+            #   0 1 2 3 4 5 6 7 8 9 0 1 2
+    g = PolyMod(1,0,1,0,0,0,1,0,1,0,1,0,1)
+    print(f"       g(x)={g}    modulus=10")
+    print(f"    (Ig)(x)={g.int}")
+    assert g.int == PolyMod(0,1,0,R(1)/3,0,0,0,R(1)/7,0,R(1)/9,0,1,0,R(1)/3)
+    try:
+        g.int.int
+        assert False, f"(IIg)(x) = {str(g.int.int)}"
+    except ZeroDivisionError as msg:
+        print("   ZeroDivisionError:", msg, "<----- OK!")
+        print(f"   {g.int} does not have an antiderivative!")
+    
+
 if __name__ == "__main__":
+    print_doc()
     test1(10, 1, 2, 3, 4, 5)
     test2()
     test3()
@@ -360,6 +436,7 @@ if __name__ == "__main__":
     test6()
     test7()
     test8()
+    test9()
     print("SUCCESS!")
 
 # END tests.test_polymod
