@@ -11,7 +11,7 @@ Is mathematics discovered or is it invented?
 **3. Quadratic rational fields**  
 **4. Inequalities and continued fractions**  
 **5. The cyclic rings ℤₙ**  
-
+**6. Symmetric Groups**  
 
 ## 1. Primes
 
@@ -77,4 +77,167 @@ The test file *tests.test1_modn* was used to help verify that the implementation
 
 A demonstration module *demos.modn_addition* produces operation tables.  Several demonstrations are included in the documentation file *doc/cyclic_rings.md*.
 
+# 6. Symmetric Groups
 
+Let *X* be a set, which we'll refer to an *alphabet*.  The elements are its *letters*.  A permutation of *X* is the set of bijections (1-1 and onto functions) from *X* into *X*.  If we consider a total ordering *O* of *X*, a permutation f acts on the ordering by creating another ordering *O'* in which each entry *x* in *O* is replaced by f(*x*) in *P*.  For example, Let $X$ be the set of digits {1,2,3}, *O* the ordering (1,2,3), and the permutation f which maps {(1,3), (2,2), (3,1)}.  Then *P*=f(*O*)=(3,2,1).
+
+For a finite set *X*, given an ordering *O* we can count the number of "errors" in a permutation f by counting the total number of successors of each entry of f(*O*) which are predecessors in *O*.  For example, for f as above:
+```
+        O = 123                f(O) = 321
+
+            3       3>2, 3>1            (2)
+            2       2>1                 (1)
+            1        ---                (0)
+        Total       3 "errors"
+```
+The number of "errors" will depend on the choice of ordering *O*, but the parity (whether $n$ is even or odd) is independent of the ordering.
+
+The number of permutations of a set grows rapidly with the number of elements in a set.  One can easily store all the permutations of a 4-set or 5-set in computer memory -- for a 10-set, there are 3,628,800 distinct permutations, for a 20-set, the number exceeds 2×10¹⁸...  A symmetric group on a set with *n* elements has *n*! permutations:
+
+<table align="center">
+<thead>
+  <tr>
+    <th style="border-bottom: 2px solid black; padding: 8px;" align="center">
+      <i>X</i>
+    </th>
+    <th style="border-bottom: 2px solid black; padding: 8px;" align="center">
+      |<i>X</i>|=<i>n
+    </th>
+    <th style="border-bottom: 2px solid black; padding: 8px;" align="center">
+      |S(<i>X</i>)|=<i>n</i>!
+    </th>
+  </tr>
+</thead>
+<tdata>
+  <tr>
+    <td align="center">∅</th>
+    <td align="center">0</td>
+    <td align="center">1</td>
+  </tr>
+  <tr>
+    <td align="center">{0}</th>
+    <td align="center">1</td>
+    <td align="center">1</td>
+  </tr>
+  <tr>
+    <td align="center">{0,1}</th>
+    <td align="center">2</td>
+    <td align="center">2</td>
+  </tr>
+  <tr>
+    <td align="center">{0,1,2}</th>
+    <td align="center">3</td>
+    <td align="center">6</td>
+  </tr>
+  <tr>
+    <td align="center">{0,1,2,3}</th>
+    <td align="center">4</td>
+    <td align="center">24</td>
+  </tr>
+  <tr>
+    <td align="center">{0,1,2,3,4}</th>
+    <td align="center">5</td>
+    <td align="center">120</td>
+  </tr>
+  <tr>
+    <td align="center">{0,1,2,3,4,5}</th>
+    <td align="center">6</td>
+    <td align="center">720</td>
+  </tr>
+</tdata>
+</table>
+<center>
+  <b>Table 6.1.</b> Sizes of symmetric groups
+</center>
+
+For programming information and examples, see the test script and the documentation.  Here are tables for the permutation group S₃:
+```
+                        S₃ = S({0,1,2})
+
+    Six permutations:
+        I(012)=012      R₁(012)=120     R₂(012)=201
+        T₀(012)=021     T₁(012)=210     T₂(012)=102
+
+    Legend: I=identity; R-rotation; T-interchange.
+        The subscript n in Tₙ indicates the fixed element.
+
+   Inverses
+	 I  R₁ R₂ T₀ T₁ T₂
+	═══════════════════
+	 I  R₂ R₁ T₀ T₁ T₂
+
+   Composition:
+	 *  ║ I  R₁ R₂ T₀ T₁ T₂
+	════╬═══════════════════
+	 I  ║ I  R₁ R₂ T₀ T₁ T₂        (f*g)(x) = f(g(x))
+	 R₁ ║ R₁ R₂ I  T₂ T₀ T₁
+	 R₂ ║ R₂ I  R₁ T₁ T₂ T₀
+	 T₀ ║ T₀ T₁ T₂ I  R₁ R₂
+	 T₁ ║ T₁ T₂ T₀ R₂ I  R₁
+	 T₂ ║ T₂ T₀ T₁ R₁ R₂ I 
+```
+
+And here are tables for S₄, the permutation group on four "letters":
+```
+                    S₄ = S({0,1,2,3})
+
+    Twenty-four permutations (the names are not standard):
+        I(0123)=0123    H₃(0123)=0132   G₂(0123)=0213
+        C₁(0123)=0231   C₂(0123)=0312   G₃(0123)=0321
+
+        F₁(0123)=1023   P₁(0123)=1032   C₃(0123)=1203
+        R₁(0123)=1230   D₁(0123)=1302   C₄(0123)=1320
+
+        C₅(0123)=2013   D₂(0123)=2031   F₂(0123)=2103
+        C₆(0123)=2130   R₂(0123)=2301   D₃(0123)=2310
+
+        R₃(0123)=3012   C₇(0123)=3021   C₈(0123)=3102
+        F₃(0123)=3120   D₄(0123)=3201   P₃(0123)=3210
+
+    Legend: I - identity; FGH - simple swaps, C - 3-cycles;
+            R-rotations; D - 4-cycles (except rotations);
+            P - disjoint products of interchanges (except R₂).
+
+           1 identity element (I)
+           6 2-cycles (F, G, H)
+           3 products of disjoint 2-cycles (P and R₂)
+           8 3-cycles (C)
+           6 4-cycles (D and R₁, R₃)
+         ━━━━
+          24 permutations
+
+                Inverses:
+I  H₃ G₂ C₁ C₂ G₃ F₁ P₁ C₃ R₁ D₁ C₄ C₅ D₂ F₂ C₆ R₂ D₃ R₃ C₇ C₈ F₃ D₄ P₃
+═══════════════════════════════════════════════════════════════════════
+I  H₃ G₂ C₂ C₁ G₃ F₁ P₁ C₅ R₃ D₂ C₇ C₃ D₁ F₂ C₈ R₂ D₄ R₁ C₄ C₆ F₃ D₃ P₃
+
+                Composition:
+* ║ I  H₃ G₂ C₁ C₂ G₃ F₁ P₁ C₃ R₁ D₁ C₄ C₅ D₂ F₂ C₆ R₂ D₃ R₃ C₇ C₈ F₃ D₄ P₃
+══╬════════════════════════════════════════════════════════════════════════
+I ║ I  H₃ G₂ C₁ C₂ G₃ F₁ P₁ C₃ R₁ D₁ C₄ C₅ D₂ F₂ C₆ R₂ D₃ R₃ C₇ C₈ F₃ D₄ P₃
+H₃║ H₃ I  C₂ G₃ G₂ C₁ P₁ F₁ D₁ C₄ C₃ R₁ R₃ C₇ C₈ F₃ D₄ P₃ C₅ D₂ F₂ C₆ R₂ D₃
+G₂║ G₂ C₁ I  H₃ G₃ C₂ C₅ D₂ F₂ C₆ R₂ D₃ F₁ P₁ C₃ R₁ D₁ C₄ C₇ R₃ D₄ P₃ C₈ F₃
+C₁║ C₁ G₂ G₃ C₂ I  H₃ D₂ C₅ R₂ D₃ F₂ C₆ C₇ R₃ D₄ P₃ C₈ F₃ F₁ P₁ C₃ R₁ D₁ C₄
+C₂║ C₂ G₃ H₃ I  C₁ G₂ R₃ C₇ C₈ F₃ D₄ P₃ P₁ F₁ D₁ C₄ C₃ R₁ D₂ C₅ R₂ D₃ F₂ C₆
+G₃║ G₃ C₂ C₁ G₂ H₃ I  C₇ R₃ D₄ P₃ C₈ F₃ D₂ C₅ R₂ D₃ F₂ C₆ P₁ F₁ D₁ C₄ C₃ R₁
+F₁║ F₁ P₁ C₃ R₁ D₁ C₄ I  H₃ G₂ C₁ C₂ G₃ F₂ C₆ C₅ D₂ D₃ R₂ C₈ F₃ R₃ C₇ P₃ D₄
+P₁║ P₁ F₁ D₁ C₄ C₃ R₁ H₃ I  C₂ G₃ G₂ C₁ C₈ F₃ R₃ C₇ P₃ D₄ F₂ C₆ C₅ D₂ D₃ R₂
+C₃║ C₃ R₁ F₁ P₁ C₄ D₁ F₂ C₆ C₅ D₂ D₃ R₂ I  H₃ G₂ C₁ C₂ G₃ F₃ C₈ P₃ D₄ R₃ C₇
+R₁║ R₁ C₃ C₄ D₁ F₁ P₁ C₆ F₂ D₃ R₂ C₅ D₂ F₃ C₈ P₃ D₄ R₃ C₇ I  H₃ G₂ C₁ C₂ G₃
+D₁║ D₁ C₄ P₁ F₁ R₁ C₃ C₈ F₃ R₃ C₇ P₃ D₄ H₃ I  C₂ G₃ G₂ C₁ C₆ F₂ D₃ R₂ C₅ D₂
+C₄║ C₄ D₁ R₁ C₃ P₁ F₁ F₃ C₈ P₃ D₄ R₃ C₇ C₆ F₂ D₃ R₂ C₅ D₂ H₃ I  C₂ G₃ G₂ C₁
+C₅║ C₅ D₂ F₂ C₆ R₂ D₃ G₂ C₁ I  H₃ G₃ C₂ C₃ R₁ F₁ P₁ C₄ D₁ D₄ P₃ C₇ R₃ F₃ C₈
+D₂║ D₂ C₅ R₂ D₃ F₂ C₆ C₁ G₂ G₃ C₂ I  H₃ D₄ P₃ C₇ R₃ F₃ C₈ C₃ R₁ F₁ P₁ C₄ D₁
+F₂║ F₂ C₆ C₅ D₂ D₃ R₂ C₃ R₁ F₁ P₁ C₄ D₁ G₂ C₁ I  H₃ G₃ C₂ P₃ D₄ F₃ C₈ C₇ R₃
+C₆║ C₆ F₂ D₃ R₂ C₅ D₂ R₁ C₃ C₄ D₁ F₁ P₁ P₃ D₄ F₃ C₈ C₇ R₃ G₂ C₁ I  H₃ G₃ C₂
+R₂║ R₂ D₃ D₂ C₅ C₆ F₂ D₄ P₃ C₇ R₃ F₃ C₈ C₁ G₂ G₃ C₂ I  H₃ R₁ C₃ C₄ D₁ F₁ P₁
+D₃║ D₃ R₂ C₆ F₂ D₂ C₅ P₃ D₄ F₃ C₈ C₇ R₃ R₁ C₃ C₄ D₁ F₁ P₁ C₁ G₂ G₃ C₂ I  H₃
+R₃║ R₃ C₇ C₈ F₃ D₄ P₃ C₂ G₃ H₃ I  C₁ G₂ D₁ C₄ P₁ F₁ R₁ C₃ R₂ D₃ D₂ C₅ C₆ F₂
+C₇║ C₇ R₃ D₄ P₃ C₈ F₃ G₃ C₂ C₁ G₂ H₃ I  R₂ D₃ D₂ C₅ C₆ F₂ D₁ C₄ P₁ F₁ R₁ C₃
+C₈║ C₈ F₃ R₃ C₇ P₃ D₄ D₁ C₄ P₁ F₁ R₁ C₃ C₂ G₃ H₃ I  C₁ G₂ D₃ R₂ C₆ F₂ D₂ C₅
+F₃║ F₃ C₈ P₃ D₄ R₃ C₇ C₄ D₁ R₁ C₃ P₁ F₁ D₃ R₂ C₆ F₂ D₂ C₅ C₂ G₃ H₃ I  C₁ G₂
+D₄║ D₄ P₃ C₇ R₃ F₃ C₈ R₂ D₃ D₂ C₅ C₆ F₂ G₃ C₂ C₁ G₂ H₃ I  C₄ D₁ R₁ C₃ P₁ F₁
+P₃║ P₃ D₄ F₃ C₈ C₇ R₃ D₃ R₂ C₆ F₂ D₂ C₅ C₄ D₁ R₁ C₃ P₁ F₁ G₃ C₂ C₁ G₂ H₃ I
+```
+
+(The tables were extracted from the testing results.)
