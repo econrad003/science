@@ -1,0 +1,112 @@
+1. Duplicates...
+   msg=ValueError('Permutations: The alphabet may not contain duplicates')
+   ok!
+2. Create groups...
+   Created S(1)...
+   Created S(2)...
+   Created S(3)...
+   Created S(4)...
+   Created S(5)...
+   Created S(6)...
+   Created S(7)...
+   Created S(8)...
+   Created S(9)...
+   Created S(10)...
+   Created S(English)...
+   ok!
+3. Check indices
+   ok!
+4. Working in group S(3)
+   Adding the identity permutation...
+   Adding the three swaps...
+   Adding two non-trivial rotations...
+   Verifying inverses...
+   ok!
+5. Building tables for S(3)...
+   Inverses:
+	 I  R₁ R₂ T₀ T₁ T₂
+	═══════════════════
+	 I  R₂ R₁ T₀ T₁ T₂
+
+   Composition:
+	 *  ║ I  R₁ R₂ T₀ T₁ T₂
+	════╬═══════════════════
+	 I  ║ I  R₁ R₂ T₀ T₁ T₂
+	 R₁ ║ R₁ R₂ I  T₂ T₀ T₁
+	 R₂ ║ R₂ I  R₁ T₁ T₂ T₀
+	 T₀ ║ T₀ T₁ T₂ I  R₁ R₂
+	 T₁ ║ T₁ T₂ T₀ R₂ I  R₁
+	 T₂ ║ T₂ T₀ T₁ R₁ R₂ I 
+
+   ok!
+6. Building tables for S(4)...
+   S(4) I  [0123]->[0123]
+   S(4) H₃ [0123]->[0132]
+   S(4) G₂ [0123]->[0213]
+   S(4) C₁ [0123]->[0231]
+   S(4) C₂ [0123]->[0312]
+   S(4) G₃ [0123]->[0321]
+   S(4) F₁ [0123]->[1023]
+   S(4) P₁ [0123]->[1032]
+   S(4) C₃ [0123]->[1203]
+   S(4) R₁ [0123]->[1230]
+   S(4) D₁ [0123]->[1302]
+   S(4) C₄ [0123]->[1320]
+   S(4) C₅ [0123]->[2013]
+   S(4) D₂ [0123]->[2031]
+   S(4) F₂ [0123]->[2103]
+   S(4) C₆ [0123]->[2130]
+   S(4) R₂ [0123]->[2301]
+   S(4) D₃ [0123]->[2310]
+   S(4) R₃ [0123]->[3012]
+   S(4) C₇ [0123]->[3021]
+   S(4) C₈ [0123]->[3102]
+   S(4) F₃ [0123]->[3120]
+   S(4) D₄ [0123]->[3201]
+   S(4) P₃ [0123]->[3210]
+
+   Legend:
+       1 identity element (I)
+       6 2-cycles (F, G, H)
+       3 products of disjoint 2-cycles (P and R₂)
+       8 3-cycles (C)
+       6 4-cycles (D and R₁, R₃)
+     ━━━━
+      24 permutations  (4 of these (I, R₁, R₂, R₃) are rotations
+
+   Inverses:
+     I  H₃ G₂ C₁ C₂ G₃ F₁ P₁ C₃ R₁ D₁ C₄ C₅ D₂ F₂ C₆ R₂ D₃ R₃ C₇ C₈ F₃ D₄ P₃
+    ═════════════════════════════════════════════════════════════════════════
+     I  H₃ G₂ C₂ C₁ G₃ F₁ P₁ C₅ R₃ D₂ C₇ C₃ D₁ F₂ C₈ R₂ D₄ R₁ C₄ C₆ F₃ D₃ P₃
+
+   Composition:
+    * ║ I  H₃ G₂ C₁ C₂ G₃ F₁ P₁ C₃ R₁ D₁ C₄ C₅ D₂ F₂ C₆ R₂ D₃ R₃ C₇ C₈ F₃ D₄ P₃
+   ═══╬═════════════════════════════════════════════════════════════════════════
+    I ║ I  H₃ G₂ C₁ C₂ G₃ F₁ P₁ C₃ R₁ D₁ C₄ C₅ D₂ F₂ C₆ R₂ D₃ R₃ C₇ C₈ F₃ D₄ P₃
+    H₃║ H₃ I  C₂ G₃ G₂ C₁ P₁ F₁ D₁ C₄ C₃ R₁ R₃ C₇ C₈ F₃ D₄ P₃ C₅ D₂ F₂ C₆ R₂ D₃
+    G₂║ G₂ C₁ I  H₃ G₃ C₂ C₅ D₂ F₂ C₆ R₂ D₃ F₁ P₁ C₃ R₁ D₁ C₄ C₇ R₃ D₄ P₃ C₈ F₃
+    C₁║ C₁ G₂ G₃ C₂ I  H₃ D₂ C₅ R₂ D₃ F₂ C₆ C₇ R₃ D₄ P₃ C₈ F₃ F₁ P₁ C₃ R₁ D₁ C₄
+    C₂║ C₂ G₃ H₃ I  C₁ G₂ R₃ C₇ C₈ F₃ D₄ P₃ P₁ F₁ D₁ C₄ C₃ R₁ D₂ C₅ R₂ D₃ F₂ C₆
+    G₃║ G₃ C₂ C₁ G₂ H₃ I  C₇ R₃ D₄ P₃ C₈ F₃ D₂ C₅ R₂ D₃ F₂ C₆ P₁ F₁ D₁ C₄ C₃ R₁
+    F₁║ F₁ P₁ C₃ R₁ D₁ C₄ I  H₃ G₂ C₁ C₂ G₃ F₂ C₆ C₅ D₂ D₃ R₂ C₈ F₃ R₃ C₇ P₃ D₄
+    P₁║ P₁ F₁ D₁ C₄ C₃ R₁ H₃ I  C₂ G₃ G₂ C₁ C₈ F₃ R₃ C₇ P₃ D₄ F₂ C₆ C₅ D₂ D₃ R₂
+    C₃║ C₃ R₁ F₁ P₁ C₄ D₁ F₂ C₆ C₅ D₂ D₃ R₂ I  H₃ G₂ C₁ C₂ G₃ F₃ C₈ P₃ D₄ R₃ C₇
+    R₁║ R₁ C₃ C₄ D₁ F₁ P₁ C₆ F₂ D₃ R₂ C₅ D₂ F₃ C₈ P₃ D₄ R₃ C₇ I  H₃ G₂ C₁ C₂ G₃
+    D₁║ D₁ C₄ P₁ F₁ R₁ C₃ C₈ F₃ R₃ C₇ P₃ D₄ H₃ I  C₂ G₃ G₂ C₁ C₆ F₂ D₃ R₂ C₅ D₂
+    C₄║ C₄ D₁ R₁ C₃ P₁ F₁ F₃ C₈ P₃ D₄ R₃ C₇ C₆ F₂ D₃ R₂ C₅ D₂ H₃ I  C₂ G₃ G₂ C₁
+    C₅║ C₅ D₂ F₂ C₆ R₂ D₃ G₂ C₁ I  H₃ G₃ C₂ C₃ R₁ F₁ P₁ C₄ D₁ D₄ P₃ C₇ R₃ F₃ C₈
+    D₂║ D₂ C₅ R₂ D₃ F₂ C₆ C₁ G₂ G₃ C₂ I  H₃ D₄ P₃ C₇ R₃ F₃ C₈ C₃ R₁ F₁ P₁ C₄ D₁
+    F₂║ F₂ C₆ C₅ D₂ D₃ R₂ C₃ R₁ F₁ P₁ C₄ D₁ G₂ C₁ I  H₃ G₃ C₂ P₃ D₄ F₃ C₈ C₇ R₃
+    C₆║ C₆ F₂ D₃ R₂ C₅ D₂ R₁ C₃ C₄ D₁ F₁ P₁ P₃ D₄ F₃ C₈ C₇ R₃ G₂ C₁ I  H₃ G₃ C₂
+    R₂║ R₂ D₃ D₂ C₅ C₆ F₂ D₄ P₃ C₇ R₃ F₃ C₈ C₁ G₂ G₃ C₂ I  H₃ R₁ C₃ C₄ D₁ F₁ P₁
+    D₃║ D₃ R₂ C₆ F₂ D₂ C₅ P₃ D₄ F₃ C₈ C₇ R₃ R₁ C₃ C₄ D₁ F₁ P₁ C₁ G₂ G₃ C₂ I  H₃
+    R₃║ R₃ C₇ C₈ F₃ D₄ P₃ C₂ G₃ H₃ I  C₁ G₂ D₁ C₄ P₁ F₁ R₁ C₃ R₂ D₃ D₂ C₅ C₆ F₂
+    C₇║ C₇ R₃ D₄ P₃ C₈ F₃ G₃ C₂ C₁ G₂ H₃ I  R₂ D₃ D₂ C₅ C₆ F₂ D₁ C₄ P₁ F₁ R₁ C₃
+    C₈║ C₈ F₃ R₃ C₇ P₃ D₄ D₁ C₄ P₁ F₁ R₁ C₃ C₂ G₃ H₃ I  C₁ G₂ D₃ R₂ C₆ F₂ D₂ C₅
+    F₃║ F₃ C₈ P₃ D₄ R₃ C₇ C₄ D₁ R₁ C₃ P₁ F₁ D₃ R₂ C₆ F₂ D₂ C₅ C₂ G₃ H₃ I  C₁ G₂
+    D₄║ D₄ P₃ C₇ R₃ F₃ C₈ R₂ D₃ D₂ C₅ C₆ F₂ G₃ C₂ C₁ G₂ H₃ I  C₄ D₁ R₁ C₃ P₁ F₁
+    P₃║ P₃ D₄ F₃ C₈ C₇ R₃ D₃ R₂ C₆ F₂ D₂ C₅ C₄ D₁ R₁ C₃ P₁ F₁ G₃ C₂ C₁ G₂ H₃ I 
+
+   ok!
+All tests passed.
+SUCCESS!
