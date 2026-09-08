@@ -1,0 +1,176 @@
+Testing: ['3']
+------------------------------------------------------------------------
+PostLogic: 3 worlds, maximum truth values (3, 2, 4)
+PostLogic:    weak S6-type necessity
+Truth levels for the actual world (world 0): (0, 1, 2, 3)
+Truth levels for the other world 1: (0, 1, 2)
+Truth levels for the other world 2: (0, 1, 2, 3, 4)
+Truth values: (000, 001, 002, 003, 004, 010, 011, 012, 013, 014, 020, 021, 022, 023, 024, 100, 101, 102, 103, 104, 110, 111, 112, 113, 114, 120, 121, 122, 123, 124, 200, 201, 202, 203, 204, 210, 211, 212, 213, 214, 220, 221, 222, 223, 224, 300, 301, 302, 303, 304, 310, 311, 312, 313, 314, 320, 321, 322, 323, 324)
+
+There are 60 possible truth values (5 levels in each of three worlds),
+*** Verification time for an n-variable expression is proportional to 60^nL,
+where L is the length of the expression.
+*** The associative laws and distributive laws tests each run
+through 216000 cases!
+
+verifying the NOT operation...ok!
+verifying the AND operation...ok!
+verifying the OR operation...ok!
+verifying the IMP operation...ok!
+verifying the STRUE operation...ok!
+verifying the WTRUE operation...ok!
+verifying the Brouwerian S6 NECESSARILY operation...ok!
+  Example 1: p=111 □p=000 since 1/4<1/3<1/2
+  Example 2: p=112 □p=100 since 1/3<1/2=2/4
+  Example 3: p=213 □p=100 since 1/2<2/3<3/4 and 1/2>1/3
+  Table for NECESSARILY: (always false in other worlds!)
+	p=0** or *0* or **0, □p=000
+	p=111, □p=000
+	p=112, □p=100
+	p=113, □p=100
+	p=114, □p=100
+	p=121, □p=000
+	p=122, □p=100
+	p=123, □p=100
+	p=124, □p=100
+	p=211, □p=000
+	p=212, □p=100
+	p=213, □p=100
+	p=214, □p=100
+	p=221, □p=000
+	p=222, □p=100
+	p=223, □p=200
+	p=224, □p=200
+	p=311, □p=000
+	p=312, □p=100
+	p=313, □p=100
+	p=314, □p=100
+	p=321, □p=000
+	p=322, □p=100
+	p=323, □p=200
+	p=324, □p=300
+Brouwerian axiom for Lewis S6-S8
+    ⊦◇◇p	ok!
+Axiom for Lewis S4
+    ⊦□p⊃□□p	(this sometimes fails)
+ok!  (fails for p=112, result=224)
+ok!  (fails for p=113, result=224)
+ok!  (fails for p=114, result=224)
+ok!  (fails for p=122, result=224)
+ok!  (fails for p=123, result=224)
+ok!  (fails for p=124, result=224)
+ok!  (fails for p=212, result=224)
+ok!  (fails for p=213, result=224)
+ok!  (fails for p=214, result=224)
+ok!  (fails for p=222, result=224)
+ok!  (fails for p=223, result=124)
+ok!  (fails for p=224, result=124)
+ok!  (fails for p=312, result=224)
+ok!  (fails for p=313, result=224)
+ok!  (fails for p=314, result=224)
+ok!  (fails for p=322, result=224)
+ok!  (fails for p=323, result=124)
+ok!  (fails for p=324, result=024)
+verifying the ACTUALLY operation...ok!
+  Table for ACTUALLY:  (other world levels are ignored)
+	p=0**  actually(p)=000
+	p=1**  actually(p)=101
+	p=2**  actually(p)=212
+	p=3**  actually(p)=324
+changing the NECESSARILY operation...
+verifying the Lewis S4 NECESSARILY operation...ok!
+  Table for S4-style NECESSARILY:
+	p=0** or *0* or **0, □p=000
+	p=111, □p=001
+	p=112, □p=101
+	p=113, □p=101
+	p=114, □p=101
+	p=121, □p=001
+	p=122, □p=101
+	p=123, □p=101
+	p=124, □p=101
+	p=211, □p=001
+	p=212, □p=112
+	p=213, □p=112
+	p=214, □p=112
+	p=221, □p=001
+	p=222, □p=112
+	p=223, □p=212
+	p=224, □p=212
+	p=311, □p=001
+	p=312, □p=112
+	p=313, □p=112
+	p=314, □p=112
+	p=321, □p=001
+	p=322, □p=112
+	p=323, □p=213
+	p=324, □p=324
+Brouwerian axiom for Lewis S6-S8
+    ⊦◇◇p	(this sometimes fails)
+ok!  (fails for p=000, result=000)
+ok!  (fails for p=001, result=212)
+ok!  (fails for p=002, result=223)
+ok!  (fails for p=010, result=223)
+ok!  (fails for p=011, result=223)
+ok!  (fails for p=012, result=223)
+ok!  (fails for p=100, result=212)
+ok!  (fails for p=101, result=212)
+ok!  (fails for p=102, result=223)
+ok!  (fails for p=110, result=223)
+ok!  (fails for p=111, result=223)
+ok!  (fails for p=112, result=223)
+Axiom for Lewis S4
+    ⊦□p⊃□□p	(this can fail with intermediate values)
+ok!  (fails for p=111, result=323)
+ok!  (fails for p=112, result=223)
+ok!  (fails for p=113, result=223)
+ok!  (fails for p=114, result=223)
+ok!  (fails for p=121, result=323)
+ok!  (fails for p=122, result=223)
+ok!  (fails for p=123, result=223)
+ok!  (fails for p=124, result=223)
+ok!  (fails for p=211, result=323)
+ok!  (fails for p=212, result=313)
+ok!  (fails for p=213, result=313)
+ok!  (fails for p=214, result=313)
+ok!  (fails for p=221, result=323)
+ok!  (fails for p=222, result=313)
+ok!  (fails for p=223, result=224)
+ok!  (fails for p=224, result=224)
+ok!  (fails for p=311, result=323)
+ok!  (fails for p=312, result=313)
+ok!  (fails for p=313, result=313)
+ok!  (fails for p=314, result=313)
+ok!  (fails for p=321, result=323)
+ok!  (fails for p=322, result=313)
+ok!  (fails for p=323, result=223)
+Warning: Fails in 23 cases!
+changing the NECESSARILY operation back...
+verifying the Brouwerian S6 NECESSARILY operation...ok!
+	Top and bottom lattice elements
+  A1) ⊦(p∧0)≡0	ok!
+  A2) ⊦(p∧4)≡p	ok!
+  A3) ⊦(p∨4)≡4	ok!
+  A4) ⊦(p∨0)≡p	ok!
+	Idempotency
+  B1) ⊦(p∧p)≡p	ok!
+  B2) ⊦(p∨p)≡p	ok!
+	Commutativity
+  C1) ⊦(p∧q)≡(q∧p)	ok!
+  C2) ⊦(p∨q)≡(q∨p)	ok!
+	Associativity [be patient!]
+  D1) ⊦((p∧q)∧r)≡(p∧(q∧r))	ok!
+  D2) ⊦((p∨q)∨r)≡(p∨(q∨r))	ok!
+	Absorptivity
+  E1) ⊦((p∧q)∨p)≡p	ok!
+  E2) ⊦((p∨q)∧p)≡p	ok!
+	Distributivity [be patient!]
+  F1) ⊦((p∨q)∧r)≡((p∧r)∨(q∧r))	ok!
+  F2) ⊦((p∧q)∨r)≡((p∨r)∧(q∨r))	ok!
+	DeMorgan's Laws
+  G1) ⊦(p∨q)≡~(~p∧~q)	ok!
+  G2) ⊦(p∧q)≡~(~p∨~q)	ok!
+  G3) ⊦~~p≡p	ok!
+multiple non-isomorphic worlds test completed successfully.
+------------------------------------------------------------------------
+SUCCESS!

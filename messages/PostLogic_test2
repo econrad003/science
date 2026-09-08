@@ -1,0 +1,52 @@
+Testing: ['2']
+------------------------------------------------------------------------
+PostLogic: 3 worlds, truth values [0,4]
+PostLogic:    weak S6-type necessity
+Truth values: (000, 001, 002, 003, 004, 010, 011, 012, 013, 014, 020, 021, 022, 023, 024, 030, 031, 032, 033, 034, 040, 041, 042, 043, 044, 100, 101, 102, 103, 104, 110, 111, 112, 113, 114, 120, 121, 122, 123, 124, 130, 131, 132, 133, 134, 140, 141, 142, 143, 144, 200, 201, 202, 203, 204, 210, 211, 212, 213, 214, 220, 221, 222, 223, 224, 230, 231, 232, 233, 234, 240, 241, 242, 243, 244, 300, 301, 302, 303, 304, 310, 311, 312, 313, 314, 320, 321, 322, 323, 324, 330, 331, 332, 333, 334, 340, 341, 342, 343, 344, 400, 401, 402, 403, 404, 410, 411, 412, 413, 414, 420, 421, 422, 423, 424, 430, 431, 432, 433, 434, 440, 441, 442, 443, 444)
+
+There are 125 possible truth values (5 levels in each of three worlds),
+*** Verification time for an n-variable expression is proportional to 125^nL,
+where L is the length of the expression.
+*** The associative laws and distributive laws tests each run
+through 1953125 cases!
+
+verifying the NOT operation...ok!
+verifying the AND operation...ok!
+verifying the OR operation...ok!
+verifying the IMP operation...ok!
+verifying the STRUE operation...ok!
+verifying the WTRUE operation...ok!
+verifying the Brouwerian S6 NECESSARILY operation...ok!
+verifying the ACTUALLY operation...ok!
+changing the NECESSARILY operation...
+verifying the Lewis S4 NECESSARILY operation...ok!
+changing the NECESSARILY operation back...
+verifying the Brouwerian S6 NECESSARILY operation...ok!
+verifying some standard tautologies:
+	Top and bottom lattice elements
+  A1) ⊦(p∧0)≡0	ok!
+  A2) ⊦(p∧4)≡p	ok!
+  A3) ⊦(p∨4)≡4	ok!
+  A4) ⊦(p∨0)≡p	ok!
+	Idempotency
+  B1) ⊦(p∧p)≡p	ok!
+  B2) ⊦(p∨p)≡p	ok!
+	Commutativity
+  C1) ⊦(p∧q)≡(q∧p)	ok!
+  C2) ⊦(p∨q)≡(q∨p)	ok!
+	Associativity [be patient!]
+  D1) ⊦((p∧q)∧r)≡(p∧(q∧r))	ok!
+  D2) ⊦((p∨q)∨r)≡(p∨(q∨r))	ok!
+	Absorptivity
+  E1) ⊦((p∧q)∨p)≡p	ok!
+  E2) ⊦((p∨q)∧p)≡p	ok!
+	Distributivity [be patient!]
+  F1) ⊦((p∨q)∧r)≡((p∧r)∨(q∧r))	ok!
+  F2) ⊦((p∧q)∨r)≡((p∨r)∧(q∨r))	ok!
+	DeMorgan's Laws
+  G1) ⊦(p∨q)≡~(~p∧~q)	ok!
+  G2) ⊦(p∧q)≡~(~p∨~q)	ok!
+  G3) ⊦~~p≡p	ok!
+multiple isomorphic worlds test completed successfully.
+------------------------------------------------------------------------
+SUCCESS!
