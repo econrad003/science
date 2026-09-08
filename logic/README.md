@@ -1,12 +1,14 @@
 # Models of propositional logic
 
-The classed defined in this folder are intended as a toolbox for testing models of propositional logic with an emphasis of many-valued logics and possible world logics.
+The classed defined in this folder are intended as a toolbox for testing models of propositional logic with an emphasis on many-valued logics and possible world logics.
 
 ## Logic engines
 
 Module *logic.boolean* defines class *BooleanLogic* which can be used in a single world scenario to test conjectures in the classical propositional calculus, and in multiple worlds scenarios, the class can be used to test conjectures in Lewis-style strict implication algebras.  (The multiple worlds scenarios involve only a finite number of worlds, so the Lewis algebras can only be approximated.)
 
 Module *logic.lukasiewicz* defines class *LukasiewiczLogic* which can be used in a single world scenario to test conjectures in finitely many-valued Łukasiewicz logic propositional calculi, and in multiple worlds scenarios, the class can be used to test conjectures in Lewis-style extensions of these Łukasiewicz algebras.
+
+Module *logic.post* defines class *PostLogic* which implements finite Post algebras in single-world and multiple-world scenarios.  Post algebras, developed by Emil Post in 1921, are briefly discussed in Section 4 of Paul Rosenbloom's book *Elements of Mathematical Logic*, originally published by the Dover Press (New York) in 1950.
 
 ## Formulas and rules
 
