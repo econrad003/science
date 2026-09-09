@@ -295,7 +295,7 @@ def pack_levels(obj:callable, p:tuple) -> int:
         s += f"{int(x*d):{w}}"
     return s
 
-def test_unary(obj:callable, op:callable, values:list, expected:list,
+def test_unary(obj:callable, op:callable, values:list, exp:list,
                pv="p"):
     """test a unary operator"""
     w = obj.width * obj.worlds
@@ -319,7 +319,7 @@ def test_unary(obj:callable, op:callable, values:list, expected:list,
         rest = rest + pack_levels(obj, v) + " "
     print(first + rest)
 
-def test_binary(obj:callable, op:callable, values:list, expected:list,
+def test_binary(obj:callable, op:callable, values:list, exp:list,
                 pv="p", qv="q"):
     """test a binary operator"""
     w = obj.width * obj.worlds
