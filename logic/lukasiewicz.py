@@ -102,8 +102,9 @@ class LukasiewiczLogic(object):
         q = p * (self.__m-1)
         if q.denominator == 1:
             return
-        # print(p, var, i, q, self.__m-1)
-        raise ValueError("Component {i} in {var} must be a multiple of {smallest}")
+        smallest = f"1/{self.__m-1}"
+        print("---  ERROR VECTOR:", p, var, i, q, self.__m-1, smallest)
+        raise ValueError(f"Component {i} in {var} must be a multiple of {smallest}")
 
     def _to_vector(self, p):
         """convert to vector"""
