@@ -1,0 +1,115 @@
+Principia Mathematica (Whitehead and Russell, 1910-1913)
+
+DESCRIPTION
+
+    The Principia is a three-volume work on the foundations of
+  mathematics.  It represents a school of thought known as logicism.
+  Superficially, logicism argues that mathematics can be built from
+  logic and set theory.  The Principia begins with the logic of
+  propositions, a True-False or two-valued propositional calculus,
+  which is encapsulated in five propositions and one rule.
+
+    The propositional calculus uses two primitive connectives:
+        ~ -- logical negation, a unary operator which inverts the
+             the truth value
+        ∨ -- disjunction, a binary operator which returns True
+             both of its arguments are false.
+  The five axioms are stated in terms of disjunction and material
+  implication (a defined operator) and, along with the rules of
+  modus ponens and substitution of variable yield a functionally
+  complete system which characterizes the two primitive operators.
+
+DEFINITIONS
+
+  Df1: (p→q) := (~p∨q)             :IpqANpq                material implication
+  Df2: (p∧q) := ~(~p∨~q)           :KpqNANpNq                       conjunction
+  Df3: (p≡q) := ((p→q)∧(q→p))      :EpqKIpqIqp             material equivalence
+
+THESES
+
+  PM1: (p∨p)→p                     IAppp                              tautology
+  PM2: q→(p∨q)                     IqApq                               addition
+  PM3: (p∨q)→(q∨p)                 IApqAqp                          permutation
+  PM4: (p∨(q∨r))→(q∨(p∨r))         IApAqrAqApr                      association
+  PM5: (q→r)→((p∨q)→(p∨r))         IIqrIApqApr                        summation
+
+RULES
+
+  MP: If ⊢(p⊃q) and ⊢p, then ⊢q.                                   modus ponens
+
+Axioms: Principia Mathematica
+Engine: PM
+Satisfied: Df1 Df2 Df3 PM1 PM2 PM3 PM4 PM5 MP
+Engine PM satisfies the axiom system.
+
+Axioms: Principia Mathematica
+Engine: Ł₃
+  ((p→q) := (~p∨q)) = I, when
+    p=I, q=I
+Satisfied: Df2 Df3 PM1 PM2 PM3 PM4 PM5 MP
+Failed: Df1
+One item fails under the engine Ł₃
+
+Axioms: Principia Mathematica
+Engine: G₃
+  ((p→q) := (~p∨q)) = I, when
+    q=I, p=I
+  ((p∧q) := ~(~p∨~q)) = I, when
+    q=I, p=I
+Satisfied: Df3 PM1 PM2 PM3 PM4 PM5 MP
+Failed: Df1 Df2
+2 items fail under the engine G₃
+
+Axioms: Principia Mathematica
+Engine: Ł₄
+  ((p→q) := (~p∨q)) = 2/3, when
+    p=1/3, q=1/3
+Satisfied: Df2 Df3 PM1 PM2 PM3 PM4 PM5 MP
+Failed: Df1
+One item fails under the engine Ł₄
+
+Axioms: Principia Mathematica
+Engine: G₄
+  ((p→q) := (~p∨q)) = 1/3, when
+    q=1/3, p=1/3
+  ((p∧q) := ~(~p∨~q)) = 1/3, when
+    q=1/3, p=1/3
+Satisfied: Df3 PM1 PM2 PM3 PM4 PM5 MP
+Failed: Df1 Df2
+2 items fail under the engine G₄
+
+Axioms: Principia Mathematica
+Engine: Ł₅
+  ((p→q) := (~p∨q)) = 3/4, when
+    q=1/4, p=1/4
+Satisfied: Df2 Df3 PM1 PM2 PM3 PM4 PM5 MP
+Failed: Df1
+One item fails under the engine Ł₅
+
+Axioms: Principia Mathematica
+Engine: G₅
+  ((p→q) := (~p∨q)) = 1/4, when
+    q=1/4, p=1/4
+  ((p∧q) := ~(~p∨~q)) = 1/4, when
+    q=1/4, p=1/4
+Satisfied: Df3 PM1 PM2 PM3 PM4 PM5 MP
+Failed: Df1 Df2
+2 items fail under the engine G₅
+
+REMARKS
+
+    The Pricipia's definition of material eqivalence in terms of
+  disjunction fails for intermediate values in many-valued
+  Łukasiewicz and Gödel-Dummett algebras.  For the Łukasiewicz
+  algebras, we note that, in the expression '~p∨q':
+     if both of the variables take on intermediate value, then
+     both terms and thus the sum will be intermediate in value.
+  For the Gödel-Dummett algebras, note that:
+     If the variable 'p' has an intermediate value, then the
+     first term will be True.
+
+    DeMorgan's Laws fail in Gödel-Dummett algebras because, as
+  the intuitionistic propositional calculus, negation represents
+  impossibility.  Conjunction and disjunction cannot be defined
+  in terms of one another in these algebras with more than two
+  truth values when using only logical negation

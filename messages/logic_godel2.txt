@@ -1,0 +1,230 @@
+Axiom candidates for many-valued algebras.
+
+DESCRIPTION
+
+    Axioms in group 1 (i.e. 1.1 through 1.5) are basic statements
+  about (material) implication and negation.  Group 2 refines negation.
+  Groups 3 and 4 deal with disjunction and conjunction.  Group 5 deals
+  (material) equivalence.  Group 6 includes several distributive laws.
+  Group 7 includes several candidates for definitions, expressed as
+  equivalences.  Group 8 includes some more obscure axioms (all classically
+  valid, of course) which help to differentiate the systems.
+
+    These axioms characterize the two-valued propositional calculus, but
+    are not independent.
+
+THESES
+
+  1.1: p⊃p                         Cpp                                 identity
+  1.2: ~~p⊃p                       CNNpp                        double negation
+  1.3: (p⊃q)⊃(~q⊃~p)               CCpqCNqNp                   contraposition 1
+  1.4: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))     CCpCqrCCpqCpr                    importation
+  1.5: (q⊃r)⊃((p∨q)⊃(p∨r))         CCqrCApqApr                           Pierce
+  1.6: (~p⊃~q)⊃(q⊃p)               CCNpNqCqp                   contraposition 2
+  1.7: (p⊃q)⊃((q⊃r)⊃(p⊃r))         CCpqCCqrCpr           hypothetical syllogism
+  1.8: ((p⊃q)⊃r)⊃(((q⊃p)⊃r)⊃r)     CCCpqrCCCqprr                            ---
+  2.1: (p⊃~p)⊃~p                   CCpNpNp               reductio ad absurdum 1
+  2.2: (~p⊃p)⊃p                    CCNppp                reductio ad absurdum 2
+  2.3: p∨~p                        ApNp                       tertium non datur
+  2.4: ~(p∧~p)                     NKpNp                          contradiction
+  2.5: (p⊃q)∨(q⊃p)                 ACpqCqp                 weak excluded middle
+  2.6: ((p⊃~p)⊃p)⊃p                CCCpNppp                                 ---
+  3.1: (p∨p)⊃p                     CAppp                              tautology
+  3.2: p⊃(p∨q)                     CpApq                               addition
+  3.3: (p∨q)⊃(q∨p)                 CApqAqp                          commutation
+  3.4: (p∨(q∨r))⊃((p∨q)∨r)         CApAqrAApqr                      association
+  3.5: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))     CCprCCqrCApqr                 simple dilemma
+  4.1: p⊃(p∧p)                     CpKpp                              tautology
+  4.2: (p∧q)⊃p                     CKpqp                         simplification
+  4.3: (p∧q)⊃(q∧p)                 CKpqKqp                          commutation
+  4.4: (p∧(q∧r))⊃((p∧q)∧r)         CKpKqrKKpqr                      association
+  4.5: (p⊃q)⊃((p⊃r)⊃(p⊃(q∧r)))     CCpqCCprCpKqr                     adjunction
+  5.1: (p≡q)⊃(q⊃p)                 CEpqCqp                     simplification 2
+  5.2: (p⊃q)⊃((q⊃p)⊃(p≡q))         CCpqCCqpEpq                       adjunction
+  5.3: p≡p                         Epp                              reflexivity
+  5.4: (p≡q)⊃(q≡p)                 CEpqEqp                             symmetry
+  5.5: (p≡q)⊃((q≡r)⊃(p≡r))         CEpqCEqrEpr                     transitivity
+  6.1: ((p∨q)∧r)⊃((p∧r)∨(q∧r))     CKApqrAKprKqr             distributive K/A 1
+  6.2: ((p∧r)∨(q∧r))⊃((p∨q)∧r)     CAKprKqrKApqr             distributive K/A 2
+  6.3: ((p∧q)∨r)⊃((p∨r)∧(q∨r))     CAKpqrKAprAqr             distributive A/K 1
+  6.4: ((p∨r)∧(q∨r))⊃((p∧q)∨r)     CKAprAqrAKpqr             distributive A/K 2
+  7.1: (p⊃q)≡(~p∨q)                ECpqANpq                material implication
+  7.2: (p∨q)≡((p⊃q)⊃q)             EApqCCpqq                        disjunction
+  7.3: (p∨q)≡~(~p∧~q)              EApqNKNpNq                        DeMorgan 1
+  7.4: (p∧q)≡~(~p∨~q)              EKpqNANpNq                        DeMorgan 2
+  7.5: (p≡q)≡((p⊃q)∧(q⊃p))         EEpqKCpqCqp             material equivalence
+  8.1: (p∧~p)⊃(q∨~q)               CKpNpAqNq                                ---
+
+RULES
+
+  MP: If ⊢(p⊃q) and ⊢p, then ⊢q.                                   modus ponens
+  RC: If ⊢(p⊃q) and ⊢(q⊃q), then ⊢(p⊃q).                 hypothetical syllogism
+  RK: If ⊢p and ⊢q, then ⊢(p∧q).                                     adjunction
+
+Axioms: Classical propositional calculus
+Engine: CPC
+Satisfied:
+    1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 2.1 2.2 2.3 2.4 2.5 2.6 3.1
+    3.2 3.3 3.4 3.5 4.1 4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1
+    6.2 6.3 6.4 7.1 7.2 7.3 7.4 7.5 8.1 MP RC RK
+Engine CPC satisfies the axiom system.
+
+Axioms: Classical propositional calculus
+Engine: Ł₃
+  ((p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))) = I, when r=F, q=I, p=I
+  ((p⊃~p)⊃~p) = I, when p=I
+  ((~p⊃p)⊃p) = I, when p=I
+  (p∨~p) = I, when p=I
+  ~(p∧~p) = I, when p=I
+  ((p⊃q)≡(~p∨q)) = I, when p=I, q=I
+Satisfied:
+    1.1 1.2 1.3 1.5 1.6 1.7 1.8 2.5 2.6 3.1 3.2 3.3 3.4 3.5 4.1
+    4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1 6.2 6.3 6.4 7.2 7.3
+    7.4 7.5 8.1 MP RC RK
+Failed: 1.4 2.1 2.2 2.3 2.4 7.1
+6 items fail under the engine Ł₃
+
+Axioms: Classical propositional calculus
+Engine: G₃
+  (~~p⊃p) = I, when p=I
+  ((~p⊃~q)⊃(q⊃p)) = I, when q=T, p=I
+  ((~p⊃p)⊃p) = I, when p=I
+  (p∨~p) = I, when p=I
+  (((p⊃~p)⊃p)⊃p) = I, when p=I
+  ((p⊃q)≡(~p∨q)) = I, when q=I, p=I
+  ((p∨q)≡((p⊃q)⊃q)) = I, when q=F, p=I
+  ((p∨q)≡~(~p∧~q)) = I, when q=F, p=I
+  ((p∧q)≡~(~p∨~q)) = I, when q=I, p=I
+Satisfied:
+    1.1 1.3 1.4 1.5 1.7 1.8 2.1 2.4 2.5 3.1 3.2 3.3 3.4 3.5 4.1
+    4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1 6.2 6.3 6.4 7.5 8.1
+    MP RC RK
+Failed: 1.2 1.6 2.2 2.3 2.6 7.1 7.2 7.3 7.4
+9 items fail under the engine G₃
+
+Axioms: Classical propositional calculus
+Engine: Ł₄
+  ((p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))) = 2/3, when r=F, p=1/3, q=1/3
+  ((p⊃~p)⊃~p) = 2/3, when p=1/3
+  ((~p⊃p)⊃p) = 2/3, when p=1/3
+  (p∨~p) = 2/3, when p=1/3
+  ~(p∧~p) = 2/3, when p=1/3
+  (((p⊃~p)⊃p)⊃p) = 2/3, when p=2/3
+  ((p⊃q)≡(~p∨q)) = 2/3, when q=1/3, p=1/3
+Satisfied:
+    1.1 1.2 1.3 1.5 1.6 1.7 1.8 2.5 3.1 3.2 3.3 3.4 3.5 4.1 4.2
+    4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1 6.2 6.3 6.4 7.2 7.3 7.4
+    7.5 8.1 MP RC RK
+Failed: 1.4 2.1 2.2 2.3 2.4 2.6 7.1
+7 items fail under the engine Ł₄
+
+Axioms: Classical propositional calculus
+Engine: G₄
+  (~~p⊃p) = 1/3, when p=1/3
+  ((~p⊃~q)⊃(q⊃p)) = 1/3, when q=2/3, p=1/3
+  ((~p⊃p)⊃p) = 1/3, when p=1/3
+  (p∨~p) = 1/3, when p=1/3
+  (((p⊃~p)⊃p)⊃p) = 1/3, when p=1/3
+  ((p⊃q)≡(~p∨q)) = 1/3, when q=1/3, p=1/3
+  ((p∨q)≡((p⊃q)⊃q)) = 1/3, when q=F, p=1/3
+  ((p∨q)≡~(~p∧~q)) = 1/3, when q=F, p=1/3
+  ((p∧q)≡~(~p∨~q)) = 1/3, when q=1/3, p=1/3
+Satisfied:
+    1.1 1.3 1.4 1.5 1.7 1.8 2.1 2.4 2.5 3.1 3.2 3.3 3.4 3.5 4.1
+    4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1 6.2 6.3 6.4 7.5 8.1
+    MP RC RK
+Failed: 1.2 1.6 2.2 2.3 2.6 7.1 7.2 7.3 7.4
+9 items fail under the engine G₄
+
+Axioms: Classical propositional calculus
+Engine: Ł₅
+  ((p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))) = 3/4, when r=F, p=1/4, q=1/4
+  ((p⊃~p)⊃~p) = 3/4, when p=1/4
+  ((~p⊃p)⊃p) = 3/4, when p=1/4
+  (p∨~p) = 3/4, when p=1/4
+  ~(p∧~p) = 3/4, when p=1/4
+  (((p⊃~p)⊃p)⊃p) = 3/4, when p=3/4
+  ((p⊃q)≡(~p∨q)) = 3/4, when p=1/4, q=1/4
+Satisfied:
+    1.1 1.2 1.3 1.5 1.6 1.7 1.8 2.5 3.1 3.2 3.3 3.4 3.5 4.1 4.2
+    4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1 6.2 6.3 6.4 7.2 7.3 7.4
+    7.5 8.1 MP RC RK
+Failed: 1.4 2.1 2.2 2.3 2.4 2.6 7.1
+7 items fail under the engine Ł₅
+
+Axioms: Classical propositional calculus
+Engine: G₅
+  (~~p⊃p) = 1/4, when p=1/4
+  ((~p⊃~q)⊃(q⊃p)) = 1/4, when p=1/4, q=1/2
+  ((~p⊃p)⊃p) = 1/4, when p=1/4
+  (p∨~p) = 1/4, when p=1/4
+  (((p⊃~p)⊃p)⊃p) = 1/4, when p=1/4
+  ((p⊃q)≡(~p∨q)) = 1/4, when p=1/4, q=1/4
+  ((p∨q)≡((p⊃q)⊃q)) = 1/4, when p=1/4, q=F
+  ((p∨q)≡~(~p∧~q)) = 1/4, when p=F, q=1/4
+  ((p∧q)≡~(~p∨~q)) = 1/4, when p=1/4, q=1/4
+Satisfied:
+    1.1 1.3 1.4 1.5 1.7 1.8 2.1 2.4 2.5 3.1 3.2 3.3 3.4 3.5 4.1
+    4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5 6.1 6.2 6.3 6.4 7.5 8.1
+    MP RC RK
+Failed: 1.2 1.6 2.2 2.3 2.6 7.1 7.2 7.3 7.4
+9 items fail under the engine G₅
+
+REMARKS
+
+  Proposition 2.6 is satisfied in Ł₃ and CPC but fails in the
+  remaining examples. In particular, it distingishes the three-
+  valued Łukasiewicz algebra from Łukasiewicz algebras with more
+  values
+
+  It is possible to define expressions in the finitely many-valued
+  Łukasiewicz algebras which have the value 1 (displayed here as T)
+  when and only when the variable has a specfic value.  For
+  example, look at a partial truth table for 'p≡~p' in the
+  infinite-valued algebra Ł(ℚ∩[0,1]}):
+           p       ~p      p≡~p
+       ---------------------------
+           0        1       0
+          ...      ...     ...     increasing in (0,1/2)
+          1/4      3/4     1/2
+          ...      ...     ...     increasing in (1/2,1)
+          1/2      1/2      1
+          ...      ...     ...     decreasing in (1/2,1)
+          1/4      3/4     1/2
+          ...      ...     ...     decreasing in (0,1/2)
+           1        0       0
+  This expression has the value 1 when and only when |p|=1/2.
+  Moreover, it only takes on classical values (0 or 1) when
+  |p|=0 or 1/2 or 1.  If we subtitute this expression for 'p' into
+  a classical tautology which fails at |p|=1/2, we get statement
+  which is valid in Ł₃ but not valid in Ł₅ or in algebras that
+  contain 1/4 as a truth value.  (It the tautology fails
+  elsewhere, e.g. |p|=1/3 or |p|=2/3, then the resulting expression
+  will likewise fail at one of those values.
+
+  We can iterate this idea. Substituting 'p≡~p' for 'p' in 'p≡~p'
+  yields '(p≡~p)≡~(p≡~p)' which is true when |p|=1/4 or 3/4 and
+  false when |p|=0 or 1/2 or 1.  Subtituting this expression for
+  'p' into a classical tautology which fails at |p|=1/2 gives us
+  a statement which is true in both Ł₃ and Ł₅, but fails in Ł₉.
+
+  Proposition 1.4, the importation axiom, is important for proving
+  the Deduction theorem in the classical propositional calculus.
+  Both are valid in the Gödel-Dummett algebras as well as in the.
+  intuistionistic propositional calculus.  Neither are not valid in
+  the many-valued Łukasiewicz algebras.
+
+  Proposition 2.1 is valid in the Gödel-Dummett algebras, but
+  proposition 2.2 is not.  Neither is valid in the any-valued
+  Łukasiewicz algebras.
+
+  Disjunction can be defined in terms of implication using
+  formula 7.2 in all of the Łukasiewicz algebras. There is no
+  general way of defining disunction in terms of negation and
+  Gödel-Dummett algebras, nor is there a general way of defining
+  implication in terms of disjunction and negation in those
+  same algebras.  Formula 7.1 is not valid in any of the many-
+  valued logics in either family.  DeMorgan's Law fails in the
+  Gödel-Dummett algebras.  The operators {'~', '∨', `∧', '⊃'}
+  form a functionally independent set in the Gödel-Dummett
+  algebras.
