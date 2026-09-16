@@ -1,0 +1,821 @@
+-------------------------------------------------------------------------------
+     Target Engine: Ł₂ (Ł₂ ≅ PM, 2-valued Łukasiewicz algebra)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> All the theorem schemas are valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	--> All the transformations are valid.
+Total number of invalid items: 0
+-------------------------------------------------------------------------------
+     Target Engine: Ł₃ (Ł₃ ≇ PM, 3-valued Łukasiewicz algebra)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |p|=I, |q|=I, result=I
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> One definition is not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |r|=F, |q|=I, |p|=I, result=I
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=I, |q|=F, result=I
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |r|=F, |p|=I, |q|=I, result=I
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=I, result=I
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=I, result=I
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=I, result=I
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=I, result=I
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	 Conclusion p = I when |p|=I and premises hold.
+	--> One transformation is not valid.
+Total number of invalid items: 9
+-------------------------------------------------------------------------------
+     Target Engine: Ł₄ (Ł₄ ≇ PM, 4-valued Łukasiewicz algebra)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |q|=I, |p|=I, result=J
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> One definition is not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |p|=I, |r|=F, |q|=I, result=J
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=I, |q|=F, result=J
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |q|=I, |r|=F, |p|=I, result=J
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=I, result=J
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=I, result=J
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=I, result=J
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=I, result=J
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	 Conclusion p = J when |p|=J and premises hold.
+	--> One transformation is not valid.
+Total number of invalid items: 9
+-------------------------------------------------------------------------------
+     Target Engine: G₃ (G₃ ≇ PM, 3-valued Gödel-Dummett algebra)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+	not valid: |q|=I, |p|=I, result=I
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |q|=I, |p|=I, result=I
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> 2 definitions are not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |q|=F, |p|=I, result=I
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=I, result=I
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=I, result=I
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+	not valid: |q|=T, |p|=I, result=I
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+	not valid: |p|=I, result=I
+   T17: p≡~~p                                EpNNp              double negation
+	not valid: |p|=I, result=I
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	not valid: |q|=F, |p|=I, result=I
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	 Conclusion p = I when |p|=I and premises hold.
+	--> One transformation is not valid.
+Total number of invalid items: 10
+-------------------------------------------------------------------------------
+     Target Engine: G₄ (G₄ ≇ PM, 4-valued Gödel-Dummett algebra)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+	not valid: |p|=I, |q|=I, result=I
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |p|=I, |q|=I, result=I
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> 2 definitions are not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=I, |q|=F, result=I
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=I, result=I
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=I, result=I
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+	not valid: |p|=I, |q|=J, result=I
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+	not valid: |p|=I, result=I
+   T17: p≡~~p                                EpNNp              double negation
+	not valid: |p|=I, result=I
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	not valid: |p|=I, |q|=F, result=I
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	 Conclusion p = I when |p|=I and premises hold.
+	--> One transformation is not valid.
+Total number of invalid items: 10
+DivisorLogic::_set_lattice: L: top=4, bottom=1, |L|=3, t=2
+-------------------------------------------------------------------------------
+     Target Engine: ℒ(4) (lattice of divisors of 4, i.e. {1, 2, 4})
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |p|=2, |q|=1, result=1
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> One definition is not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+	not valid: |p|=2, |q|=4, result=1
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=2, |q|=1, result=2
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=2, result=2
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=2, result=2
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=2, result=2
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=2, result=2
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+	not valid: |p|=4, |q|=2, result=1
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+	not valid: |p|=1, |q|=2, result=1
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+	not valid: |p|=2, result=1
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	not valid: |p|=2, |q|=1, result=2
+	--> 10 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	 Conclusion p = 2 when |p|=2 and premises hold.
+	--> One transformation is not valid.
+Total number of invalid items: 12
+DivisorLogic::_set_lattice: L: top=6, bottom=1, |L|=4, t=2
+-------------------------------------------------------------------------------
+     Target Engine: ℒ(6) (lattice of divisors of 6, i.e. {1, 2, 3, 6})
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |q|=1, |p|=2, result=1
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> One definition is not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+	not valid: |p|=2, |r|=3, |q|=6, result=1
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+	not valid: |q|=6, |p|=2, result=1
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+	not valid: |q|=2, |r|=3, |p|=6, result=1
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+	not valid: |p|=2, |r|=3, |q|=6, result=1
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+	not valid: |q|=2, |r|=3, |p|=6, result=1
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+	not valid: |p|=2, |r|=3, |q|=6, result=1
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+	not valid: |p|=2, |r|=3, |q|=6, result=1
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+	not valid: |p|=2, |r|=3, |q|=6, result=1
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=2, |q|=1, result=2
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+	not valid: |q|=2, |r|=1, |p|=3, result=1
+   T13: p∨~p                                 ApNp             tertium non datur
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+	not valid: |p|=2, |q|=3, result=1
+   T14: ~(p∧~p)                              NKpNp                contradiction
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+	not valid: |p|=6, |q|=2, result=1
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+	not valid: |p|=1, |q|=2, result=1
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+	not valid: |q|=2, |p|=3, result=1
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+	not valid: |p|=2, result=1
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	not valid: |q|=1, |p|=2, result=2
+	--> 16 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	--> All the transformations are valid.
+Total number of invalid items: 17
+DivisorLogic::_set_lattice: L: top=30, bottom=1, |L|=8, t=5
+-------------------------------------------------------------------------------
+     Target Engine: ℒ(30) (lattice of divisors of 30)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |q|=1, |p|=2, result=1
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> One definition is not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+	not valid: |r|=2, |q|=6, |p|=3, result=1
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+	not valid: |q|=6, |p|=2, result=1
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+	not valid: |r|=2, |q|=3, |p|=6, result=1
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+	not valid: |r|=2, |q|=6, |p|=3, result=1
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+	not valid: |r|=2, |q|=3, |p|=6, result=1
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+	not valid: |r|=2, |q|=6, |p|=3, result=1
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+	not valid: |r|=2, |q|=6, |p|=3, result=1
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+	not valid: |r|=2, |q|=6, |p|=3, result=1
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=2, |q|=1, result=2
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+	not valid: |r|=1, |q|=2, |p|=3, result=1
+   T13: p∨~p                                 ApNp             tertium non datur
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+	not valid: |p|=2, |q|=3, result=1
+   T14: ~(p∧~p)                              NKpNp                contradiction
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+	not valid: |p|=6, |q|=2, result=1
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+	not valid: |p|=1, |q|=2, result=1
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+	not valid: |q|=2, |p|=3, result=1
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+	not valid: |p|=2, result=1
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	not valid: |q|=1, |p|=2, result=2
+	--> 16 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	--> All the transformations are valid.
+Total number of invalid items: 17
+DivisorLogic::_set_lattice: L: top=60, bottom=1, |L|=12, t=7
+-------------------------------------------------------------------------------
+     Target Engine: ℒ(60) (lattice of divisors of 60)
+Source Expressions: PM (Principia Mathematica, 1910)
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p⊃q) := (~p∨q)                      :CpqANpq               implication
+	not valid: |q|=1, |p|=2, result=1
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+	--> One definition is not valid.
+Axiom Schemas:
+    A1: (p∨p)⊃p                              CAppp                    tautology
+    A2: q⊃(p∨q)                              CqApq                     addition
+    A3: (p∨q)⊃(q∨p)                          CApqAqp                permutation
+    A4: (p∨(q∨r))⊃(q∨(p∨r))                  CApAqrAqApr            association
+    A5: (q⊃r)⊃((p∨q)⊃(p∨r))                  CCqrCApqApr              summation
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+	not valid: |r|=2, |p|=3, |q|=6, result=1
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+	not valid: |q|=4, |p|=2, result=1
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+	not valid: |r|=2, |q|=3, |p|=6, result=1
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+	not valid: |r|=2, |p|=3, |q|=6, result=1
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+	not valid: |r|=2, |q|=3, |p|=6, result=1
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+	not valid: |r|=2, |p|=3, |q|=6, result=1
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+	not valid: |r|=2, |p|=3, |q|=6, result=1
+    T8: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+	not valid: |r|=2, |p|=3, |q|=6, result=1
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=2, |q|=1, result=2
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+	not valid: |r|=1, |q|=2, |p|=3, result=1
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=2, result=30
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+	not valid: |p|=2, |q|=3, result=1
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=2, result=30
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=2, result=30
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=30, result=30
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+	not valid: |p|=4, |q|=2, result=1
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+	not valid: |p|=1, |q|=2, result=1
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+	not valid: |q|=2, |p|=3, result=1
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+	not valid: |p|=2, result=1
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	not valid: |q|=1, |p|=2, result=2
+	--> 20 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                              modus tollens
+   DR3: If ⊢(~p⊃p), then ⊢p.                                      contradiction
+	 Conclusion p = 30 when |p|=30 and premises hold.
+	--> One transformation is not valid.
+Total number of invalid items: 22
