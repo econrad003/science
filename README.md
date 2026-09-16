@@ -2,9 +2,9 @@
 
 This is a small toolbox for solving (or at least demonstrating) toy problems in the sciences.  These probably will not be useful for serious research work, but they might be adequate for use in homework problems in some undergraduate courses.
 
-There isn't any particular rhyme or reason to what goes in this repository other than its a mix of topics that has caught my fancy.  As a result, there may be some duplication here and there.
+There isn't any particular rhyme or reason to what goes in this repository other than it's a mix of topics that has caught my fancy.  As a result, there may be some duplication here and there.
 
-The programming here is mainly in Python.  But I reserve the right to program in any languages that I happen to see fit.
+The programming here is mainly in Python.  But I reserve the right to program in any language (including COBOL and Fortran!) as I happen to see fit.
 
 # 1 Mathematics
 
@@ -15,6 +15,10 @@ See the README.md file in the *utilities* folder.
 ## 1.2 Demos
 
 The *basel1* and *basel2* demonstration modules use Euler's solution the Basel Problem to estimate the value of π.  The result, though both beautiful and important, is not very practical for this particular purpose.  See the module's *docstring* for additional information and some historical background.  (Wikipedia and MathWorld both have fairly detailed articles on the Basel Problem.)
+
+## 1.3 Symbolic Logic
+
+The *logic* folder contains some programs which work with symbolic logic -- with propositional logic -- in particular, modal and many-valued logic.  Check the *messages* folder for some output (*.txt* extension) and some analysis (markdown files, *.md* extension).
 
 # 2 Biology
 
