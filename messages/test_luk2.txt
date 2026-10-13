@@ -1,0 +1,1675 @@
+Execution:
+------------------------------------------------------------------------------
+python -m logic.tests.luk2 -t 2 3 4 5 6 7 11 13 -a 8 9 10 11 12 14 15  > messages/test_luk2.txt
+------------------------------------------------------------------------------
+Namespace(test=[2, 3, 4, 5, 6, 7, 11, 13], axioms=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+Adding axiom: Ł(2) ax6=C_2_p_1_p
+Adding axiom: Ł(3) ax6=C_3_p_2_p
+Adding axiom: Ł(4) ax6=C_4_p_3_p
+Adding axiom: Ł(4) ax7/2=_3_+^2^Np.p_1_p
+Adding axiom: Ł(5) ax6=C_5_p_4_p
+Adding axiom: Ł(5) ax7/3=_4_+^3^Np.p_2_p
+Adding axiom: Ł(6) ax6=C_6_p_5_p
+Adding axiom: Ł(6) ax7/2=_5_+^2^Np.p_1_p
+Adding axiom: Ł(6) ax7/3=_5_+^3^Np.p_2_p
+Adding axiom: Ł(6) ax7/4=_5_+^4^Np.p_3_p
+Adding axiom: Ł(7) ax6=C_7_p_6_p
+Adding axiom: Ł(7) ax7/4=_6_+^4^Np.p_3_p
+Adding axiom: Ł(7) ax7/5=_6_+^5^Np.p_4_p
+Adding axiom: Ł(8) ax6=C_8_p_7_p
+Adding axiom: Ł(8) ax7/2=_7_+^2^Np.p_1_p
+Adding axiom: Ł(8) ax7/3=_7_+^3^Np.p_2_p
+Adding axiom: Ł(8) ax7/4=_7_+^4^Np.p_3_p
+Adding axiom: Ł(8) ax7/5=_7_+^5^Np.p_4_p
+Adding axiom: Ł(8) ax7/6=_7_+^6^Np.p_5_p
+Adding axiom: Ł(9) ax6=C_9_p_8_p
+Adding axiom: Ł(9) ax7/3=_8_+^3^Np.p_2_p
+Adding axiom: Ł(9) ax7/5=_8_+^5^Np.p_4_p
+Adding axiom: Ł(9) ax7/6=_8_+^6^Np.p_5_p
+Adding axiom: Ł(9) ax7/7=_8_+^7^Np.p_6_p
+Adding axiom: Ł(10) ax6=C_10_p_9_p
+Adding axiom: Ł(10) ax7/2=_9_+^2^Np.p_1_p
+Adding axiom: Ł(10) ax7/4=_9_+^4^Np.p_3_p
+Adding axiom: Ł(10) ax7/5=_9_+^5^Np.p_4_p
+Adding axiom: Ł(10) ax7/6=_9_+^6^Np.p_5_p
+Adding axiom: Ł(10) ax7/7=_9_+^7^Np.p_6_p
+Adding axiom: Ł(10) ax7/8=_9_+^8^Np.p_7_p
+Adding axiom: Ł(11) ax6=C_11_p_10_p
+Adding axiom: Ł(11) ax7/3=_10_+^3^Np.p_2_p
+Adding axiom: Ł(11) ax7/4=_10_+^4^Np.p_3_p
+Adding axiom: Ł(11) ax7/6=_10_+^6^Np.p_5_p
+Adding axiom: Ł(11) ax7/7=_10_+^7^Np.p_6_p
+Adding axiom: Ł(11) ax7/8=_10_+^8^Np.p_7_p
+Adding axiom: Ł(11) ax7/9=_10_+^9^Np.p_8_p
+Adding axiom: Ł(12) ax6=C_12_p_11_p
+Adding axiom: Ł(12) ax7/2=_11_+^2^Np.p_1_p
+Adding axiom: Ł(12) ax7/3=_11_+^3^Np.p_2_p
+Adding axiom: Ł(12) ax7/4=_11_+^4^Np.p_3_p
+Adding axiom: Ł(12) ax7/5=_11_+^5^Np.p_4_p
+Adding axiom: Ł(12) ax7/6=_11_+^6^Np.p_5_p
+Adding axiom: Ł(12) ax7/7=_11_+^7^Np.p_6_p
+Adding axiom: Ł(12) ax7/8=_11_+^8^Np.p_7_p
+Adding axiom: Ł(12) ax7/9=_11_+^9^Np.p_8_p
+Adding axiom: Ł(12) ax7/10=_11_+^10^Np.p_9_p
+Adding axiom: Ł(13) ax6=C_13_p_12_p
+Adding axiom: Ł(13) ax7/5=_12_+^5^Np.p_4_p
+Adding axiom: Ł(13) ax7/7=_12_+^7^Np.p_6_p
+Adding axiom: Ł(13) ax7/8=_12_+^8^Np.p_7_p
+Adding axiom: Ł(13) ax7/9=_12_+^9^Np.p_8_p
+Adding axiom: Ł(13) ax7/10=_12_+^10^Np.p_9_p
+Adding axiom: Ł(13) ax7/11=_12_+^11^Np.p_10_p
+Adding axiom: Ł(14) ax6=C_14_p_13_p
+Adding axiom: Ł(14) ax7/2=_13_+^2^Np.p_1_p
+Adding axiom: Ł(14) ax7/3=_13_+^3^Np.p_2_p
+Adding axiom: Ł(14) ax7/4=_13_+^4^Np.p_3_p
+Adding axiom: Ł(14) ax7/5=_13_+^5^Np.p_4_p
+Adding axiom: Ł(14) ax7/6=_13_+^6^Np.p_5_p
+Adding axiom: Ł(14) ax7/7=_13_+^7^Np.p_6_p
+Adding axiom: Ł(14) ax7/8=_13_+^8^Np.p_7_p
+Adding axiom: Ł(14) ax7/9=_13_+^9^Np.p_8_p
+Adding axiom: Ł(14) ax7/10=_13_+^10^Np.p_9_p
+Adding axiom: Ł(14) ax7/11=_13_+^11^Np.p_10_p
+Adding axiom: Ł(14) ax7/12=_13_+^12^Np.p_11_p
+Adding axiom: Ł(15) ax6=C_15_p_14_p
+Adding axiom: Ł(15) ax7/3=_14_+^3^Np.p_2_p
+Adding axiom: Ł(15) ax7/4=_14_+^4^Np.p_3_p
+Adding axiom: Ł(15) ax7/5=_14_+^5^Np.p_4_p
+Adding axiom: Ł(15) ax7/6=_14_+^6^Np.p_5_p
+Adding axiom: Ł(15) ax7/8=_14_+^8^Np.p_7_p
+Adding axiom: Ł(15) ax7/9=_14_+^9^Np.p_8_p
+Adding axiom: Ł(15) ax7/10=_14_+^10^Np.p_9_p
+Adding axiom: Ł(15) ax7/11=_14_+^11^Np.p_10_p
+Adding axiom: Ł(15) ax7/12=_14_+^12^Np.p_11_p
+Adding axiom: Ł(15) ax7/13=_14_+^13^Np.p_12_p
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(2)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> All the axiom schemas are valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> All the theorem schemas are valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	--> All the transformations are valid.
+Total number of invalid items: 0
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(3)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=1
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+	not valid: |p|=1, result=0
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+	not valid: |p|=1, result=0
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+	not valid: |p|=1, result=0
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+	not valid: |p|=1, result=0
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+	not valid: |p|=1, result=0
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+	not valid: |p|=1, result=0
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 7 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |r|=0, |q|=1, |p|=1, result=1
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=1, |q|=0, result=1
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |r|=0, |q|=1, |p|=1, result=1
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=1
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=1
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=1
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=1
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 1 when |p|=1 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 1 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 16
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(4)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+	not valid: |p|=2, result=2
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=2
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+	not valid: |p|=1, result=2
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+	not valid: |p|=1, result=0
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+	not valid: |p|=1, result=0
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+	not valid: |p|=1, result=0
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+	not valid: |p|=1, result=0
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+	not valid: |p|=1, result=0
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+	not valid: |p|=1, result=0
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+	not valid: |p|=1, result=0
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+	not valid: |p|=1, result=0
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 11 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |p|=1, |r|=0, |q|=1, result=2
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=1, |q|=0, result=2
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |q|=1, |p|=1, |r|=0, result=2
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=2
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=2
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=2
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=2
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 2 when |p|=2 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 2 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 20
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(5)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+	not valid: |p|=3, result=3
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=3
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+	not valid: |p|=1, result=3
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+	not valid: |p|=1, result=3
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+	not valid: |p|=2, result=0
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+	not valid: |p|=2, result=0
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+	not valid: |p|=1, result=0
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+	not valid: |p|=1, result=0
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+	not valid: |p|=2, result=0
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+	not valid: |p|=1, result=0
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+	not valid: |p|=2, result=0
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+	not valid: |p|=1, result=0
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+	not valid: |p|=1, result=0
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+	not valid: |p|=2, result=0
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+	not valid: |p|=1, result=0
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+	not valid: |p|=2, result=0
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+	not valid: |p|=1, result=0
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+	not valid: |p|=1, result=0
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 18 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |p|=1, |q|=1, |r|=0, result=3
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=1, |q|=0, result=3
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |q|=1, |r|=0, |p|=1, result=3
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=3
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=3
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=3
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=3
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 2 when |p|=2 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 3 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 27
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(6)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+	not valid: |p|=3, result=4
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=4
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+	not valid: |p|=1, result=4
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+	not valid: |p|=1, result=4
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+	not valid: |p|=2, result=3
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+	not valid: |p|=1, result=4
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+	not valid: |p|=2, result=4
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+	not valid: |p|=1, result=0
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+	not valid: |p|=1, result=0
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+	not valid: |p|=1, result=0
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+	not valid: |p|=1, result=0
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+	not valid: |p|=1, result=0
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+	not valid: |p|=1, result=0
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+	not valid: |p|=1, result=0
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+	not valid: |p|=1, result=0
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 15 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |r|=0, |q|=1, |p|=1, result=4
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=1, |q|=0, result=4
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |r|=0, |p|=1, |q|=1, result=4
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=4
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=4
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=4
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=4
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 3 when |p|=3 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 4 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 24
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(7)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+	not valid: |p|=4, result=4
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=5
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+	not valid: |p|=1, result=5
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+	not valid: |p|=1, result=5
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+	not valid: |p|=3, result=0
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+	not valid: |p|=1, result=5
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+	not valid: |p|=2, result=0
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+	not valid: |p|=1, result=5
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+	not valid: |p|=3, result=0
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+	not valid: |p|=2, result=0
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+	not valid: |p|=3, result=0
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+	not valid: |p|=2, result=0
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+	not valid: |p|=1, result=0
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+	not valid: |p|=2, result=0
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+	not valid: |p|=1, result=0
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+	not valid: |p|=3, result=0
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+	not valid: |p|=1, result=0
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+	not valid: |p|=2, result=0
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+	not valid: |p|=1, result=0
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+	not valid: |p|=3, result=0
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+	not valid: |p|=2, result=0
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+	not valid: |p|=1, result=0
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+	not valid: |p|=3, result=0
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+	not valid: |p|=2, result=0
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+	not valid: |p|=1, result=0
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+	not valid: |p|=2, result=0
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+	not valid: |p|=1, result=0
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 27 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |r|=0, |q|=1, |p|=1, result=5
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |q|=0, |p|=1, result=5
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |r|=0, |q|=1, |p|=1, result=5
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=5
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=5
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=5
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=5
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 3 when |p|=3 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 5 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 36
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(11)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+	not valid: |p|=6, result=8
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=9
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+	not valid: |p|=1, result=9
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+	not valid: |p|=1, result=9
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+	not valid: |p|=4, result=6
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+	not valid: |p|=1, result=9
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+	not valid: |p|=3, result=4
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+	not valid: |p|=1, result=9
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+	not valid: |p|=5, result=0
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+	not valid: |p|=3, result=5
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+	not valid: |p|=1, result=9
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+	not valid: |p|=2, result=0
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+	not valid: |p|=1, result=9
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+	not valid: |p|=5, result=0
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+	not valid: |p|=3, result=7
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+	not valid: |p|=2, result=0
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+	not valid: |p|=1, result=9
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+	not valid: |p|=3, result=8
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+	not valid: |p|=2, result=0
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+	not valid: |p|=1, result=9
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+	not valid: |p|=5, result=0
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+	not valid: |p|=2, result=0
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+	not valid: |p|=5, result=0
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+	not valid: |p|=2, result=0
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+	not valid: |p|=1, result=0
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+	not valid: |p|=2, result=0
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+	not valid: |p|=1, result=0
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+	not valid: |p|=5, result=0
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+	not valid: |p|=2, result=0
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+	not valid: |p|=1, result=0
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+	not valid: |p|=2, result=0
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+	not valid: |p|=1, result=0
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 32 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |r|=0, |p|=1, |q|=1, result=9
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=1, |q|=0, result=9
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |r|=0, |q|=1, |p|=1, result=9
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=9
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=9
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=9
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=9
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 5 when |p|=5 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 9 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 41
+-------------------------------------------------------------------------------
+     Target Engine: Łukasiewicz-algebra Ł(13)
+             Class: GrigoliaExtensions
+
+Definitions:
+    D1: (p∧q) := ~(~p∨~q)                    :KpqNANpNq             conjunction
+    D2: (p∨q) := ((p⊃q)⊃q)                   :ApqCCpqq              disjunction
+    D3: (p≡q) := ((p⊃q)∧(q⊃p))               :EpqKCpqCqp            equivalence
+    D4: (p+q) := (~p⊃q)                      :+pqCNpq                  join (2)
+    D5: (p•q) := ~(p⊃~q)                     :.pqNCpNq                 meet (2)
+    D6: (2p) := (p+p)                        :_2_p+pp                multiple 2
+    D7: (3p) := ((2p)+p)                     :_3_p+_2_pp             multiple 3
+    D8: (4p) := ((3p)+p)                     :_4_p+_3_pp             multiple 4
+    D9: (p^2) := (p•p)                       :^2^p.pp                exponent 2
+   D10: (p^3) := ((p^2)•p)                   :^3^p.^2^pp             exponent 3
+   D11: (p^4) := ((p^3)•p)                   :^4^p.^3^pp             exponent 4
+	--> All the definitions are valid.
+Axiom Schemas:
+    A1: p⊃(q⊃p)                              CpCqp             positive paradox
+    A2: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr hypothetical syllogism
+    A3: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+    A4: (p∨q)⊃(q∨p)                          CApqAqp              commutativity
+    A5: ((p⊃q)⊃(q⊃p))⊃(q⊃p)                  CCCpqCqpCqp      excluded middle 2
+    A6: ((p⊃~p)⊃p)⊃p                         CCCpNppp                Ł₃ axiom 4
+	not valid: |p|=7, result=10
+    A7: (2p)⊃(1p)                            C_2_p_1_p                 Ł(2) ax6
+	not valid: |p|=1, result=11
+    A8: (3p)⊃(2p)                            C_3_p_2_p                 Ł(3) ax6
+	not valid: |p|=1, result=11
+    A9: (4p)⊃(3p)                            C_4_p_3_p                 Ł(4) ax6
+	not valid: |p|=1, result=11
+   A10: 3(((~p)^2)+(p•(1p)))                 _3_+^2^Np.p_1_p         Ł(4) ax7/2
+	not valid: |p|=5, result=6
+   A11: (5p)⊃(4p)                            C_5_p_4_p                 Ł(5) ax6
+	not valid: |p|=1, result=11
+   A12: 4(((~p)^3)+(p•(2p)))                 _4_+^3^Np.p_2_p         Ł(5) ax7/3
+	not valid: |p|=4, result=0
+   A13: (6p)⊃(5p)                            C_6_p_5_p                 Ł(6) ax6
+	not valid: |p|=1, result=11
+   A14: 5(((~p)^2)+(p•(1p)))                 _5_+^2^Np.p_1_p         Ł(6) ax7/2
+	not valid: |p|=5, result=10
+   A15: 5(((~p)^3)+(p•(2p)))                 _5_+^3^Np.p_2_p         Ł(6) ax7/3
+	not valid: |p|=4, result=0
+   A16: 5(((~p)^4)+(p•(3p)))                 _5_+^4^Np.p_3_p         Ł(6) ax7/4
+	not valid: |p|=3, result=0
+   A17: (7p)⊃(6p)                            C_7_p_6_p                 Ł(7) ax6
+	not valid: |p|=1, result=11
+   A18: 6(((~p)^4)+(p•(3p)))                 _6_+^4^Np.p_3_p         Ł(7) ax7/4
+	not valid: |p|=3, result=0
+   A19: 6(((~p)^5)+(p•(4p)))                 _6_+^5^Np.p_4_p         Ł(7) ax7/5
+   A20: (8p)⊃(7p)                            C_8_p_7_p                 Ł(8) ax6
+	not valid: |p|=1, result=11
+   A21: 7(((~p)^2)+(p•(1p)))                 _7_+^2^Np.p_1_p         Ł(8) ax7/2
+	not valid: |p|=6, result=0
+   A22: 7(((~p)^3)+(p•(2p)))                 _7_+^3^Np.p_2_p         Ł(8) ax7/3
+	not valid: |p|=4, result=0
+   A23: 7(((~p)^4)+(p•(3p)))                 _7_+^4^Np.p_3_p         Ł(8) ax7/4
+	not valid: |p|=3, result=0
+   A24: 7(((~p)^5)+(p•(4p)))                 _7_+^5^Np.p_4_p         Ł(8) ax7/5
+   A25: 7(((~p)^6)+(p•(5p)))                 _7_+^6^Np.p_5_p         Ł(8) ax7/6
+	not valid: |p|=2, result=0
+   A26: (9p)⊃(8p)                            C_9_p_8_p                 Ł(9) ax6
+	not valid: |p|=1, result=11
+   A27: 8(((~p)^3)+(p•(2p)))                 _8_+^3^Np.p_2_p         Ł(9) ax7/3
+	not valid: |p|=4, result=0
+   A28: 8(((~p)^5)+(p•(4p)))                 _8_+^5^Np.p_4_p         Ł(9) ax7/5
+   A29: 8(((~p)^6)+(p•(5p)))                 _8_+^6^Np.p_5_p         Ł(9) ax7/6
+	not valid: |p|=2, result=0
+   A30: 8(((~p)^7)+(p•(6p)))                 _8_+^7^Np.p_6_p         Ł(9) ax7/7
+   A31: (10p)⊃(9p)                           C_10_p_9_p               Ł(10) ax6
+	not valid: |p|=1, result=11
+   A32: 9(((~p)^2)+(p•(1p)))                 _9_+^2^Np.p_1_p        Ł(10) ax7/2
+	not valid: |p|=6, result=0
+   A33: 9(((~p)^4)+(p•(3p)))                 _9_+^4^Np.p_3_p        Ł(10) ax7/4
+	not valid: |p|=3, result=0
+   A34: 9(((~p)^5)+(p•(4p)))                 _9_+^5^Np.p_4_p        Ł(10) ax7/5
+   A35: 9(((~p)^6)+(p•(5p)))                 _9_+^6^Np.p_5_p        Ł(10) ax7/6
+	not valid: |p|=2, result=0
+   A36: 9(((~p)^7)+(p•(6p)))                 _9_+^7^Np.p_6_p        Ł(10) ax7/7
+   A37: 9(((~p)^8)+(p•(7p)))                 _9_+^8^Np.p_7_p        Ł(10) ax7/8
+   A38: (11p)⊃(10p)                          C_11_p_10_p              Ł(11) ax6
+	not valid: |p|=1, result=11
+   A39: 10(((~p)^3)+(p•(2p)))                _10_+^3^Np.p_2_p       Ł(11) ax7/3
+	not valid: |p|=4, result=0
+   A40: 10(((~p)^4)+(p•(3p)))                _10_+^4^Np.p_3_p       Ł(11) ax7/4
+	not valid: |p|=3, result=0
+   A41: 10(((~p)^6)+(p•(5p)))                _10_+^6^Np.p_5_p       Ł(11) ax7/6
+	not valid: |p|=2, result=0
+   A42: 10(((~p)^7)+(p•(6p)))                _10_+^7^Np.p_6_p       Ł(11) ax7/7
+   A43: 10(((~p)^8)+(p•(7p)))                _10_+^8^Np.p_7_p       Ł(11) ax7/8
+   A44: 10(((~p)^9)+(p•(8p)))                _10_+^9^Np.p_8_p       Ł(11) ax7/9
+   A45: (12p)⊃(11p)                          C_12_p_11_p              Ł(12) ax6
+	not valid: |p|=1, result=11
+   A46: 11(((~p)^2)+(p•(1p)))                _11_+^2^Np.p_1_p       Ł(12) ax7/2
+	not valid: |p|=6, result=0
+   A47: 11(((~p)^3)+(p•(2p)))                _11_+^3^Np.p_2_p       Ł(12) ax7/3
+	not valid: |p|=4, result=0
+   A48: 11(((~p)^4)+(p•(3p)))                _11_+^4^Np.p_3_p       Ł(12) ax7/4
+	not valid: |p|=3, result=0
+   A49: 11(((~p)^5)+(p•(4p)))                _11_+^5^Np.p_4_p       Ł(12) ax7/5
+   A50: 11(((~p)^6)+(p•(5p)))                _11_+^6^Np.p_5_p       Ł(12) ax7/6
+	not valid: |p|=2, result=0
+   A51: 11(((~p)^7)+(p•(6p)))                _11_+^7^Np.p_6_p       Ł(12) ax7/7
+   A52: 11(((~p)^8)+(p•(7p)))                _11_+^8^Np.p_7_p       Ł(12) ax7/8
+   A53: 11(((~p)^9)+(p•(8p)))                _11_+^9^Np.p_8_p       Ł(12) ax7/9
+   A54: 11(((~p)^10)+(p•(9p)))               _11_+^10^Np.p_9_p     Ł(12) ax7/10
+   A55: (13p)⊃(12p)                          C_13_p_12_p              Ł(13) ax6
+   A56: 12(((~p)^5)+(p•(4p)))                _12_+^5^Np.p_4_p       Ł(13) ax7/5
+   A57: 12(((~p)^7)+(p•(6p)))                _12_+^7^Np.p_6_p       Ł(13) ax7/7
+   A58: 12(((~p)^8)+(p•(7p)))                _12_+^8^Np.p_7_p       Ł(13) ax7/8
+   A59: 12(((~p)^9)+(p•(8p)))                _12_+^9^Np.p_8_p       Ł(13) ax7/9
+   A60: 12(((~p)^10)+(p•(9p)))               _12_+^10^Np.p_9_p     Ł(13) ax7/10
+   A61: 12(((~p)^11)+(p•(10p)))              _12_+^11^Np.p_10_p    Ł(13) ax7/11
+   A62: (14p)⊃(13p)                          C_14_p_13_p              Ł(14) ax6
+   A63: 13(((~p)^2)+(p•(1p)))                _13_+^2^Np.p_1_p       Ł(14) ax7/2
+	not valid: |p|=6, result=0
+   A64: 13(((~p)^3)+(p•(2p)))                _13_+^3^Np.p_2_p       Ł(14) ax7/3
+	not valid: |p|=4, result=0
+   A65: 13(((~p)^4)+(p•(3p)))                _13_+^4^Np.p_3_p       Ł(14) ax7/4
+	not valid: |p|=3, result=0
+   A66: 13(((~p)^5)+(p•(4p)))                _13_+^5^Np.p_4_p       Ł(14) ax7/5
+   A67: 13(((~p)^6)+(p•(5p)))                _13_+^6^Np.p_5_p       Ł(14) ax7/6
+	not valid: |p|=2, result=0
+   A68: 13(((~p)^7)+(p•(6p)))                _13_+^7^Np.p_6_p       Ł(14) ax7/7
+   A69: 13(((~p)^8)+(p•(7p)))                _13_+^8^Np.p_7_p       Ł(14) ax7/8
+   A70: 13(((~p)^9)+(p•(8p)))                _13_+^9^Np.p_8_p       Ł(14) ax7/9
+   A71: 13(((~p)^10)+(p•(9p)))               _13_+^10^Np.p_9_p     Ł(14) ax7/10
+   A72: 13(((~p)^11)+(p•(10p)))              _13_+^11^Np.p_10_p    Ł(14) ax7/11
+   A73: 13(((~p)^12)+(p•(11p)))              _13_+^12^Np.p_11_p    Ł(14) ax7/12
+	not valid: |p|=1, result=0
+   A74: (15p)⊃(14p)                          C_15_p_14_p              Ł(15) ax6
+   A75: 14(((~p)^3)+(p•(2p)))                _14_+^3^Np.p_2_p       Ł(15) ax7/3
+	not valid: |p|=4, result=0
+   A76: 14(((~p)^4)+(p•(3p)))                _14_+^4^Np.p_3_p       Ł(15) ax7/4
+	not valid: |p|=3, result=0
+   A77: 14(((~p)^5)+(p•(4p)))                _14_+^5^Np.p_4_p       Ł(15) ax7/5
+   A78: 14(((~p)^6)+(p•(5p)))                _14_+^6^Np.p_5_p       Ł(15) ax7/6
+	not valid: |p|=2, result=0
+   A79: 14(((~p)^8)+(p•(7p)))                _14_+^8^Np.p_7_p       Ł(15) ax7/8
+   A80: 14(((~p)^9)+(p•(8p)))                _14_+^9^Np.p_8_p       Ł(15) ax7/9
+   A81: 14(((~p)^10)+(p•(9p)))               _14_+^10^Np.p_9_p     Ł(15) ax7/10
+   A82: 14(((~p)^11)+(p•(10p)))              _14_+^11^Np.p_10_p    Ł(15) ax7/11
+   A83: 14(((~p)^12)+(p•(11p)))              _14_+^12^Np.p_11_p    Ł(15) ax7/12
+	not valid: |p|=1, result=0
+   A84: 14(((~p)^13)+(p•(12p)))              _14_+^13^Np.p_12_p    Ł(15) ax7/13
+	--> 43 axiom schemas are not valid.
+Rules of Transformation:
+	To avoid stating a complicated rule for substitution of variables,
+	we treat our wffs as schemas.
+    R1: If ⊢(p⊃q) and ⊢p, then ⊢q.                                 modus ponens
+	--> All the transformations are valid.
+Theorem Schemas:
+    T1: p≡p                                  Epp                    reflexivity
+    T2: (p≡q)⊃(q≡p)                          CEpqEqp                   symmetry
+    T3: (p≡q)⊃((q≡r)⊃(p≡r))                  CEpqCEqrEpr           transitivity
+    T4: (p≡q)⊃(~p⊃~q)                        CEpqCNpNq                 monotony
+    T4: (p≡q)⊃((p∨r)⊃(q∨r))                  CEpqCAprAqr               monotony
+    T4: (q≡r)⊃((p∨q)⊃(p∨r))                  CEqrCApqApr               monotony
+    T4: (p≡q)⊃((p∧r)⊃(q∧r))                  CEpqCKprKqr               monotony
+    T4: (q≡r)⊃((p∧q)⊃(p∧r))                  CEqrCKpqKpr               monotony
+    T4: (p≡q)⊃((p⊃r)⊃(q⊃r))                  CEpqCCprCqr               monotony
+    T4: (q≡r)⊃((p⊃q)⊃(p⊃r))                  CEqrCCpqCpr               monotony
+    T5: (p⊃(q⊃r))⊃((p⊃q)⊃(p⊃r))              CCpCqrCCpqCpr          importation
+	not valid: |r|=0, |p|=1, |q|=1, result=11
+    T6: p⊃p                                  Cpp                       identity
+    T7: (p⊃q)⊃((q⊃p)⊃(p≡q))                  CCpqCCqpEpq           antisymmetry
+    T8: (p⊃q)⊃((q⊃r)⊃(p⊃r))                  CCpqCCqrCpr           transitivity
+    T9: ((p⊃q)⊃p)⊃p                          CCCpqpp                     Pierce
+	not valid: |p|=1, |q|=0, result=11
+   T10: (p⊃r)⊃((q⊃r)⊃((p∨q)⊃r))              CCprCCqrCApqr              dilemma
+   T10: (p⊃r)⊃((q⊃s)⊃((p∨q)⊃(r∨s)))          CCprCCqsCApqArs            dilemma
+   T11: (p⊃(q⊃r))⊃((p∧q)⊃r)                  CCpCqrCKpqr            importation
+	not valid: |r|=0, |q|=1, |p|=1, result=11
+   T12: ((p∧q)⊃r)⊃(p⊃(q⊃r))                  CCKpqrCpCqr            exportation
+   T13: p∨~p                                 ApNp             tertium non datur
+	not valid: |p|=1, result=11
+   T13: (p⊃q)∨(q⊃p)                          ACpqCqp          tertium non datur
+   T14: ~(p∧~p)                              NKpNp                contradiction
+	not valid: |p|=1, result=11
+   T15: (p⊃~p)⊃~p                            CCpNpNp       reductio ad absurdum
+	not valid: |p|=1, result=11
+   T15: (~p⊃p)⊃p                             CCNppp        reductio ad absurdum
+	not valid: |p|=1, result=11
+   T16: (p⊃q)⊃(~q⊃~p)                        CCpqCNqNp           contraposition
+   T16: (~p⊃~q)⊃(q⊃p)                        CCNpNqCqp           contraposition
+   T16: (p⊃~q)⊃(q⊃~p)                        CCpNqCqNp           contraposition
+   T16: (~p⊃q)⊃(~q⊃p)                        CCNpqCNqp           contraposition
+   T17: p⊃~~p                                CpNNp              double negation
+   T17: ~~p⊃p                                CNNpp              double negation
+   T17: p≡~~p                                EpNNp              double negation
+   T17: ~~~p⊃~p                              CNNNpNp            double negation
+   T18: p≡(p∨p)                              EpApp                    tautology
+   T18: p≡(p∧p)                              EpKpp                    tautology
+   T19: p⊃(p∨q)                              CpApq               simplification
+   T19: (p∧q)⊃p                              CKpqp               simplification
+   T20: (p∨q)≡(q∨p)                          EApqAqp                commutation
+   T20: (p∧q)≡(q∧p)                          EKpqKqp                commutation
+   T21: (p∨(q∨r))≡((p∨q)∨r)                  EApAqrAApqr            association
+   T21: (p∧(q∧r))≡((p∧q)∧r)                  EKpKqrKKpqr            association
+   T22: (p∧(q∨r))≡((p∧q)∨(p∧r))              EKpAqrAKpqKpr         distribution
+   T22: (p∨(q∧r))≡((p∨q)∧(p∨r))              EApKqrKApqApr         distribution
+   T23: (p∨(p∧q))≡p                          EApKpqp                 absorption
+   T23: (p∧(p∨q))≡p                          EKpApqp                 absorption
+   T24: (p⊃q)⊃(p≡(p∧q))                      CCpqEpKpq                   subset
+   T24: (p≡(p∧q))⊃(p⊃q)                      CEpKpqCpq                   subset
+   T24: (p⊃q)⊃(q≡(p∨q))                      CCpqEqApq                   subset
+   T24: (q≡(p∨q))⊃(p⊃q)                      CEqApqCpq                   subset
+   T25: (p∨F)≡p                              EApFp                      binding
+   T25: (p∧T)≡p                              EKpTp                      binding
+   T25: (p⊃F)≡~p                             ECpFNp                     binding
+   T26: (p∨q)≡((p⊃q)⊃q)                      EApqCCpqq       alternate def: Apq
+	--> 7 theorem schemas are not valid.
+Derived Rules:
+   DR1: If ⊢p and ⊢q, then ⊢(p∧q).                                   adjunction
+   DR2: If ⊢(p⊃q) and ⊢~q, then ⊢~p.                            modus tollens 1
+   DR3: If ⊢(~p⊃~q) and ⊢q, then ⊢p.                            modus tollens 2
+   DR4: If ⊢(p⊃~q) and ⊢q, then ⊢~p.                            modus tollens 3
+   DR5: If ⊢(~p⊃q) and ⊢~q, then ⊢p.                            modus tollens 4
+   DR6: If ⊢(~p⊃p), then ⊢p.                                    contradiction 1
+	 Conclusion p = 6 when |p|=6 and premises hold.
+   DR7: If ⊢(p⊃~p), then ⊢~p.                                   contradiction 2
+	 Conclusion ~p = 11 when |p|=1 and premises hold.
+	--> 2 transformations are not valid.
+Total number of invalid items: 52
