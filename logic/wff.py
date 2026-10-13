@@ -259,10 +259,14 @@ class WFF(object):
     @wff.setter
     def wff(self, expr:WFFx):
         """sets the wff object"""
-        if not isinstance(expr, self.EXPRS):
-            raise TypeError("Invalid WFF")
+        self._validate_type(expr)
         self.__wff = expr
         self.extract_vars()
+
+    def _validate_type(self, expr:WFFx):
+        """validate the type of an expression"""
+        if not isinstance(expr, self.EXPRS):
+            raise TypeError("Invalid WFF")
 
     def __str__(self):
         """string form"""
@@ -366,6 +370,14 @@ class WFF(object):
     def value(self):
         """returns the truth value"""
         return self.wff.value
+
+    @property
+    def strip(self) -> str:
+        """remove outermost parentheses"""
+        s = str(self)
+        if s[0] == '(':
+            return s[1:-1]
+        return s
 
 if __name__ == "__main__":
     from fractions import Fraction

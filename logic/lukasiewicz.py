@@ -269,6 +269,11 @@ class LukasiewiczLogic(object):
         return tuple([1]*self.__n)
 
     @property
+    def F(self):
+        """the contradictory constant"""
+        return tuple([0]*self.__n)
+
+    @property
     def denominator(self):
         """returns the denominator of the smallest possible truth level"""
         return self.__m - 1
