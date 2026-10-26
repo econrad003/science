@@ -20,6 +20,8 @@ The *basel1* and *basel2* demonstration modules use Euler's solution the Basel P
 
 The *logic* folder contains some programs which work with symbolic logic -- with propositional logic -- in particular, modal and many-valued logic.  Check the *messages* folder for some output (*.txt* extension) and some analysis (markdown files, *.md* extension).
 
+The *logic.curry* module deals with combinatory logic. It can be run as a demonstration script and it can be incorporated into test programs.  See the *logic/tests* folder for examples like *curry1* and *curry2*.  The presentation is based on the discussion in *Elements of Mathematical Logic* by Paul Rosenbloom.  
+
 # 2 Biology
 
 ## 2.1 Genetics
