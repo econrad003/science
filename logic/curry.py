@@ -395,10 +395,16 @@ BCWK_reduction.add(ParseTree.W_reduce)
 BCWK_reduction.add(ParseTree.K_reduce)
 __all__.append("BCWK_reduction")
 
-    # all defined above
+    # all defined above (rules should be added here!)
 full_reduction = AKI_reduction | BCWK_reduction
 full_reduction.add(ParseTree.D_reduce)
 full_reduction.add(ParseTree.T_reduce)
+
+    # also all defined above
+AKIBCW_reduction = AKI_reduction | BCWK_reduction
+AKIBCW_reduction.add(ParseTree.D_reduce)
+AKIBCW_reduction.add(ParseTree.T_reduce)
+__all__.append("AKIBCW_reduction")
 
     # short names for the rules
 names = {}
