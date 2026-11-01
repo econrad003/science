@@ -1,0 +1,14 @@
+Testing additional rules
+0 = |KI.
+S = |A||BAK
++ = ||BAD
+• = B
+ⁿ = T
+
+All in one (example)...
+expr='||||+|Sm||.n||^pqab'
+  1: |||Sma||||.n||^pqab                          m+n
+  2: |a||ma||||.n||^pqab                          S(m)
+  3: |a||ma||n|||^pqab                            m•n
+  4: |a||ma||n||qpab                              mⁿ
+SUCCESS!

@@ -1,0 +1,196 @@
+methods: ('combinators', 'recursives', 'add_rules', 'all_reductions', 'test_standard', 'test_recursive', 'new_standard_rule', 'new recursive_rule', 'show_all', 'filters', 'all_filters', 'alpha_replacement', 'test_alpha_replacement')
+
+===========================  All Reductions  ===========================
+Method               Short name
+------------------------------------------------------------------------
+A_reduce                       A
+K_reduce                       K
+I_reduce                       I
+B_reduce                       B
+C_reduce                       C
+W_reduce                       W
+D_reduce                       D
+T_reduce                       T
+zero_reduction                 0
+S_reduction                    S(m)
+plus_reduction                 m+n
+times_reduction                m•n
+power_reduction                mⁿ
+
+========================  Standard Reductions  =========================
+Key  Expression Result          Expected        Description
+------------------------------------------------------------------------
+ +   ||||+mnab  ||ma||nab                       addition
+ .   ||||.mnab  ||m|nab                         multiplication
+ 0   ||0ab      b                               zero
+ A   |||Afgx    ||fx|gx                         substitutor
+ B   |||Bfgx    |f|gx                           compositor|multiplication
+ C   |||Cfxy    ||fyx                           permutator
+ D   ||||Dfxgy  ||fx|gy                         ?
+ I   |Ix        x                               identity|one
+ K   ||Kxy      x                               projector
+ S   |||Snab    |a||nab                         successor
+ T   ||Txy      |yx                             commutator|exponentiation
+ W   ||Wfx      ||fxx                           duplicator
+ ^   ||||^mnab  |||nmab                         exponentiation
+ADDING STANDARD RULES...
+Adding a standard rule for op='['...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: ||z|Kyx                                      unregistered rule
+    Proposed rule has been verified.  Adding the rule...
+    The rule has been added...
+Adding a standard rule for op='α'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: ||[|S|x0|x0                                  unregistered rule
+    Proposed rule has been verified.  Adding the rule...
+    The rule has been added...
+Adding a standard rule for op='β'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: ||||[|Kx|y|Pww|x|Pw                          unregistered rule
+    Proposed rule has been verified.  Adding the rule...
+    The rule has been added...
+Adding a standard rule for op='P'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: |||xα|K0I                                    unregistered rule
+    Proposed rule has been verified.  Adding the rule...
+    The rule has been added...
+Adding a standard rule for op='R'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: |ϑ||βxy                                      unregistered rule
+    Proposed rule has been verified.  Adding the rule...
+    The rule has been added...
+Adding a standard rule for op='Λ'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: |||Py||B|μxS||μx0                            unregistered rule
+    Proposed rule has been verified.  Adding the rule...
+    The rule has been added...
+ADDING RECURSIVE RULES...
+  Creating a recursive rule for op='ϑ'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: |x|ϑx                                        unregistered rule
+    Proposed rule has been verified. Logging the rule set.
+  Creating a recursive rule for op='μ'...
+    Verifying the arguments...
+    Parsing the expression...
+    Reducing the expression...
+LHS: {expr}
+  1: |||[a||μf|Sa|fa                              unregistered rule
+    Proposed rule has been verified. Logging the rule set.
+ADDING FILTER RULES...
+replacing plus_reduction...
+replacing times_reduction...
+replacing power_reduction...
+registering |||[abn (left bracket)
+registering |||βagfw (beta)
+RULES HAVE BEEN UPDATED...
+
+===========================  All Reductions  ===========================
+Method               Short name
+------------------------------------------------------------------------
+A_reduce                       A
+K_reduce                       K
+I_reduce                       I
+B_reduce                       B
+C_reduce                       C
+W_reduce                       W
+D_reduce                       D
+T_reduce                       T
+zero_reduction                 0
+S_reduction                    S(m)
+lbracket_reduction             [
+alpha_reduction                α
+beta_reduction                 β
+predecessor_reduction          P
+R_reduction                    R
+Lambda_reduction               Λ
+theta_reduction                ϑ
+mu_reduction                   μ
+new_plus_reduction             +
+new_times_reduction            •
+new_power_reduction            mⁿ
+
+========================  Standard Reductions  =========================
+Key  Expression Result          Expected        Description
+------------------------------------------------------------------------
+ +   ||||+mnab  ||ma||nab                       addition
+ .   ||||.mnab  ||m|nab                         multiplication
+ 0   ||0ab      b                               zero
+ A   |||Afgx    ||fx|gx                         substitutor
+ B   |||Bfgx    |f|gx                           compositor|multiplication
+ C   |||Cfxy    ||fyx                           permutator
+ D   ||||Dfxgy  ||fx|gy                         ?
+ I   |Ix        x                               identity|one
+ K   ||Kxy      x                               projector
+ P   |Px        |||xα|K0I                       predecessor
+ R   ||Rxy      |ϑ||βxy                         recursion setter
+ S   |||Snab    |a||nab                         successor
+ T   ||Txy      |yx                             commutator|exponentiation
+ W   ||Wfx      ||fxx                           duplicator
+ [   |||[xyz    ||z|Kyx                         left bracket
+ ^   ||||^mnab  |||nmab                         exponentiation
+ Λ   ||Λxy      |||Py||B|μxS||μx0                 big lambda reduction
+ α   |αx        ||[|S|x0|x0                     alpha reduction
+ β   ||||βxyxw  ||||[|Kx|y|Pww|x|Pw                 beta reduction
+
+========================  Recursive Reductions  ========================
+Key  Expression Result          Expected        Description
+------------------------------------------------------------------------
+ mu  ||μfa      |||[a||μf|Sa|fa                 mu reduction
+ th  |ϑx        |x|ϑx                           theta reduction
+
+=========================  All Filtered Rules  =========================
+      defaults? off
+    arithmetic? on
+     shortcuts? on
+new_plus_reduction:
+     ||+|S|S00            2                    
+     ||+0|S|S0            2                    
+     ||||+mnab            ||ma||nab            
+new_times_reduction:
+     ||.|SI|S|SI          6                    
+     ||||.mnab            ||m|nab              
+new_power_reduction:
+     ||^|SI|S|SI          8                    
+     ||||^mnab            |||nmab              
+lbracket_reduction:
+     |||[ab0              a                    
+     |||[abI              b                    
+     |||[ab|KI            a                    
+     |||[ab|Sx            b                    
+beta_reduction:
+     ||||βagf0            a                    
+     ||||βagf|KI          a                    
+     ||||βagfI            ||gI|fI              
+     ||||βagf|S|S|S0      ||g|S|SI|f|S|SI      
+Restoring settings:
+    arithmetic? off
+     shortcuts? off
+      defaults? off
+
+=========================  Alpha Replacement  ==========================
+simple failures: ok!
+single instances: ok!
+repetitions: ok!
+single application: ok!
+all tests: ok!

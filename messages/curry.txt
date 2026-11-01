@@ -1,0 +1,80 @@
+__all__: ParseTree, AK_reduction, AKI_reduction, BCWK_reduction, AKIBCW_reduction, Reducer
+
+Example 1: I reduction
+         expr = |||AKKa
+         tree = ['|', ['|', ['|', 'A', 'K'], 'K'], 'a']
+        depth = 3
+   A reduction: ||Ka|Ka
+   K reduction: a
+
+Example 2: B reduction
+         expr = |||A|Kabc
+         tree = ['|', ['|', ['|', 'A', ['|', 'K', 'a']], 'b'], 'c']
+        depth = 4
+   A reduction: |||Kac|bc
+   K reduction: |a|bc
+
+Example 3: W reduction
+         expr = ||||AA|AKab
+         tree = ['|', ['|', ['|', ['|', 'A', 'A'], ['|', 'A', 'K']], 'a'], 'b']
+        depth = 4
+   A reduction: |||Aa||AKab
+   A reduction: ||ab|||AKab
+   A reduction: ||ab||Kb|ab
+   K reduction: ||abb
+SUCCESS!
+
+Example 4: D reduction
+         expr = |||||BBabcd
+         tree = ['|', ['|', ['|', ['|', ['|', 'B', 'B'], 'a'], 'b'], 'c'], 'd']
+        depth = 5
+   B reduction: |||B|abcd
+   B reduction: ||ab|cd
+
+Example 5: C reduction
+         expr = |||||A|DA|KKabc
+         tree = ['|', ['|', ['|', ['|', ['|', 'A', ['|', 'D', 'A']], ['|', 'K', 'K']], 'a'], 'b'], 'c']
+        depth = 6
+   A reduction: |||||DAa||KKabc
+   D reduction: |||Aa|||KKabc
+   A reduction: ||ac||||KKabc
+   K reduction: ||ac||Kbc
+   K reduction: ||acb
+
+Example 6: T reduction
+         expr = |||CIab
+         tree = ['|', ['|', ['|', 'C', 'I'], 'a'], 'b']
+        depth = 3
+   C reduction: ||Iba
+   I reduction: |ba
+
+Example 7: Prove: |BI = I
+         expr = |||BIab
+   B reduction: |I|ab
+   I reduction: |ab
+         expr = ||Iab
+   I reduction: |ab
+        |||BIab = |I|ab = |ab.            by reduction
+        |||BIab = |ab.                    by transitivity (E3)
+        ||Iab = |ab.                      by reduction
+        |ab = ||Iab.                      by symmetry (E2)
+        |||BIab = ||Iab.                  by transitivity (E3)
+        ||BIa = |Ia.                      by E5 since b is arbitrary
+        |BI = I.             QED.         by E5 since a is arbitrary
+Example 8
+Show that ||C||BBBK = ||B|BK||BCC
+expr: ||||||C||BBBKabcd  --> BCWK_reduction
+  1: |||||||BBBaKbcd                                                    C
+  2: |||||B|BaKbcd                                                      B
+  3: ||||Ba|Kbcd                                                        B
+  4: ||a||Kbcd                                                          B
+  5: ||abd                                                              K
+result: ||abd
+expr: ||||||B|BK||BCCabcd  --> BCWK_reduction
+  1: |||||BK|||BCCabcd                                                  B
+  2: |||K||||BCCabcd                                                    B
+  3: |||||BCCabd                                                        K
+  4: |||C|Cabd                                                          B
+  5: |||Cadb                                                            C
+  6: ||abd                                                              C
+result: ||abd

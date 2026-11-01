@@ -1,0 +1,458 @@
+AXIOMS
+
+                Rules of Formation
+        R0. If a and be are in 𝕮, then |ab is a uniquely determined
+            member of 𝕮.
+
+                Definition of Equality
+        E1. If a is in 𝕮, then a=a.
+        E2. If a and b are in 𝕮 and a=b, then b=a.
+        E3. For all a, b, and c are in 𝕮, if a=b and b=c, then a=c.
+        E4. For all a, b, c, and d in 𝕮, if a=b and c=d, then |ac=|bd.
+        E5. For all a and b in 𝕮, if |ac=|bc for every c in 𝕮, then
+            a=b.
+
+                Primitive Constants
+        C0. A and K are in 𝕮.
+        C1. If a, b, and c are in 𝕮, then |||Aabc = ||ac|bc.
+        C2. If a and b are in 𝕮, then ||Kab = a.
+
+                    See: Rosenbloom 1950, page 112.
+
+
+NOTES
+
+    The computer-generated proofs are abbreviated.  We give each
+    expression, but we don't write the equality symbols.  Most of the
+    proofs follow one of two patterns -- reduction or parallel
+    reduction.
+
+    We use R0, C0 and E1 through E5 implicitly.  Many of the proofs are
+    by reduction:
+
+          ||||FOOabcd = ... = ||||BARabcd  by reduction rules
+
+    The reductions are mainly axioms C1 and C2, and theorems T1 and T3
+    though T7.  Axioms E1 through E5 are used implicitly in the reductions.
+
+    To go from FOOabcd = BAabcd to FOO = BAR, we use the "for every c in 𝕮"
+    part of E5 to remove the arbitrary variable on the right hand side of
+    the stroke operation.  Note that to be arbitary, the variable on the
+    right and side must be alone on the right side of the stroke and appear
+    nowhere on the left side of the stroke.
+
+          ||||FOOabcd = ||||BARabcd        by E3, repeated as needed
+            |||FOOabc = BARabc             by E5, since d is arbitrary
+              ||FOOab = BARab              by E5, since c is arbitrary
+                |FOOa = BARa               by E5, since b is arbitrary
+
+    Sometimes we use parallel reduction:
+
+          ||||FOOabcd = ... = BAZ          by reduction rules
+          ||||BAZabcd = ... = BAZ          by reduction rules
+
+    To show that ||||FOOabcd = ||||BARabcd we use E2 and E3:
+
+           |||BARabcd = BAZ                by E3, repeated as needed
+                  BAZ = ||BARabcd          by E2
+          ||||FOOabcd = ||||BARabcd        by E3, repeated as needed
+                  FOO = BAR                by E5, repeated as before
+
+
+REFERENCES
+
+    [1] Paul Rosenbloom. Elements of Mathematical Logic. New York (Dover,
+    1950).
+
+Rosenbloom 1950, page 113.
+
+D1. I = ||AKK.         (identificator)
+T1. |Ia = a.
+  0: |||AKKa
+  1: ||Ka|Ka                                      A
+  2: a                                            K
+
+D2. B = ||A|KAK.       (compositor)
+T2. |Ba = |A|Ka.
+  0: |||A|KAKa
+  1: |||KAa|Ka                                    A
+  2: |A|Ka                                        K
+T3. |||Babc = |a|bc.
+  0: |||||A|KAKabc
+  1: |||||KAa|Kabc                                A
+  2: |||A|Kabc                                    K
+  3: |||Kac|bc                                    A
+  4: |a|bc                                        K
+
+D3. W = ||AA|AK.       (duplicator)
+T4. |Wab = ||abb.
+  0: ||||AA|AKab
+  1: |||Aa||AKab                                  A
+  2: ||ab|||AKab                                  A
+  3: ||ab||Kb|ab                                  A
+  4: ||abb                                        K
+
+D4. D = |BB.
+T5. ||||Dabcd = ||ab|cd.
+  0: |||||BBabcd
+  1: |||B|abcd                                    B
+  2: ||ab|cd                                      B
+
+D5. C = ||A|DA|KK.     (permutator)
+T5. |||Cabc = ||acb.
+  0: |||||A|DA|KKabc
+  1: |||||DAa||KKabc                              A
+  2: |||Aa|||KKabc                                D
+  3: ||ac||||KKabc                                A
+  4: ||ac||Kbc                                    K
+  5: ||acb                                        K
+
+D6. T = |CI.
+T5. ||Tab = |ba.
+  0: |||CIab
+  1: ||Iba                                        C
+  2: |ba                                          I
+
+Rosenbloom 1950, page 114.
+  (*) The statements T8b, T9b, T11, and T13 can replace
+      the statement schema E5.
+
+Lemma 8a. ||A|KaI = a.
+  0: |||A|KaIb
+  1: |||Kab|Ib                                    A
+  2: |a|Ib                                        K
+  3: |ab                                          I
+
+Proof by parallel reduction:
+T8b. ||AB|KI = I.                                                     (*)
+LHS: ||||AB|KIab
+  1: |||Ba||KIab                                  A
+  2: |a|||KIab                                    B
+  3: |a|Ib                                        K
+  4: |ab                                          I
+RHS: ||Iab
+  1: |ab                                          I
+
+Proof using Lemma 8a:
+LHS: |||AB|KIa
+  1: ||Ba||KIa                                    A
+  2: ||BaI                                        K
+     ||BaI = ||A|KaI      by T2
+           = a            by Lemma 8a
+           = |Ia          by T1
+
+Lemma 9a. ||A||A|KKab = a.
+  0: |||A||A|KKabc
+  1: ||||A|KKac|bc                                A
+  2: ||||KKc|ac|bc                                A
+  3: ||K|ac|bc                                    K
+  4: |ac                                          K
+
+Proof by parallel reduction:
+T9b. ||BA|BK = K.                                                     (*)
+LHS: |||||BA|BKabc
+  1: |||A||BKabc                                  B
+  2: ||||BKac|bc                                  A
+  3: ||K|ac|bc                                    B
+  4: |ac                                          K
+RHS: |||Kabc
+  1: |ac                                          K
+
+Proof using Lemma 9a:
+LHS: ||||BA|BKab
+  1: ||A||BKab                                    B
+     ||A||BKab = |||A||A|KKab      by T2
+               = a                 by Lemma 9a
+               = ||Kab             by Axiom C2
+
+Lemma 10. ||A|Ka|Kb = |K|ab.
+LHS: |||A|Ka|Kbc
+  1: |||Kac||Kbc                                  A
+  2: |a||Kbc                                      K
+  3: |ab                                          K
+RHS: ||K|abc
+  1: |ab                                          K
+
+T11. ||A|DB|KK = ||B|BKI.                                             (*)
+Proof by parallel reduction:
+LHS: |||||A|DB|KKabc
+  1: |||||DBa||KKabc                              A
+  2: |||Ba|||KKabc                                D
+  3: |a||||KKabc                                  B
+  4: |a||Kbc                                      K
+  5: |ab                                          K
+RHS: |||||B|BKIabc
+  1: ||||BK|Iabc                                  B
+  2: ||K||Iabc                                    B
+  3: ||Iab                                        K
+  4: |ab                                          I
+
+Proof using Lemma 10:
+LHS: ||||A|DB|KKab
+  1: ||||DBa||KKab                                A
+  2: ||Ba|||KKab                                  D
+  3: ||Ba|Kb                                      K
+     ||Ba|Kb = ||A|Ka|Kb         by T2
+             = |K|ab             by Lemma 10
+     ... But:
+RHS: ||||B|BKIab
+  1: |||BK|Iab                                    B
+  2: |K||Iab                                      B
+  3: |K|ab                                        I
+
+Lemma 12. ||A||Aac||Abc = ||A||A||BAabc.
+LHS: |||A||Aac||Abcd
+  1: ||||Aacd|||Abcd                              A
+  2: |||ad|cd|||Abcd                              A
+  3: |||ad|cd||bd|cd                              A
+RHS: |||A||A||BAabcd
+  1: ||||A||BAabd|cd                              A
+  2: |||||BAad|bd|cd                              A
+  3: |||A|ad|bd|cd                                B
+  4: |||ad|cd||bd|cd                              A
+
+T13. ||A|D||BA||B|BAA|KA = ||B|BA||WI|BA.                             (*)
+Proof using Lemma 11:
+LHS: |||||A|D||BA||B|BAA|KAabc
+  1: |||||D||BA||B|BAAa||KAabc                    A
+  2: |||||BA||B|BAAa|||KAabc                      D
+  3: |||A|||B|BAAa|||KAabc                        B
+  4: |||||B|BAAac||||KAabc                        A
+  5: ||||BA|Aac||||KAabc                          B
+  6: ||A||Aac||||KAabc                            B
+  7: ||A||Aac||Abc                                K
+     ||A||Aac||Abc is the LHS of Lemma 11.  But...
+RHS: |||||B|BA||WI|BAabc
+  1: ||||BA|||WI|BAabc                            B
+  2: ||A||||WI|BAabc                              B
+  3: ||A||||I|BA|BAabc                            W
+  4: ||A||||BA|BAabc                              I
+  5: ||A||A||BAabc                                B
+     ||A||A||BAabc is the RHS of Lemma 11.  Q.E.D.
+
+Note 1) in Rosenbloom 1950, page 114, T13...
+        The last expression has a typo (missing stroke).
+
+Proof from scratch:
+LHS: ||||||A|D||BA||B|BAA|KAabcd
+  1: ||||||D||BA||B|BAAa||KAabcd                  A
+  2: ||||||BA||B|BAAa|||KAabcd                    D
+  3: ||||A|||B|BAAa|||KAabcd                      B
+  4: ||||||B|BAAac||||KAabcd                      A
+  5: |||||BA|Aac||||KAabcd                        B
+  6: |||A||Aac||||KAabcd                          B
+  7: ||||Aacd|||||KAabcd                          A
+  8: |||ad|cd|||||KAabcd                          A
+  9: |||ad|cd|||Abcd                              K
+ 10: |||ad|cd||bd|cd                              A
+LHS: ||||||B|BA||WI|BAabcd
+  1: |||||BA|||WI|BAabcd                          B
+  2: |||A||||WI|BAabcd                            B
+  3: ||||||WI|BAabd|cd                            A
+  4: ||||||I|BA|BAabd|cd                          W
+  5: ||||||BA|BAabd|cd                            I
+  6: ||||A||BAabd|cd                              B
+  7: |||||BAad|bd|cd                              A
+  8: |||A|ad|bd|cd                                B
+  9: |||ad|cd||bd|cd                              A
+
+Note 2) The default for the maximum number of reductions
+        in logic.curry.Reducer.on() is 10.  So just squeaked
+        by in reducing the LHS.  (You can increase or
+        this limit by setting ``max_steps''.
+
+Rosenbloom 1950, pages 115-116.
+  Here throughout we replace |BB with D.
+
+T14,T19. |BI = I = ||CBI.
+LHS: |||BIab
+  1: |I|ab                                        B
+  2: |ab                                          I
+MHS: ||Iab
+  1: |ab                                          I
+RHS: ||||CBIab
+  1: |||BaIb                                      C
+  2: |a|Ib                                        B
+  3: |ab                                          I
+
+Note: We can also combine this with T8b:
+          ||CBI = |BI = ||AB|KI = I.
+      Also see T23 and T29.
+
+T15. ||C|D|DBB = ||BDB.
+LHS: ||||||C|D|DBBabcd
+  1: ||||||D|DBaBbcd                              C
+  2: |||||DBa|Bbcd                                D
+  3: |||Ba||Bbcd                                  D
+  4: |a|||Bbcd                                    B
+  5: |a|b|cd                                      B
+RHS: ||||||BDBabcd
+  1: ||||D|Babcd                                  B
+  2: |||Bab|cd                                    D
+  3: |a|b|cd                                      B
+
+T16. ||C|D|DBC = ||B|BC|DB.
+LHS: ||||||C|D|DBCabcd
+  1: ||||||D|DBaCbcd                              C
+  2: |||||DBa|Cbcd                                D
+  3: |||Ba||Cbcd                                  D
+  4: |a|||Cbcd                                    B
+  5: |a||bdc                                      C
+RHS: ||||||B|BC|DBabcd
+  1: |||||BC||DBabcd                              B
+  2: |||C|||DBabcd                                B
+  3: |||||DBabdc                                  C
+  4: |||Ba|bdc                                    D
+  5: |a||bdc                                      B
+
+T17. ||C|DBW = ||B|BW|DB.
+LHS: |||||C|DBWabc
+  1: |||||DBaWbc                                  C
+  2: |||Ba|Wbc                                    D
+  3: |a||Wbc                                      B
+  4: |a||bcc                                      W
+RHS: |||||B|BW|DBabc
+  1: ||||BW||DBabc                                B
+  2: ||W|||DBabc                                  B
+  3: |||||DBabcc                                  W
+  4: |||Ba|bcc                                    D
+  5: |a||bcc                                      B
+
+T18. ||C|DBK = ||B|BKI.
+LHS: |||||C|DBKabc
+  1: |||||DBaKbc                                  C
+  2: |||Ba|Kbc                                    D
+  3: |a||Kbc                                      B
+  4: |ab                                          K
+RHS: |||||B|BKIabc
+  1: ||||BK|Iabc                                  B
+  2: ||K||Iabc                                    B
+  3: ||Iab                                        K
+  4: |ab                                          I
+
+T19. CBI = I.  (See T14 above.)
+
+T20. ||B||B|BCCD = |DC.
+LHS: ||||||B||B|BCCDabcd
+  1: ||||||B|BCC|Dabcd                            B
+  2: |||||BC|C|Dabcd                              B
+  3: |||C||C|Dabcd                                B
+  4: ||||C|Dabdc                                  C
+  5: ||||Dadbc                                    C
+  6: ||ad|bc                                      D
+RHS: |||||DCabcd
+  1: |||Ca|bcd                                    D
+  2: ||ad|bc                                      C
+
+Note 3) in Rosenbloom 1950, page 116, T21...
+        There are errors in the LHS of the expression, and
+        in the sketch of the proof.  I am assuming that the
+        RHS (i.e. ||BBW, here as |DW) is correct.
+           The corrected LHS is a correction I wrote down in
+        my copy of Elememts of Mathematical Logic sometime in the
+        1970s.  The reduction of the RHS is easy, so I am sure
+        that I worked out the correct reduced form.  But working
+        out the correct form of the LHS is not trivial -- did I
+        find it in some Errata, or did I derive it myself from
+        the lambda expressions?
+
+T21. ||B||B||B|BWW|BC|DD = |DW.
+LHS: |||||B||B||B|BWW|BC|DDabc
+  1: |||||B||B|BWW|BC||DDabc                      B
+  2: |||||B|BWW||BC||DDabc                        B
+  3: ||||BW|W||BC||DDabc                          B
+  4: ||W||W||BC||DDabc                            B
+  5: ||||W||BC||DDabcc                            W
+  6: ||||||BC||DDabbcc                            W
+  7: ||||C|||DDabbcc                              B
+  8: ||||||DDabcbc                                C
+  9: ||||Da|bcbc                                  D
+ 10: ||a|bc|bc                                    D
+RHS: ||||DWabc
+  1: ||Wa|bc                                      D
+  2: ||a|bc|bc                                    W
+
+T22. |DK = ||BKK.
+LHS: ||||DKabc
+  1: ||Ka|bc                                      D
+  2: a                                            K
+RHS: |||||BKKabc
+  1: |||K|Kabc                                    B
+  2: ||Kac                                        K
+  3: a                                            K
+
+T23. ||BCC = I.
+LHS: |||||BCCabc
+  1: |||C|Cabc                                    B
+  2: |||Cacb                                      C
+  3: ||abc                                        C
+RHS: |||Iabc
+  1: ||abc                                        I
+
+T24. ||B||B|BCC|BC = ||B||BC|BCC.
+LHS: ||||||B||B|BCC|BCabcd
+  1: ||||||B|BCC||BCabcd                          B
+  2: |||||BC|C||BCabcd                            B
+  3: |||C||C||BCabcd                              B
+  4: ||||C||BCabdc                                C
+  5: |||||BCadbc                                  C
+  6: |||C|adbc                                    B
+  7: |||adcb                                      C
+RHS: ||||||B||BC|BCCabcd
+  1: ||||||BC|BC|Cabcd                            B
+  2: ||||C||BC|Cabcd                              B
+  3: |||||BC|Cacbd                                C
+  4: |||C||Cacbd                                  B
+  5: ||||Cacdb                                    C
+  6: |||adcb                                      C
+
+T25. ||B||B|BWC|BC = ||BCW.
+LHS: |||||B||B|BWC|BCabc
+  1: |||||B|BWC||BCabc                            B
+  2: ||||BW|C||BCabc                              B
+  3: ||W||C||BCabc                                B
+  4: ||||C||BCabcc                                W
+  5: |||||BCacbc                                  C
+  6: |||C|acbc                                    B
+  7: |||accb                                      C
+RHS: |||||BCWabc
+  1: |||C|Wabc                                    B
+  2: |||Wacb                                      C
+  3: |||accb                                      W
+
+T26. ||BCK = |BK.
+LHS: |||||BCKabc
+  1: |||C|Kabc                                    B
+  2: |||Kacb                                      C
+  3: |ab                                          K
+RHS: ||||BKabc
+  1: ||K|abc                                      B
+  2: |ab                                          K
+
+T27. ||BWC = W.
+LHS: ||||BWCab
+  1: ||W|Cab                                      B
+  2: |||Cabb                                      W
+  3: ||abb                                        C
+RHS: ||Wab
+  1: ||abb                                        W
+
+T28. ||BW|BW = ||BWW.
+LHS: ||||BW|BWab
+  1: ||W||BWab                                    B
+  2: ||||BWabb                                    W
+  3: ||W|abb                                      B
+  4: |||abbb                                      W
+RHS: ||||BWWab
+  1: ||W|Wab                                      B
+  2: |||Wabb                                      W
+  3: |||abbb                                      W
+
+T29. ||BWK = I.
+LHS: ||||BWKab
+  1: ||W|Kab                                      B
+  2: |||Kabb                                      W
+  3: |ab                                          K
+RHS: ||Iab
+  1: |ab                                          I
+SUCCESS!

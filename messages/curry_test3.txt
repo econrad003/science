@@ -1,0 +1,802 @@
+************************************************************************
+
+===========================  All Reductions  ===========================
+Method               Short name
+------------------------------------------------------------------------
+A_reduce                       A
+K_reduce                       K
+I_reduce                       I
+B_reduce                       B
+C_reduce                       C
+W_reduce                       W
+D_reduce                       D
+T_reduce                       T
+zero_reduction                 0
+S_reduction                    S(m)
+lbracket_reduction             [
+alpha_reduction                α
+beta_reduction                 β
+predecessor_reduction          P
+R_reduction                    R
+Lambda_reduction               Λ
+theta_reduction                ϑ
+mu_reduction                   μ
+new_plus_reduction             +
+new_times_reduction            •
+new_power_reduction            mⁿ
+
+========================  Standard Reductions  =========================
+Key  Expression Result          Expected        Description
+------------------------------------------------------------------------
+ +   ||||+mnab  ||ma||nab                       addition
+ .   ||||.mnab  ||m|nab                         multiplication
+ 0   ||0ab      b                               zero
+ A   |||Afgx    ||fx|gx                         substitutor
+ B   |||Bfgx    |f|gx                           compositor|multiplication
+ C   |||Cfxy    ||fyx                           permutator
+ D   ||||Dfxgy  ||fx|gy                         ?
+ I   |Ix        x                               identity|one
+ K   ||Kxy      x                               projector
+ P   |Px        |||xα|K0I                       predecessor
+ R   ||Rxy      |ϑ||βxy                         recursion setter
+ S   |||Snab    |a||nab                         successor
+ T   ||Txy      |yx                             commutator|exponentiation
+ W   ||Wfx      ||fxx                           duplicator
+ [   |||[xyz    ||z|Kyx                         left bracket
+ ^   ||||^mnab  |||nmab                         exponentiation
+ Λ   ||Λxy      |||Py||B|μxS||μx0                 big lambda reduction
+ α   |αx        ||[|S|x0|x0                     alpha reduction
+ β   ||||βxyxw  ||||[|Kx|y|Pww|x|Pw                 beta reduction
+
+=========================  All Filtered Rules  =========================
+      defaults? off
+    arithmetic? on
+     shortcuts? on
+new_plus_reduction:
+     ||+|S|S00            2                    
+     ||+0|S|S0            2                    
+     ||||+mnab            ||ma||nab            
+new_times_reduction:
+     ||.|SI|S|SI          6                    
+     ||||.mnab            ||m|nab              
+new_power_reduction:
+     ||^|SI|S|SI          8                    
+     ||||^mnab            |||nmab              
+lbracket_reduction:
+     |||[ab0              a                    
+     |||[abI              b                    
+     |||[ab|KI            a                    
+     |||[ab|Sx            b                    
+beta_reduction:
+     ||||βagf0            a                    
+     ||||βagf|KI          a                    
+     ||||βagfI            ||gI|fI              
+     ||||βagf|S|S|S0      ||g|S|SI|f|S|SI      
+Restoring settings:
+    arithmetic? off
+     shortcuts? off
+      defaults? off
+
+=========================  Alpha Replacement  ==========================
+simple failures: ok!
+single instances: ok!
+repetitions: ok!
+single application: ok!
+all tests: ok!
+************************************************************************
+
+=======================  LEFT BRACKET REDUCTION  =======================
+
+Ex.3a) [ := λxλyλz||z|Kyx = |C||BC||BTK.
+expr='||||C||BC||BTKxyz'
+  1: |||||BC||BTKyxz                              C
+  2: |||C|||BTKyxz                                B
+  3: |||||BTKyzx                                  C
+  4: |||T|Kyzx                                    B
+  5: ||z|Kyx                                      T
+expr='|||[xyz'
+  1: ||z|Kyx                                      [
+
+Ex.5a) |||[ab0 = a.
+LHS: |||[ab0
+  1: ||0|Kba                                      [
+  2: a                                            0
+
+Ex.5b) |||[ab|Sn = b.
+LHS: |||[ab|Sn
+  1: |||Sn|Kba                                    [
+  2: ||Kb||n|Kba                                  S(m)
+  3: b                                            K
+
+==========================  ALPHA REDUCTION  ===========================
+
+    NOTE
+
+        |||[abz is a Kronecker delta function which returns a if z=0
+        or b if z=|Sn for some entity n.
+
+        This effectively implies that 0 cannot be expressed as |Sn.
+        Note that we don't have a universal quantifier in CL...
+        Since CL is consistent, we can say:
+
+            There are no n in 𝕮 such that 0 = |Sn.
+
+        But this is a statement in the meta language.  There is no
+        way to express this as a statement in CL.
+
+
+Ex.3b) α := λx||[|S|x0|x0 = ||B|W||B[S|T0.
+expr='|||B|W||B[S|T0x'
+  1: ||W||B[S||T0x                                B
+  2: ||||B[S||T0x||T0x                            W
+  3: ||[|S||T0x||T0x                              B
+  4: ||[|S||T0x|x0                                T
+  5: ||[|S|x0|x0                                  T
+LHS: |αx
+  1: ||[|S|x0|x0                                  α
+
+Ex.5c) If n is in ℕ, then |||nα|K00 = n.
+Basis: n=0.
+LHS: |||0α|K00
+  1: ||K00                                        0
+  2: 0                                            K
+Induction: Assume |||nα|K00 = n. Show: ||||Snα|K00 = |Sn.
+LHS: ||||Snα|K00
+  1: ||α||nα|K00                                  S(m)
+  2: |||[|S|||nα|K00|||nα|K000                    α
+  3: ||0|K|||nα|K00|S|||nα|K00                    [
+  4: |S|||nα|K00                                  0
+   = |Sn, by the induction hypothesis.
+\Corr.5c) If n is in ℕ, then |||nα|K0I = |Pn.
+
+   This corollary follows from (Ex.5c) and the following reductions:
+
+LHS: |||0α|K0I
+  1: ||K0I                                        0
+  2: 0                                            K
+
+LHS: ||||Snα|K0I
+  1: ||α||nα|K0I                                  S(m)
+  2: |||[|S|||nα|K00|||nα|K00I                    α
+  3: ||I|K|||nα|K00|S|||nα|K00                    [
+  4: ||K|||nα|K00|S|||nα|K00                      I
+  5: |||nα|K00                                    K
+
+=======================  PREDECESSOR REDUCTION  ========================
+
+Ex.3c) P := λx|||xα|K0I = ||C||C|Tα|K0I.
+expr='|||C||C|Tα|K0Ix'
+  1: ||||C|Tα|K0xI                                C
+  2: ||||Tαx|K0I                                  C
+  3: |||xα|K0I                                    T
+expr='|Px'
+  1: |||xα|K0I                                    P
+
+Ex.5d) P0 = 0.
+expr='|P0'
+  1: |||0α|K0I                                    P
+  2: ||K0I                                        0
+  3: 0                                            K
+
+Ex.5e) If n is in ℕ, then P|Sn = n.
+expr='|P|Sn'
+  1: ||||Snα|K0I                                  P
+  2: ||α||nα|K0I                                  S(m)
+  3: |||[|S|||nα|K00|||nα|K00I                    α
+  4: ||I|K|||nα|K00|S|||nα|K00                    [
+  5: ||K|||nα|K00|S|||nα|K00                      I
+  6: |||nα|K00                                    K
+   = n, whenever n is in ℕ (by Ex.5c).
+
+===========================  BETA REDUCTION  ===========================
+
+Ex.3d) β := λxλyλzλw||||[|Kx|y|Pww|z|Pw
+
+λxλyλzλw||||[|Kx|y|Pww|z|Pw
+= λxλyλz||A||A||B|[|Kx||By||BPII||Bz||BPI
+= λxλy||B|A||A||B|[|Kx||By||BPII||AB|K||BPI
+= λx||A|D||BA||A||BA||B|B|[|Kx||AB|K||BPI|KI|K||AB|K||BPI
+= ||A||BA||BD||B|BA||A||BA||B|BA||A|D|D||B[||BKI|K||AB|K||BPI|K|KI|K|K||AB|K||BPI
+constants =  {'P', '|', 'B', '[', 'I', 'D', 'A', 'K'}
+Applying last expression to xyzw...
+||||[|Kx|y|Pww|z|Pw = ||||[|Kx|y|Pww|z|Pw ...ok!
+
+β = λxλyλzλw||||[|Kx|||ByPww|||BzPw
+= λxλyλz||A||A||B|[|Kx||B||ByPII||B||BzPI
+= λxλy||B|A||A||B|[|Kx||B||ByPII||A|D||AB|KP|KI
+= λx||A|D||BA||A||BA||B|B|[|Kx||A|D||AB|KP|KI|KI|K||A|D||AB|KP|KI
+= ||A||BA||BD||B|BA||A||BA||B|BA||A|D|D||B[||BKI|K||A|D||AB|KP|KI|K|KI|K|K||A|D||AB|KP|KI
+Savings:
+	pruning: 60
+	shaving: 0
+
+λxλyλzλw||W||B|C|W||B|[|Kx||ByP||BzPw
+=λxλyλz|W||B|C|W||B|[|Kx||ByP||BzP
+= λxλy||BW||B|B|C|W||B|[|Kx||ByP||AB|KP
+= λx||B|BW||A|D|D||BC||BW||B|B|[|Kx||AB|KP|K||AB|KP
+= ||B|B|BW||A||BA||BD||BD||B|BC||B|BW||A|D|D||B[||BKI|K||AB|KP|K|K||AB|KP
+Savings:
+	pruning: 56
+	shaving: 0
+
+Ex.5g) ||||βagf0 = a.
+LHS: ||||βagf0
+  1: ||||[|Ka|g|P00|f|P0                          β
+  2: |||0|K|g|P0|Ka|f|P0                          [
+  3: ||Ka|f|P0                                    0
+  4: a                                            K
+
+Ex.5g) If n is in ℕ, then ||||βagf|Sn = ||gn|fn.
+
+  from (Ex.5c) If n is in ℕ, then |||nα|K00 = n.
+
+LHS: ||||βagf|Sn
+  1: ||||[|Ka|g|P|Sn|Sn|f|P|Sn                    β
+  2: ||||Sn|K|g|P|Sn|Ka|f|P|Sn                    [
+  3: |||K|g|P|Sn||n|K|g|P|Sn|Ka|f|P|Sn            S(m)
+  4: ||g|P|Sn|f|P|Sn                              K
+   = ||gn|fn, by (Ex.5e)
+
+==========================  THETA REDUCTION  ===========================
+
+Ex.3e) ϑ := λx||W|Bx|W|Bx = ||B||B|WIWB
+|ϑx= |||B||B|WIWBx
+  1: |||B|WIW|Bx                                  B
+  2: ||WI|W|Bx                                    B
+  3: ||I|W|Bx|W|Bx                                W
+  4: ||W|Bx|W|Bx                                  I
+
+Ex.5f) |ϑa = |a|ϑa.
+|ϑa= ||W|Ba|W|Ba
+  1: |||Ba|W|Ba|W|Ba                              W
+  2: |a||W|Ba|W|Ba                                B
+   = |a|ϑa
+
+    NOTE
+        This is an ascending recurrence:
+            |ϑa = |a|ϑa = |a|a|ϑa = |a|a|a|ϑa = ...
+
+
+================  RECURSION REDUCTION - the R operator  ================
+
+Ex.3f) R := λxλy|ϑ||βxy = ||B|Bϑβ
+LHS: ||Rxy
+  1: |ϑ||βxy                                      R
+RHS: ||||B|Bϑβxy
+  1: |||Bϑ|βxy                                    B
+  2: |ϑ||βxy                                      B
+
+Ex.5i) Let f = ||Rag.  Then:
+           (i)   f = |||βagf;
+           (ii)  |f0 = a; and
+           (iii) if n is in ℕ, then f|Sn = ||gn|fn.
+
+(i) f = |||βagf.
+LHS: ||Rag
+  1: |ϑ||βag                                      R
+  1: |||βag|ϑ||βag                                ϑ
+   = |||βag||Rag, since ||Rag=|ϑ||βag;
+   = |||βagf, since f=||Rag, by hypothesis.
+
+(ii) |f0 = a.
+    From (i), f=|||βagf.
+|f0= ||||βagf0
+  1: ||||[|Ka|g|P00|f|P0                          β
+  2: |||0|K|g|P0|Ka|f|P0                          [
+  3: ||Ka|f|P0                                    0
+  4: a                                            K
+
+(iii) If n is in ℕ, then |f|Sn = ||gn|fn.
+    From (i), f=|||βagf.
+|f|Sn= ||||βagf|Sn
+  1: ||||[|Ka|g|P|Sn|Sn|f|P|Sn                    β
+  2: ||||Sn|K|g|P|Sn|Ka|f|P|Sn                    [
+  3: |||K|g|P|Sn||n|K|g|P|Sn|Ka|f|P|Sn            S(m)
+  4: ||g|P|Sn|f|P|Sn                              K
+   = ||gn|fn, by (Ex.5e), since n is in ℕ.
+
+============================  MU REDUCTION  ============================
+
+Ex.3g) μ := |ϑ λxλyλz|||[z ||xy|Sz|yz
+LHS = |||[z||||||BCDxSyz|yz
+  1: |||[z||||C|DxSyz|yz                                                B
+  2: |||[z||||DxySz|yz                                                  C
+  3: |||[z||xy|Sz|yz                                                    D
+λxλyλz|||[z||||||BCDxSyz|yz
+= λxλy||A||A||B[I||B|||||BCDxSyI||ByI
+= λx||A||BA||B|A||B[I||A|D||B||||BCDxSI|KI||AB|KI
+= ||A||BA||B|BA||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KI|K||AB|KI
+Savings:
+	pruning: 38
+	shaving: 0
+LHS=  |||||A||BA||B|BA||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KI|K||AB|KIxyz
+  1: ||||||BA||B|BA||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIx||K||AB|KIxyz A
+  2: ||||A|||B|BA||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIx||K||AB|KIxyz B
+  3: ||||||B|BA||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxy|||K||AB|KIxyz A
+  4: |||||BA|||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxy|||K||AB|KIxyz B
+  5: |||A||||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxy|||K||AB|KIxyz B
+  6: ||||||B|B|A||B[I||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxyz||||K||AB|KIxyz A
+  7: |||||B|A||B[I|||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxyz||||K||AB|KIxyz B
+  8: ||||A||B[I||||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxyz||||K||AB|KIxyz B
+  9: |||||B[Iz|||||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxyz||||K||AB|KIxyz A
+ 10: |||[|Iz|||||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxyz||||K||AB|KIxyz B
+ 11: |||[z|||||A||BA||BD||A|D||A||B||BCDI|KS|KI|K|KIxyz||||K||AB|KIxyz  I
+ 12: |||[z||||||BA||BD||A|D||A||B||BCDI|KS|KIx||K|KIxyz||||K||AB|KIxyz  A
+ 13: |||[z||||A|||BD||A|D||A||B||BCDI|KS|KIx||K|KIxyz||||K||AB|KIxyz    B
+ 14: |||[z||||||BD||A|D||A||B||BCDI|KS|KIxy|||K|KIxyz||||K||AB|KIxyz    A
+ 15: |||[z||||D|||A|D||A||B||BCDI|KS|KIxy|||K|KIxyz||||K||AB|KIxyz      B
+ 16: |||[z|||||A|D||A||B||BCDI|KS|KIxy||||K|KIxyz||||K||AB|KIxyz        D
+ 17: |||[z|||||D||A||B||BCDI|KSx||KIxy||||K|KIxyz||||K||AB|KIxyz        A
+ 18: |||[z|||||A||B||BCDI|KSx|||KIxy||||K|KIxyz||||K||AB|KIxyz          D
+ 19: |||[z||||||B||BCDIx||KSx|||KIxy||||K|KIxyz||||K||AB|KIxyz          A
+ 20: |||[z||||||BCD|Ix||KSx|||KIxy||||K|KIxyz||||K||AB|KIxyz            B
+ 21: |||[z||||C|D|Ix||KSx|||KIxy||||K|KIxyz||||K||AB|KIxyz              B
+ 22: |||[z||||D|Ix|||KIxy||KSx||||K|KIxyz||||K||AB|KIxyz                C
+ 23: |||[z|||Ix|||KIxy|||KSx||||K|KIxyz||||K||AB|KIxyz                  D
+ 24: |||[z||x|||KIxy|||KSx||||K|KIxyz||||K||AB|KIxyz                    I
+ 25: |||[z||x|Iy|||KSx||||K|KIxyz||||K||AB|KIxyz                        K
+ 26: |||[z||xy|||KSx||||K|KIxyz||||K||AB|KIxyz                          I
+ 27: |||[z||xy|S||||K|KIxyz||||K||AB|KIxyz                              K
+ 28: |||[z||xy|S|||KIyz||||K||AB|KIxyz                                  K
+ 29: |||[z||xy|S|Iz||||K||AB|KIxyz                                      K
+ 30: |||[z||xy|Sz||||K||AB|KIxyz                                        I
+ 31: |||[z||xy|Sz||||AB|KIyz                                            K
+ 32: |||[z||xy|Sz|||By||KIyz                                            A
+ 33: |||[z||xy|Sz|y|||KIyz                                              B
+ 34: |||[z||xy|Sz|y|Iz                                                  K
+ 35: |||[z||xy|Sz|yz                                                    I
+['|', ['|', ['|', '[', 'z'], ['|', ['|', 'x', 'y'], ['|', 'S', 'z']]], ['|', 'y', 'z']]
+
+Ex.5j)  ||μfn = |||[n||μf|Sn|fn.
+LHS: ||μfn
+  1: |||[n||μf|Sn|fn                              μ
+ok!
+
+Ex.5k)  If |f0 = 0, then ||μf0 = 0.
+LHS: ||μf0
+  1: |||[0||μf|S0|f0                              μ
+  2: |||[0||μf|S00, by hypothesis.
+  1: ||0|K||μf|S00                                [
+  2: 0                                            0
+
+Ex.5l)  If |f0 in ℕ but |f0 ≠ 0, then ||μf0 = ||μfI.
+    We show something stronger:
+        If |f0 = |Sn, then ||μf0 = ||μfI.
+LHS: ||μf0
+  1: |||[0||μf|S0|f0                              μ
+  2: |||[0||μf|S0|Sn, by hypothesis.
+  3: |||[0||μfI|Sn, since |S0=I.
+  1: |||Sn|K||μfI0                                [
+  2: ||K||μfI||n|K||μfI0                          S(m)
+  3: ||μfI                                        K
+
+Ex.5m)  If |fn = 0, then ||μfn = n.
+LHS: ||μfn
+  1: |||[n||μf|Sn|fn                              μ
+  2: |||[n||μf|Sn0, by hypothesis.
+  1: ||0|K||μf|Snn                                [
+  2: n                                            0
+
+Ex.5n)  If |fn = |Sm, then ||μfn = ||μf|Sn.
+LHS: ||μfn
+  1: |||[n||μf|Sn|fn                              μ
+  2: |||[n||μf|Sn|Sm, by hypothesis.
+  1: |||Sm|K||μf|Snn                              [
+  2: ||K||μf|Sn||m|K||μf|Snn                      S(m)
+  3: ||μf|Sn                                      K
+
+Ex.5p) Suppose |fx in in ℕ whenever x is in ℕ.
+       If there exists n≥m in ℕ such that |fn = 0, then
+       ||μfm is the smallest such n.
+Suppose |fn=0 and |fk=|Sn for k such that n>k≥m.
+Claim: ||μfk = ||μfn for all k in ℕ whenever n ≥ k ≥ m.
+Proof: By induction on k.
+  Basis: If k=n, the claim is trivially true.
+  Induction: Suppose the claim holds for some fixed k≥m.
+    Let j=k-1, i.e. k=|Sj.  Then |fj is not 0.
+      ||μfj = ||μf|Sj, by (Ex.5n),
+            = ||μfk = ||μfn by the induction hypothesis.
+
+Ex.5o) Suppose |fx in in ℕ whenever x is in ℕ.
+       If there exists n in ℕ such that |fn = 0, then
+       ||μf0 is the smallest such n.
+True by (Ex.5p) for m=0.
+
+=======================  SUBTRACTION - Phase I  ========================
+
+Ex.6a)  Define an operator ∸ for which m∸n = m-n if m≥n and m∸n = n-m
+        if m<n.  (The operator is known as symmetric subtraction.
+
+        Using integers, we want m∸n = |m-n| where |*| denotes the absolute
+        value of *.
+
+        Now suppose we define subtraction recursively as follows:
+            m - 0  = m                    ||-m0 = m
+            m - Sn = P(m - n)             ||-m|Sn = |P||-mn
+                                                  = |||BP|-mn
+                                                  = |||B|BP-mn
+
+        Then:
+            m-n is ordinary subtraction wnen m≥n and 0 otherwise.
+        This version of subtraction is someimes called one-sided
+        subtraction.
+
+        Then we have the symmetric difference as:
+            m ∸ n = (m - n) + (n - m)     ||∸mn = ||+||-mn||-nm
+
+        The question that arises is roughly this...  How do we use
+        the operator R to define a dyadic operator X so that:
+            ||Xm0 = |am                     a = I, X=-
+            ||Xm|Sn = ||hmn
+
+        If ||Xmn reduces:
+            ||fnm
+            ||||Ragnm                       f = ||Rag
+                = |am if n=0
+                = |||gn|fnm
+
+        If a = I, then ||f0m = |am = |Im = m.
+        Also ||Xm|Sn = |||gn|fnm.
+        We want |||gn|fnm = |P||fnm
+                          = |||BP|fnm
+                          = ||K|BPn|fnm.    g = |K|BP
+        ||fnm = ||∸mn = |||C-nm.            - = |Cf.
+            
+
+  We begin by working out the sort of recursion described above...
+
+LHS: ||Xmn
+   = |||C||Ragmn
+  1: ||||Ragnm                                                          C
+  2: |||ϑ||βagnm                                                        R
+  1: |||||βag|ϑ||βagnm                                                  ϑ
+
+LHS: ||Xm0            <-- base case
+   = |||||βag|ϑ||βag0m
+  1: |||||[|Ka|g|P00||ϑ||βag|P0m                                        β
+  2: ||||0|K|g|P0|Ka||ϑ||βag|P0m                                        [
+  3: |||Ka||ϑ||βag|P0m                                                  0
+  4: |am                                                                K
+
+LHS: ||Xm|Sn           <-- recursive case (n in ℕ)
+   = |||C||Ragm|Sn
+  1: ||||Rag|Snm                                                        C
+   = ||gn|fn, if n is in ℕ, by (Ex.5i) above.
+
+       X_reduce documentation
+Help on function X reduce in module __main__:
+
+X reduce(tree: logic.curry.ParseTree, parent, child=-1)
+    binary function X -- X reduce
+    f = ||Rag
+    ||Xm0 = |am 
+    ||Xmn = |||gn|fnm whenever n is in ℕ.
+
+
+       Test cases
+  0: ||Xm0    <-- base case
+  1: |am                                unregistered rule
+  0: ||XmI    <-- one recursive step
+  1: |||g0|||Rag0m                      unregistered rule
+  0: ||Xm|SI    <-- two recursive steps
+  1: |||gI|||RagIm                      unregistered rule
+  0: ||Xm|S|SI    <-- three recursive steps
+  1: |||g|SI|||Rag|SIm                  unregistered rule
+
+=======================  SUBTRACTION - Phase II  =======================
+
+Help on function one-sided subtraction in module __main__:
+
+one-sided subtraction(tree: logic.curry.ParseTree, parent, child=-1)
+    binary function - -- one-sided subtraction
+    f = ||RI|K|BP
+    ||-m0 = |Im 
+    ||-mn = ||||K|BPn|fnm whenever n is in ℕ.
+
+
+       Test cases
+  0: ||-|S|SI0    <-- 3 - 0 = 3
+  1: |I|S|SI                            unregistered rule
+  1: |S|SI                                                              I
+
+  0: ||-|S|SII    <-- 3 - 1 = 2
+  1: ||||K|BP0|||RI|K|BP0|S|SI          unregistered rule
+  1: |||BP|||RI|K|BP0|S|SI                                              K
+  2: |P||||RI|K|BP0|S|SI                                                B
+  3: |||||||RI|K|BP0|S|SIα|K0I                                          P
+  4: ||||||ϑ||βI|K|BP0|S|SIα|K0I                                        R
+  1: ||||||||βI|K|BP|ϑ||βI|K|BP0|S|SIα|K0I                              ϑ
+  1: ||||||||[|KI||K|BP|P00||ϑ||βI|K|BP|P0|S|SIα|K0I                    β
+  2: |||||||0|K||K|BP|P0|KI||ϑ||βI|K|BP|P0|S|SIα|K0I                    [
+  3: ||||||KI||ϑ||βI|K|BP|P0|S|SIα|K0I                                  0
+  4: ||||I|S|SIα|K0I                                                    K
+  5: ||||S|SIα|K0I                                                      I
+  6: ||α|||SIα|K0I                                                      S(m)
+  7: |||[|S||||SIα|K00||||SIα|K00I                                      α
+  8: ||I|K||||SIα|K00|S||||SIα|K00                                      [
+  9: ||K||||SIα|K00|S||||SIα|K00                                        I
+ 10: ||||SIα|K00                                                        K
+Alpha replacement for |SI
+  0: ||||SIα|K00
+  1: |SI
+
+  0: ||-|S|SI|SI    <-- 3 - 2 = 1
+  1: ||||K|BPI|||RI|K|BPI|S|SI          unregistered rule
+  1: |||BP|||RI|K|BPI|S|SI                                              K
+  2: |P||||RI|K|BPI|S|SI                                                B
+  3: |||||||RI|K|BPI|S|SIα|K0I                                          P
+  4: ||||||ϑ||βI|K|BPI|S|SIα|K0I                                        R
+  1: ||||||||βI|K|BP|ϑ||βI|K|BPI|S|SIα|K0I                              ϑ
+  1: ||||||||[|KI||K|BP|PII||ϑ||βI|K|BP|PI|S|SIα|K0I                    β
+  2: |||||||I|K||K|BP|PI|KI||ϑ||βI|K|BP|PI|S|SIα|K0I                    [
+  3: |||||||K||K|BP|PI|KI||ϑ||βI|K|BP|PI|S|SIα|K0I                      I
+  4: |||||||K|BP|PI||ϑ||βI|K|BP|PI|S|SIα|K0I                            K
+  5: ||||||BP||ϑ||βI|K|BP|PI|S|SIα|K0I                                  K
+  6: ||||P|||ϑ||βI|K|BP|PI|S|SIα|K0I                                    B
+  7: |||||||||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I                              P
+  1: |||||||||||βI|K|BP|ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I                    ϑ
+  1: |||||||||||[|KI||K|BP|P|PI|PI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I      β
+  2: |||||||||||PI|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I      [
+  3: |||||||||||||Iα|K0I|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I P
+  4: ||||||||||||α|K0I|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I  I
+  5: |||||||||||||[|S||K00||K00I|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I α
+  6: ||||||||||||I|K||K00|S||K00|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I [
+  7: ||||||||||||K||K00|S||K00|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I I
+  8: ||||||||||||K00|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I    K
+  9: ||||||||||0|K||K|BP|P|PI|KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I        K
+ 10: |||||||||KI||ϑ||βI|K|BP|P|PI|S|SIα|K0Iα|K0I                        0
+ 11: |||||||I|S|SIα|K0Iα|K0I                                            K
+ 12: |||||||S|SIα|K0Iα|K0I                                              I
+ 13: |||||α|||SIα|K0Iα|K0I                                              S(m)
+ 14: ||||||[|S||||SIα|K00||||SIα|K00Iα|K0I                              α
+ 15: |||||I|K||||SIα|K00|S||||SIα|K00α|K0I                              [
+ 16: |||||K||||SIα|K00|S||||SIα|K00α|K0I                                I
+ 17: |||||||SIα|K00α|K0I                                                K
+Alpha replacement for |SI
+  0: |||||||SIα|K00α|K0I
+  1: ||||SIα|K0I
+  2: |P|SI
+   = I
+
+  0: ||-|S|SI|S|SI    <-- 3 - 3 = 0
+  1: ||||K|BP|SI|||RI|K|BP|SI|S|SI      unregistered rule
+  1: |||BP|||RI|K|BP|SI|S|SI                                            K
+  2: |P||||RI|K|BP|SI|S|SI                                              B
+  3: |||||||RI|K|BP|SI|S|SIα|K0I                                        P
+  4: ||||||ϑ||βI|K|BP|SI|S|SIα|K0I                                      R
+  1: ||||||||βI|K|BP|ϑ||βI|K|BP|SI|S|SIα|K0I                            ϑ
+  1: ||||||||[|KI||K|BP|P|SI|SI||ϑ||βI|K|BP|P|SI|S|SIα|K0I              β
+  2: ||||||||SI|K||K|BP|P|SI|KI||ϑ||βI|K|BP|P|SI|S|SIα|K0I              [
+   = ||||||||SI|K||K|BPI|KI||ϑ||βI|K|BPI|S|SIα|K0I     <-- |P|SI = I
+  1: |||||||K||K|BPI||I|K||K|BPI|KI||ϑ||βI|K|BPI|S|SIα|K0I              S(m)
+  2: |||||||K|BPI||ϑ||βI|K|BPI|S|SIα|K0I                                K
+  3: ||||||BP||ϑ||βI|K|BPI|S|SIα|K0I                                    K
+  4: ||||P|||ϑ||βI|K|BPI|S|SIα|K0I                                      B
+  5: |||||||||ϑ||βI|K|BPI|S|SIα|K0Iα|K0I                                P
+  1: |||||||||||βI|K|BP|ϑ||βI|K|BPI|S|SIα|K0Iα|K0I                      ϑ
+  1: |||||||||||[|KI||K|BP|PII||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I            β
+  2: ||||||||||I|K||K|BP|PI|KI||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I            [
+  3: ||||||||||K||K|BP|PI|KI||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I              I
+  4: ||||||||||K|BP|PI||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I                    K
+  5: |||||||||BP||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I                          K
+  6: |||||||P|||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0I                            B
+  7: ||||||||||||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0Iα|K0I                      P
+   = ||||||||||||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I     <-- |PI = 0
+  1: ||||||||||||||βI|K|BP|ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I              ϑ
+  1: ||||||||||||||[|KI||K|BP|P00||ϑ||βI|K|BP|P0|S|SIα|K0Iα|K0Iα|K0I    β
+  2: |||||||||||||0|K||K|BP|P0|KI||ϑ||βI|K|BP|P0|S|SIα|K0Iα|K0Iα|K0I    [
+   = |||||||||||||0|K||K|BP0|KI||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I     <-- |P0 = 0
+  1: ||||||||||||KI||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I                    0
+  2: ||||||||||I|S|SIα|K0Iα|K0Iα|K0I                                    K
+  3: ||||||||||S|SIα|K0Iα|K0Iα|K0I                                      I
+  4: ||||||||α|||SIα|K0Iα|K0Iα|K0I                                      S(m)
+  5: |||||||||[|S||||SIα|K00||||SIα|K00Iα|K0Iα|K0I                      α
+  6: ||||||||I|K||||SIα|K00|S||||SIα|K00α|K0Iα|K0I                      [
+  7: ||||||||K||||SIα|K00|S||||SIα|K00α|K0Iα|K0I                        I
+  8: ||||||||||SIα|K00α|K0Iα|K0I                                        K
+  9: ||||||||α||Iα|K00α|K0Iα|K0I                                        S(m)
+ 10: |||||||||[|S|||Iα|K00|||Iα|K000α|K0Iα|K0I                          α
+ 11: ||||||||0|K|||Iα|K00|S|||Iα|K00α|K0Iα|K0I                          [
+ 12: |||||||S|||Iα|K00α|K0Iα|K0I                                        0
+ 13: |||||α|||||Iα|K00α|K0Iα|K0I                                        S(m)
+ 14: ||||||[|S||||||Iα|K00α|K00||||||Iα|K00α|K00Iα|K0I                  α
+ 15: |||||I|K||||||Iα|K00α|K00|S||||||Iα|K00α|K00α|K0I                  [
+ 16: |||||K||||||Iα|K00α|K00|S||||||Iα|K00α|K00α|K0I                    I
+ 17: |||||||||Iα|K00α|K00α|K0I                                          K
+ 18: ||||||||α|K00α|K00α|K0I                                            I
+ 19: |||||||||[|S||K00||K000α|K00α|K0I                                  α
+ 20: ||||||||0|K||K00|S||K00α|K00α|K0I                                  [
+ 21: |||||||S||K00α|K00α|K0I                                            0
+ 22: |||||α||||K00α|K00α|K0I                                            S(m)
+ 23: ||||||[|S|||||K00α|K00|||||K00α|K000α|K0I                          α
+ 24: |||||0|K|||||K00α|K00|S|||||K00α|K00α|K0I                          [
+ 25: ||||S|||||K00α|K00α|K0I                                            0
+ 26: ||α|||||||K00α|K00α|K0I                                            S(m)
+ 27: |||[|S||||||||K00α|K00α|K00||||||||K00α|K00α|K00I                  α
+ 28: ||I|K||||||||K00α|K00α|K00|S||||||||K00α|K00α|K00                  [
+ 29: ||K||||||||K00α|K00α|K00|S||||||||K00α|K00α|K00                    I
+ 30: ||||||||K00α|K00α|K00                                              K
+ 31: ||||||0α|K00α|K00                                                  K
+ 32: |||||K00α|K00                                                      0
+ 33: |||0α|K00                                                          K
+ 34: ||K00                                                              0
+ 35: 0                                                                  K
+Alpha replacement for |SI
+  0: 0
+
+  0: ||-|S|SI|S|S|SI    <-- 3 - 4 = 0
+  1: ||||K|BP|S|SI|||RI|K|BP|S|SI|S|SI  unregistered rule
+  1: |||BP|||RI|K|BP|S|SI|S|SI                                          K
+  2: |P||||RI|K|BP|S|SI|S|SI                                            B
+  3: |||||||RI|K|BP|S|SI|S|SIα|K0I                                      P
+  4: ||||||ϑ||βI|K|BP|S|SI|S|SIα|K0I                                    R
+  1: ||||||||βI|K|BP|ϑ||βI|K|BP|S|SI|S|SIα|K0I                          ϑ
+  1: ||||||||[|KI||K|BP|P|S|SI|S|SI||ϑ||βI|K|BP|P|S|SI|S|SIα|K0I        β
+  2: ||||||||S|SI|K||K|BP|P|S|SI|KI||ϑ||βI|K|BP|P|S|SI|S|SIα|K0I        [
+   = ||||||||S|SI|K||K|BP|SI|KI||ϑ||βI|K|BP|SI|S|SIα|K0I     <-- |P|S|SI = |SI
+   = ||||||||S|SI|K|BP|KI||ϑ||βI|K|BP|SI|S|SIα|K0I     <-- ||K|BP|SI = |BP
+  1: |||||||K|BP|||SI|K|BP|KI||ϑ||βI|K|BP|SI|S|SIα|K0I                  S(m)
+  2: ||||||BP||ϑ||βI|K|BP|SI|S|SIα|K0I                                  K
+  3: ||||P|||ϑ||βI|K|BP|SI|S|SIα|K0I                                    B
+  4: |||||||||ϑ||βI|K|BP|SI|S|SIα|K0Iα|K0I                              P
+  1: |||||||||||βI|K|BP|ϑ||βI|K|BP|SI|S|SIα|K0Iα|K0I                    ϑ
+  1: |||||||||||[|KI||K|BP|P|SI|SI||ϑ||βI|K|BP|P|SI|S|SIα|K0Iα|K0I      β
+  2: |||||||||||SI|K||K|BP|P|SI|KI||ϑ||βI|K|BP|P|SI|S|SIα|K0Iα|K0I      [
+   = |||||||||||SI|K||K|BPI|KI||ϑ||βI|K|BPI|S|SIα|K0Iα|K0I     <-- |P|SI = I
+  1: ||||||||||K||K|BPI||I|K||K|BPI|KI||ϑ||βI|K|BPI|S|SIα|K0Iα|K0I      S(m)
+  2: ||||||||||K|BPI||ϑ||βI|K|BPI|S|SIα|K0Iα|K0I                        K
+  3: |||||||||BP||ϑ||βI|K|BPI|S|SIα|K0Iα|K0I                            K
+  4: |||||||P|||ϑ||βI|K|BPI|S|SIα|K0Iα|K0I                              B
+  5: ||||||||||||ϑ||βI|K|BPI|S|SIα|K0Iα|K0Iα|K0I                        P
+  1: ||||||||||||||βI|K|BP|ϑ||βI|K|BPI|S|SIα|K0Iα|K0Iα|K0I              ϑ
+  1: ||||||||||||||[|KI||K|BP|PII||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0Iα|K0I    β
+  2: |||||||||||||I|K||K|BP|PI|KI||ϑ||βI|K|BP|PI|S|SIα|K0Iα|K0Iα|K0I    [
+   = |||||||||||||I|K||K|BP0|KI||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I     <-- |PI = 0
+  1: |||||||||||||K||K|BP0|KI||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I          I
+  2: |||||||||||||K|BP0||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I                K
+  3: ||||||||||||BP||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I                    K
+  4: ||||||||||P|||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0I                      B
+  5: |||||||||||||||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0Iα|K0I                P
+  1: |||||||||||||||||βI|K|BP|ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0Iα|K0I      ϑ
+  1: |||||||||||||||||[|KI||K|BP|P00||ϑ||βI|K|BP|P0|S|SIα|K0Iα|K0Iα|K0Iα|K0I β
+   = |||||||||||||||||[|KI|BP0||ϑ||βI|K|BP|P0|S|SIα|K0Iα|K0Iα|K0Iα|K0I     <-- ||K|BP|P0 = |BP
+   = |||||||||||||||||[0|BP0||ϑ||βI|K|BP|P0|S|SIα|K0Iα|K0Iα|K0Iα|K0I     <-- |KI = 0
+   = |||||||||||||||||[0|BP0||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0Iα|K0I     <-- |P0 = 0
+  1: ||||||||||||||||0|K|BP0||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0Iα|K0I      [
+  2: ||||||||||||||0||ϑ||βI|K|BP0|S|SIα|K0Iα|K0Iα|K0Iα|K0I              0
+  3: |||||||||||||S|SIα|K0Iα|K0Iα|K0Iα|K0I                              0
+  4: |||||||||||α|||SIα|K0Iα|K0Iα|K0Iα|K0I                              S(m)
+  5: ||||||||||||[|S||||SIα|K00||||SIα|K00Iα|K0Iα|K0Iα|K0I              α
+  6: |||||||||||I|K||||SIα|K00|S||||SIα|K00α|K0Iα|K0Iα|K0I              [
+  7: |||||||||||K||||SIα|K00|S||||SIα|K00α|K0Iα|K0Iα|K0I                I
+  8: |||||||||||||SIα|K00α|K0Iα|K0Iα|K0I                                K
+  9: |||||||||||α||Iα|K00α|K0Iα|K0Iα|K0I                                S(m)
+ 10: ||||||||||||[|S|||Iα|K00|||Iα|K000α|K0Iα|K0Iα|K0I                  α
+Alpha replacement for I
+  0: ||||||||||||[|S|||Iα|K00|||Iα|K000α|K0Iα|K0Iα|K0I
+  1: ||||||||||||[|S|||Iα|K00I0α|K0Iα|K0Iα|K0I
+  2: ||||||||||||[|SII0α|K0Iα|K0Iα|K0I
+  1: |||||||||||0|KI|SIα|K0Iα|K0Iα|K0I                                  [
+  2: ||||||||||SIα|K0Iα|K0Iα|K0I                                        0
+  3: ||||||||α||Iα|K0Iα|K0Iα|K0I                                        S(m)
+  4: |||||||||[|S|||Iα|K00|||Iα|K00Iα|K0Iα|K0I                          α
+  5: ||||||||I|K|||Iα|K00|S|||Iα|K00α|K0Iα|K0I                          [
+  6: ||||||||K|||Iα|K00|S|||Iα|K00α|K0Iα|K0I                            I
+  7: |||||||||Iα|K00α|K0Iα|K0I                                          K
+Alpha replacement for I
+  0: |||||||||Iα|K00α|K0Iα|K0I
+  1: ||||||Iα|K0Iα|K0I
+  2: ||||PIα|K0I
+   = |||0α|K0I     <-- |PI = 0
+Alpha replacement for 0
+  0: |||0α|K0I
+  1: |P0
+   = 0     <-- |P0 = 0
+
+===================  MAJUSCULE LAMBDA (Λ) REDUCTION  ===================
+
+Ex.3h) Λ := λxλy|||Py||B|μxS||μx0 = ||B|C||B|T0||BC||BW|||D|C|DD||CBSPμ.
+
+||||B|C||B|T0||BC||BW|||D|C|DD||CBSPμxy
+  1: |||C||B|T0||BC||BW|||D|C|DD||CBSP|μxy                              B
+  2: ||||B|T0||BC||BW|||D|C|DD||CBSPy|μx                                C
+  3: |||T0|||BC||BW|||D|C|DD||CBSPy|μx                                  B
+  4: |||||BC||BW|||D|C|DD||CBSPy0|μx                                    T
+  5: |||C|||BW|||D|C|DD||CBSPy0|μx                                      B
+  6: |||||BW|||D|C|DD||CBSPy|μx0                                        C
+  7: |||W||||D|C|DD||CBSPy|μx0                                          B
+  8: |||||||D|C|DD||CBSPy|μx|μx0                                        W
+  9: ||||||C|DD||CBS|Py|μx|μx0                                          D
+ 10: ||||||DD|Py||CBS|μx|μx0                                            C
+ 11: ||||D|Py|||CBS|μx|μx0                                              D
+ 12: |||Py|||CBS|μx||μx0                                                D
+ 13: |||Py||B|μxS||μx0                                                  C
+
+  Λ: ||Λxy
+  1: |||Py||B|μxS||μx0                                                  Λ
+
+Ex.5q) ||Λa1 = ||μa0.
+LHS: ||Λa0
+  1: |||P0||B|μaS||μa0                                                  Λ
+  2: |||||0α|K0I||B|μaS||μa0                                            P
+  3: ||||K0I||B|μaS||μa0                                                0
+  4: ||0||B|μaS||μa0                                                    K
+  5: ||μa0                                                              0
+
+Ex.5q) ||Λa|S|Sn = ||μa|S||Λa|S|Sn.
+LHS: ||Λa|S|Sn
+  1: |||P|S|Sn||B|μaS||μa0                                              Λ
+  2: ||||||S|Snα|K0I||B|μaS||μa0                                        P
+  3: ||||α|||Snα|K0I||B|μaS||μa0                                        S(m)
+  4: |||||[|S||||Snα|K00||||Snα|K00I||B|μaS||μa0                        α
+  5: ||||I|K||||Snα|K00|S||||Snα|K00||B|μaS||μa0                        [
+  6: ||||K||||Snα|K00|S||||Snα|K00||B|μaS||μa0                          I
+  7: ||||||Snα|K00||B|μaS||μa0                                          K
+  8: ||||α||nα|K00||B|μaS||μa0                                          S(m)
+  9: |||||[|S|||nα|K00|||nα|K000||B|μaS||μa0                            α
+ 10: ||||0|K|||nα|K00|S|||nα|K00||B|μaS||μa0                            [
+ 11: |||S|||nα|K00||B|μaS||μa0                                          0
+ 12: |||B|μaS|||||nα|K00||B|μaS||μa0                                    S(m)
+ 13: ||μa|S|||||nα|K00||B|μaS||μa0                                      B
+RHS: ||μa|S||Λa|Sn
+  1: ||μa|S|||P|Sn||B|μaS||μa0                                          Λ
+  2: ||μa|S||||||Snα|K0I||B|μaS||μa0                                    P
+  3: ||μa|S||||α||nα|K0I||B|μaS||μa0                                    S(m)
+  4: ||μa|S|||||[|S|||nα|K00|||nα|K00I||B|μaS||μa0                      α
+  5: ||μa|S||||I|K|||nα|K00|S|||nα|K00||B|μaS||μa0                      [
+  6: ||μa|S||||K|||nα|K00|S|||nα|K00||B|μaS||μa0                        I
+  7: ||μa|S|||||nα|K00||B|μaS||μa0                                      K
+
+------------------------------------------------------------------------
+
+    For many purposes, the expression 0⁰ is undefined.  In particular,
+    given two functions f(x) and g(x) that approach 0 as x
+    approaches 0, the limit of f(x) raised to g(x) may be undefined,
+    infinite, or even some fixed real or complex value.
+
+    But there are some applications where it is useful to define 0⁰=1.
+    For example, if we are working with power series, we often get more
+    compact expressions for common series of functions f(x) when f(x)=1.
+    As an example consider the power series for exp(x):
+                           2      3
+                          x      x
+        exp(x) = 1 + x + ---- + ---- + ...
+                          2      6
+
+                           n          n
+                          x          x
+               = 1 +  𝝨  ---- =  𝝨  ---- 
+                     n>1  n!    n>1  n!
+
+    Another place where we often set 0⁰=1, is when working with integers.
+    Nevertheless, one should use caution when defining 0⁰=1.
+
+Ex.5t) |00=I.  ||Sn0=0.
+
+Lemma: 0⁰=1.  Using combinators: ||^00 := ||T00 = |00 = I.
+LHS: ||||^00ab
+  1: |||00ab                                                            mⁿ
+  2: |ab                                                                0
+MHS: ||||T00ab
+  1: |||00ab                                                            T
+  2: |ab                                                                0
+RHS: ||Iab
+  1: |ab                                                                I
+
+    This is a special case of a general result about entities which
+    follows from the definition 0 := KI.
+
+Lemma: n⁰=1.  Using combinators: ||^n0 := ||Tn0 = |0n = I.
+LHS: ||||^n0ab
+  1: |||0nab                                                            mⁿ
+  2: |ab                                                                0
+RHS: ||Iab
+  1: |ab                                                                I
+
+Lemma: 0ⁿ=0 if n=|Sm.
+LHS: ||||^0|Snab
+  1: ||||Sn0ab                                                          mⁿ
+  2: ||0||n0ab                                                          S(m)
+  3: b                                                                  0
+RHS: ||0ab
+  1: b                                                                  0

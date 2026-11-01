@@ -1,0 +1,52 @@
+Testing 'free_in'...
+Testing 'AKI_eliminate'...
+ 1) expression = λxx
+        result = I
+      expected = I
+       applied = x
+               0 A|K nodes pruned
+       pruned = I
+       applied = x
+ 2) expression = λxy
+        result = |Ky
+      expected = |Ky
+       applied = y
+               0 A|K nodes pruned
+       pruned = |Ky
+       applied = y
+ 3) expression = λx|Ky
+        result = |K|Ky
+      expected = |K|Ky
+       applied = |Ky
+               0 A|K nodes pruned
+       pruned = |K|Ky
+       applied = |Ky
+ 4) expression = λx|xx
+        result = ||AII
+      expected = ||AII
+       applied = |xx
+               0 A|K nodes pruned
+       pruned = ||AII
+       applied = |xx
+ 5) expression = λx|x|xy
+        result = ||AI||AI|Ky
+      expected = ||AI||AI|Ky
+       applied = |x|xy
+               0 A|K nodes pruned
+       pruned = ||AI||AI|Ky
+       applied = |x|xy
+ 6) expression = λx||xx|xx
+        result = ||A||AII||AII
+      expected = ||A||AII||AII
+       applied = ||xx|xx
+               0 A|K nodes pruned
+       pruned = ||A||AII||AII
+       applied = ||xx|xx
+ 7) expression = λx||y|Tx|zx
+        result = ||A||A|Ky||A|KTI||A|KzI
+      expected = ||A||A|Ky||A|KTI||A|KzI
+       applied = ||y|Tx|zx
+               3 A|K nodes pruned
+       pruned = ||A||By||BTI||BzI
+       applied = ||y|Tx|zx
+SUCCESS!
